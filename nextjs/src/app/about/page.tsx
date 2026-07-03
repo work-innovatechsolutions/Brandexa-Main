@@ -92,7 +92,7 @@ export default function Page() {
 <div className="elementor-element elementor-element-87bb18f e-flex e-con-boxed e-con e-parent" data-id="87bb18f" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 <div className="e-con-inner">
 <div className="elementor-element elementor-element-3abee15 e-con-full e-flex e-con e-child" data-id="3abee15" data-element_type="container" data-e-type="container">
-<div className="elementor-element elementor-element-ca8562e at-heading-animation at-animation-heading-style-2 elementor-widget elementor-widget-heading" data-id="ca8562e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
+<div className="elementor-element elementor-element-ca8562e about-hero-title-instant elementor-widget elementor-widget-heading" data-id="ca8562e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
 <h1 className="elementor-heading-title elementor-size-default">About <span> us </span></h1> </div>
 </div>

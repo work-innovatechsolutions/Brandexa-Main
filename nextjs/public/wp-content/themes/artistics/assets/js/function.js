@@ -651,15 +651,20 @@
 		animatedTextElements.forEach((element) => {
 			let isAboutHeroHeading = element.closest('.elementor-11568 .elementor-element-ca8562e');
 			let animationSplitText = new SplitText(element, { type: "chars, words" });
-				gsap.from(animationSplitText.chars, {
+				let animationConfig = {
 					duration: isAboutHeroHeading ? 2.2 : 1,
-					delay: isAboutHeroHeading ? 0.2 : delayValue,
+					delay: isAboutHeroHeading ? 0 : delayValue,
 					x: isAboutHeroHeading ? 28 : translateXValue,
 					autoAlpha: 0,
 					stagger: isAboutHeroHeading ? 0.07 : staggerAmount,
 					ease: easeType,
-					scrollTrigger: { trigger: element, start: "top 85%"},
-				});
+				};
+
+				if (!isAboutHeroHeading) {
+					animationConfig.scrollTrigger = { trigger: element, start: "top 85%"};
+				}
+
+				gsap.from(animationSplitText.chars, animationConfig);
 		});
 		
 	}

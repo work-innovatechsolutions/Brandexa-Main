@@ -1,11 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ClientInit() {
+  const pathname = usePathname();
+
   useEffect(() => {
     let attempts = 0;
     let didInitElementor = false;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    let interval: ReturnType<typeof setInterval> | undefined;
     
     const initScripts = () => {
       const w = window as any;
@@ -16,7 +21,7 @@ export default function ClientInit() {
           window.dispatchEvent(new Event("load"));
         }
         
-        setTimeout(() => {
+        timeoutId = setTimeout(() => {
           window.dispatchEvent(new Event("resize"));
           window.dispatchEvent(new Event("scroll"));
 
@@ -37,13 +42,19 @@ export default function ClientInit() {
             }
           }
           
-          if (!document.getElementById("theme-js-reinit")) {
-            const script = document.createElement("script");
-            script.id = "theme-js-reinit";
-            script.src = "/wp-content/themes/artistics/assets/js/function.js?ver=" + Date.now();
-            document.body.appendChild(script);
-          }
-          
+          document.getElementById("theme-js-reinit")?.remove();
+
+          const script = document.createElement("script");
+          script.id = "theme-js-reinit";
+          script.src = "/wp-content/themes/artistics/assets/js/function.js?ver=" + Date.now();
+          script.onload = () => {
+            window.dispatchEvent(new Event("resize"));
+            window.dispatchEvent(new Event("scroll"));
+            w.gsap?.ticker?.wake?.();
+            w.ScrollTrigger?.refresh?.();
+          };
+          document.body.appendChild(script);
+
         }, 100);
         return true;
       }
@@ -51,18 +62,21 @@ export default function ClientInit() {
     };
 
     // Try immediately
-    if (initScripts()) return;
+    if (!initScripts()) {
+      // Otherwise poll every 100ms up to 50 times (5 seconds)
+      interval = setInterval(() => {
+        attempts++;
+        if (initScripts() || attempts > 50) {
+          if (interval) clearInterval(interval);
+        }
+      }, 100);
+    }
 
-    // Otherwise poll every 100ms up to 50 times (5 seconds)
-    const interval = setInterval(() => {
-      attempts++;
-      if (initScripts() || attempts > 50) {
-        clearInterval(interval);
-      }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      if (interval) clearInterval(interval);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [pathname]);
 
   return null;
 }
