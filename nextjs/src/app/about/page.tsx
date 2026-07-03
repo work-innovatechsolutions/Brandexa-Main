@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Team4 from "@/components/mvpblocks/team-4";
 import Testimonials from "@/components/mvpblocks/testimonials-marquee";
+import OurWorkSection from "@/components/sections/OurWorkSection";
 import WhoWeAreExperience from "@/components/sections/WhoWeAreExperience";
 import "./about.css";
 
@@ -422,6 +423,7 @@ export default function Page() {
   secondaryColor="rgba(255,255,255,0.68)"
   className="brandexa-mvp-team"
 />
+<OurWorkSection />
 <div className="elementor-element elementor-element-9367172 who-we-are brandexa-legacy-who-hidden e-flex e-con-boxed e-con e-parent" data-id="9367172" data-element_type="container" data-e-type="container">
 <div className="e-con-inner">
 <div className="elementor-element elementor-element-f1baf88 e-con-full e-flex e-con e-child" data-id="f1baf88" data-element_type="container" data-e-type="container">
