@@ -1,12 +1,30 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
 	const [mounted, setMounted] = useState(false);
+	const [isScrolled, setIsScrolled] = useState(false);
+	const pathname = usePathname();
+	const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+	const isActivePath = (href: string) => href === "/" ? normalizedPath === "/" : normalizedPath === href || normalizedPath.startsWith(`${href}/`);
+	const isPagesActive = ["/blog", "/faqs", "/pricing", "/team", "/testimonials", "/image-gallery", "/video-gallery", "/projects"].some(isActivePath);
+	const activeMenuItemClass = (href: string) => isActivePath(href) ? " current-menu-item active" : "";
+	const activeLinkClass = (href: string) => isActivePath(href) ? " active" : "";
 
 	useEffect(() => {
 		setMounted(true);
+	}, []);
+
+	useEffect(() => {
+		const updateHeaderState = () => {
+			setIsScrolled(window.scrollY > 8);
+		};
+
+		updateHeaderState();
+		window.addEventListener("scroll", updateHeaderState, { passive: true });
+		return () => window.removeEventListener("scroll", updateHeaderState);
 	}, []);
 
 	if (!mounted) {
@@ -14,7 +32,10 @@ export default function Header() {
 	}
 
 	return (
-		<div className="ekit-template-content-markup ekit-template-content-header ekit-template-content-theme-support">
+		<div
+			className={`ekit-template-content-markup ekit-template-content-header ekit-template-content-theme-support brandexa-site-header${isScrolled ? " is-scrolled" : ""}`}
+			style={{ position: "sticky", top: 0, zIndex: 1000 }}
+		>
 			<style id="elementor-post-5067" dangerouslySetInnerHTML={{
 				'__html': `.elementor-5067 .elementor-element.elementor-element-42cddf0{--display:flex;--flex-direction:row;--container-widget-width:calc( ( 1 - var( --container-widget-flex-grow ) ) * 100% );--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;--align-items:center;--gap:0px 0px;--row-gap:0px;--column-gap:0px;--flex-wrap:wrap;border-style:solid;--border-style:solid;border-width:0px 0px 1px 0px;--border-top-width:0px;--border-right-width:0px;--border-bottom-width:1px;--border-left-width:0px;border-color:var( --e-global-color-divider );--border-color:var( --e-global-color-divider );--padding-top:15px;--padding-bottom:15px;--padding-left:10px;--padding-right:10px;--z-index:100;overflow:visible;}.elementor-5067 .elementor-element.elementor-element-364e295{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;overflow:visible;}.elementor-widget-artistic-site-logo .ata-site-logo-container .ata-site-logo-img{border-color:var( --e-global-color-primary );}.elementor-widget-artistic-site-logo .widget-image-caption{color:var( --e-global-color-text );font-family:var( --e-global-typography-text-font-family ), Sans-serif;font-size:var( --e-global-typography-text-font-size );font-weight:var( --e-global-typography-text-font-weight );line-height:var( --e-global-typography-text-line-height );}.elementor-5067 .elementor-element.elementor-element-48e03ad .ata-site-logo-container, .elementor-5067 .elementor-element.elementor-element-48e03ad .ata-caption-width figcaption{text-align:left;}.elementor-5067 .elementor-element.elementor-element-48e03ad .ata-site-logo img{max-width:100%;max-height:60px;width:auto;object-fit:contain;}.elementor-5067 .elementor-element.elementor-element-48e03ad .widget-image-caption{margin-top:0px;margin-bottom:0px;}.elementor-5067 .elementor-element.elementor-element-48e03ad .ata-site-logo-container .ata-site-logo-img{border-style:none;}.elementor-5067 .elementor-element.elementor-element-842dc3e{--display:flex;overflow:visible;}
 					.elementor-5067 .elementor-element.elementor-element-50130de .elementskit-navbar-nav .elementskit-submenu-panel > li > a:hover,
@@ -44,14 +65,14 @@ export default function Header() {
 									<nav className="ekit-wid-con ekit_menu_responsive_tablet" data-close-on-anchor="no" data-hamburger-icon="icon icon-menu-11" data-hamburger-icon-type="icon" data-responsive-breakpoint="1024">
 										<button aria-label="hamburger-icon" className="elementskit-menu-hamburger elementskit-menu-toggler" type="button">
 											<i aria-hidden="true" className="ekit-menu-icon icon icon-menu-11"></i> </button>
-										<div className="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page- ekit-nav-dropdown-hover" id="ekit-megamenu-header-menu"><ul className="elementskit-navbar-nav elementskit-menu-po-center submenu-click-on-icon" id="menu-header-menu"><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-11570 current_page_item menu-item-5055 nav-item relative_position elementskit-mobile-builder-content active" data-vertical-menu="750px" id="menu-item-5055"><a className="ekit-menu-nav-link active" href="/">Home</a>
+										<div className="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page- ekit-nav-dropdown-hover" id="ekit-megamenu-header-menu"><ul className="elementskit-navbar-nav elementskit-menu-po-center submenu-click-on-icon" id="menu-header-menu"><li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-11570 menu-item-5055 nav-item relative_position elementskit-mobile-builder-content${activeMenuItemClass("/")}`} data-vertical-menu="750px" id="menu-item-5055"><a className={`ekit-menu-nav-link${activeLinkClass("/")}`} href="/">Home</a>
 										</li>
-											<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5056 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-5056"><a className="ekit-menu-nav-link" href="/about">About Us</a></li>
-											<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5058 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-5058"><a className="ekit-menu-nav-link ekit-menu-dropdown-toggle" href="./index.html?page_id=11571">Services<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
+											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-5056 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/about")}`} data-vertical-menu="750px" id="menu-item-5056"><a className={`ekit-menu-nav-link${activeLinkClass("/about")}`} href="/about">About Us</a></li>											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-our-work nav-item elementskit-mobile-builder-content${activeMenuItemClass("/our-work")}`} data-vertical-menu="750px" id="menu-item-our-work"><a className={`ekit-menu-nav-link${activeLinkClass("/our-work")}`} href="/our-work">Our Work</a></li>
+											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5058 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content${activeMenuItemClass("/services")}`} data-vertical-menu="750px" id="menu-item-5058"><a className={`ekit-menu-nav-link ekit-menu-dropdown-toggle${activeLinkClass("/services")}`} href="/services">Services<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
 												<ul className="elementskit-dropdown elementskit-submenu-panel">
 													<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10122 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10122"><a className="dropdown-item" href="./index.html?page_id=10099">Branding And Identity</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5064 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-5064"><a className="dropdown-item" href="./index.html?page_id=230">Digital Marketing</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10124 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10124"><a className="dropdown-item" href="./index.html?page_id=10100">Creative Content Production</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10123 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10123"><a className="dropdown-item" href="./index.html?page_id=10101">Content Creation</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10125 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10125"><a className="dropdown-item" href="./index.html?page_id=10102">E-commerce Solutions</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10126 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10126"><a className="dropdown-item" href="./index.html?page_id=10103">UX/UI Design</a></li></ul>
 											</li>
-											<li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5059 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-5059"><a className="ekit-menu-nav-link ekit-menu-dropdown-toggle" href="#">Pages<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
+											<li className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5059 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content${isPagesActive ? " current-menu-ancestor active" : ""}`} data-vertical-menu="750px" id="menu-item-5059"><a className={`ekit-menu-nav-link ekit-menu-dropdown-toggle${isPagesActive ? " active" : ""}`} href="#">Pages<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
 												<ul className="elementskit-dropdown elementskit-submenu-panel">
 													<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-7232 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-7232"><a className="dropdown-item" href="./index.html?page_id=11569">Blog</a> </li><li className="menu-item menu-item-type-post_type_archive menu-item-object-awaiken-project menu-item-8525 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8525"><a className="dropdown-item" href="./index.html?post_type=awaiken-project">Projects</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5065 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-5065"><a className="dropdown-item" href="./index.html?page_id=1755">Team<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
 														<ul className="elementskit-dropdown elementskit-submenu-panel">
@@ -64,7 +85,7 @@ export default function Header() {
 															<li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-10579 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10579"><a className="dropdown-item" href="./index.html?elementskit_template=footer" target="_blank">Footer Layout – 1</a> </li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-10580 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10580"><a className="dropdown-item" href="./index.html?elementskit_template=footer-layout-2" target="_blank">Footer Layout – 2</a> </li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-10581 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10581"><a className="dropdown-item" href="./index.html?elementskit_template=footer-layout-3" target="_blank">Footer Layout – 3</a> </li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-10583 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10583"><a className="dropdown-item" href="./index.html?elementskit_template=footer-layout-4" target="_blank">Footer Layout – 4</a> </li></ul>
 													</li></ul>
 											</li>
-											<li className="mobile-menu menu-item menu-item-type-post_type menu-item-object-page menu-item-5057 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-5057"><a className="ekit-menu-nav-link" href="./index.html?page_id=4737">Contact us</a></li>
+											<li className={`mobile-menu menu-item menu-item-type-post_type menu-item-object-page menu-item-5057 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/contact")}`} data-vertical-menu="750px" id="menu-item-5057"><a className={`ekit-menu-nav-link${activeLinkClass("/contact")}`} href="/contact">Contact us</a></li>
 										</ul><div className="elementskit-nav-identity-panel"><button className="elementskit-menu-close elementskit-menu-toggler" type="button">X</button></div></div>
 										<div className="elementskit-menu-overlay elementskit-menu-offcanvas-elements elementskit-menu-toggler ekit-nav-menu--overlay"></div> </nav>
 								</div>
@@ -261,3 +282,4 @@ export default function Header() {
 		</div>
 	);
 }
+

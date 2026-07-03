@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from "react";
 
@@ -124,7 +124,7 @@ export default function Page() {
 </div>
 <div className="elementor-element elementor-element-a28e9ea project-entry elementor-invisible elementor-widget elementor-widget-text-editor" data-id="a28e9ea" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>Innovative identity design goes beyond just creating a logo—it’s about crafting a unique visual and emotional representation of your brand. We fuse creativity with strategy to develop a cohesive identity that reflects your brand’s personality, values, and mission. From logos and color schemes to typography and brand guidelines, our designs ensure consistency across all touchpoints, making your brand memorable and instantly recognizable. With an innovative identity design, you’ll stand out from the competition, connect with your audience, and build lasting brand loyalty.</p><p>This cohesive identity not only enhances brand recognition but also ensures consistency across all platforms, building trust and emotional connection. With an innovative approach, we help your brand stand out, leaving a lasting impression that drives loyalty and growth.</p> </div>
+<p>Innovative identity design goes beyond just creating a logoâ€”itâ€™s about crafting a unique visual and emotional representation of your brand. We fuse creativity with strategy to develop a cohesive identity that reflects your brandâ€™s personality, values, and mission. From logos and color schemes to typography and brand guidelines, our designs ensure consistency across all touchpoints, making your brand memorable and instantly recognizable. With an innovative identity design, youâ€™ll stand out from the competition, connect with your audience, and build lasting brand loyalty.</p><p>This cohesive identity not only enhances brand recognition but also ensures consistency across all platforms, building trust and emotional connection. With an innovative approach, we help your brand stand out, leaving a lasting impression that drives loyalty and growth.</p> </div>
 </div>
 </div>
 <div className="elementor-element elementor-element-25cf57a e-con-full e-flex e-con e-child" data-id="25cf57a" data-element_type="container" data-e-type="container">
@@ -134,7 +134,7 @@ export default function Page() {
 </div>
 <div className="elementor-element elementor-element-0e6b741 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="0e6b741" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>When creating a detailed case study, it’s important to provide comprehensive information that communicates the story of the project, including the challenges faced, the solutions implemented, and the achieved results.</p> </div>
+<p>When creating a detailed case study, itâ€™s important to provide comprehensive information that communicates the story of the project, including the challenges faced, the solutions implemented, and the achieved results.</p> </div>
 </div>
 <div className="elementor-element elementor-element-cf3a81c elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-invisible elementor-widget elementor-widget-icon-list" data-id="cf3a81c" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon-list.default">
 <div className="elementor-widget-container">
@@ -160,13 +160,13 @@ export default function Page() {
 </div>
 <div className="elementor-element elementor-element-21655f3 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="21655f3" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>Our innovative identity design solution crafted a distinctive visual identity that perfectly reflects the brand’s values and mission. Through a cohesive logo, color palette, and typography, we delivered a unified brand experience that enhances recognition, builds trust, and sets the brand apart.</p> </div>
+<p>Our innovative identity design solution crafted a distinctive visual identity that perfectly reflects the brandâ€™s values and mission. Through a cohesive logo, color palette, and typography, we delivered a unified brand experience that enhances recognition, builds trust, and sets the brand apart.</p> </div>
 </div>
 <div className="elementor-element elementor-element-46520d4 e-con-full e-flex e-con e-child" data-id="46520d4" data-element_type="container" data-e-type="container">
 <div className="elementor-element elementor-element-c118e94 e-con-full e-flex e-con e-child" data-id="c118e94" data-element_type="container" data-e-type="container">
 <div className="elementor-element elementor-element-7438efe project-entry elementor-invisible elementor-widget elementor-widget-text-editor" data-id="7438efe" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>When creating a detailed case study, it’s important to provide comprehensive information that communicates.</p><p>It’s important to provide comprehensive information that communicates the story of the project, including the challenges faced, the solutions implemented, and the achieved results.</p> </div>
+<p>When creating a detailed case study, itâ€™s important to provide comprehensive information that communicates.</p><p>Itâ€™s important to provide comprehensive information that communicates the story of the project, including the challenges faced, the solutions implemented, and the achieved results.</p> </div>
 </div>
 </div>
 <div className="elementor-element elementor-element-cd3088f e-con-full project-rating-counter e-flex e-con e-child" data-id="cd3088f" data-element_type="container" data-e-type="container">
@@ -433,3 +433,6 @@ export default function Page() {
 </div>
   );
 }
+
+
+

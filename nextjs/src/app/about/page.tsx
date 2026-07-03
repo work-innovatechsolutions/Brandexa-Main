@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
  
 import React, { useEffect, useState } from "react";
 import Team4 from "@/components/mvpblocks/team-4";
 import Testimonials from "@/components/mvpblocks/testimonials-marquee";
-import OurWorkSection from "@/components/sections/OurWorkSection";
 import WhoWeAreExperience from "@/components/sections/WhoWeAreExperience";
+import OurWorkSection from "@/components/sections/OurWorkSection";
 import "./about.css";
 
 const brandexaTeamMembers = [
@@ -96,10 +96,6 @@ export default function Page() {
 <div className="elementor-widget-container">
 <h1 className="elementor-heading-title elementor-size-default">About <span> us </span></h1> </div>
 </div>
-<div className="elementor-element elementor-element-e7af8a2 elementor-invisible elementor-widget elementor-widget-elementskit-breadcrumb" data-id="e7af8a2" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-breadcrumb.default">
-<div className="elementor-widget-container">
-<div className="ekit-wid-con"><ol className="ekit-breadcrumb"><li className="ekit_breadcrumbs_start"><a href="/">Home</a></li> <li className="brd_sep"><span className="separate_icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-star-of-life" viewBox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.99 334.43L336.06 256l135.93-78.43c7.66-4.42 10.28-14.2 5.86-21.86l-32.02-55.43c-4.42-7.65-14.21-10.28-21.87-5.86l-135.93 78.43V16c0-8.84-7.17-16-16.01-16h-64.04c-8.84 0-16.01 7.16-16.01 16v156.86L56.04 94.43c-7.66-4.42-17.45-1.79-21.87 5.86L2.15 155.71c-4.42 7.65-1.8 17.44 5.86 21.86L143.94 256 8.01 334.43c-7.66 4.42-10.28 14.21-5.86 21.86l32.02 55.43c4.42 7.65 14.21 10.27 21.87 5.86l135.93-78.43V496c0 8.84 7.17 16 16.01 16h64.04c8.84 0 16.01-7.16 16.01-16V339.14l135.93 78.43c7.66 4.42 17.45 1.8 21.87-5.86l32.02-55.43c4.42-7.65 1.8-17.43-5.86-21.85z"></path></svg></span></li> <li>About Us</li></ol></div> </div>
-</div>
 </div>
 </div>
 </div>
@@ -108,7 +104,7 @@ export default function Page() {
 <div className="elementor-element elementor-element-4dea617 ticker-position-left elementor-widget elementor-widget-elementskit-content-ticker" data-id="4dea617" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-content-ticker.default">
 <div className="elementor-widget-container">
 <div className="ekit-wid-con">
-<div id="content-ticker-4dea617" className="ekit-content-ticker-wrapper" data-content-settings="{&quot;type&quot;:&quot;content_ticker&quot;,&quot;settingOptions&quot;:{&quot;tickerSpeed&quot;:40,&quot;tickerDirection&quot;:null,&quot;tickerEffect&quot;:&quot;marquee&quot;,&quot;tickerAutoPlay&quot;:null,&quot;tickerDelay&quot;:3,&quot;tickerReverseDirection&quot;:&quot;&quot;,&quot;tickerGapBetween&quot;:&quot;&quot;,&quot;tickerGrabCursor&quot;:null}}">
+<div id="content-ticker-4dea617" className="ekit-content-ticker-wrapper" data-content-settings="{&quot;type&quot;:&quot;content_ticker&quot;,&quot;settingOptions&quot;:{&quot;tickerSpeed&quot;:45,&quot;tickerDirection&quot;:null,&quot;tickerEffect&quot;:&quot;marquee&quot;,&quot;tickerAutoPlay&quot;:null,&quot;tickerDelay&quot;:3,&quot;tickerReverseDirection&quot;:&quot;&quot;,&quot;tickerGapBetween&quot;:&quot;&quot;,&quot;tickerGrabCursor&quot;:null}}">
 <div className="ekit-content-items">
 <div className="ticker ekitMarqueeSwiper ekit-marquee">
 <div className="marquee-wrapper">
@@ -423,7 +419,6 @@ export default function Page() {
   secondaryColor="rgba(255,255,255,0.68)"
   className="brandexa-mvp-team"
 />
-<OurWorkSection />
 <div className="elementor-element elementor-element-9367172 who-we-are brandexa-legacy-who-hidden e-flex e-con-boxed e-con e-parent" data-id="9367172" data-element_type="container" data-e-type="container">
 <div className="e-con-inner">
 <div className="elementor-element elementor-element-f1baf88 e-con-full e-flex e-con e-child" data-id="f1baf88" data-element_type="container" data-e-type="container">
@@ -709,6 +704,11 @@ export default function Page() {
 </div>
 </div>
 </div>
+<div className="elementor-element elementor-element-our-work about-our-work e-flex e-con-boxed e-con e-parent" data-id="our-work" data-element_type="container" data-e-type="container">
+<div className="e-con-inner">
+<OurWorkSection showMoreButton moreButtonLabel="See More" moreButtonHref="/our-work" compact />
+</div>
+</div>
 <div className="elementor-element elementor-element-9c88b30 our-testimonial e-flex e-con-boxed e-con e-parent" data-id="9c88b30" data-element_type="container" data-e-type="container">
 <div className="e-con-inner">
 <Testimonials />
@@ -718,3 +718,6 @@ export default function Page() {
 </div>
   );
 }
+
+
+

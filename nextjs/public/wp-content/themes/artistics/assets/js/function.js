@@ -649,13 +649,14 @@
 			 animatedTextElements = document.querySelectorAll('.at-animation-heading-style-2 .elementor-heading-title, .at-animation-heading-style-2 .ekit-heading--title');
 		
 		animatedTextElements.forEach((element) => {
+			let isAboutHeroHeading = element.closest('.elementor-11568 .elementor-element-ca8562e');
 			let animationSplitText = new SplitText(element, { type: "chars, words" });
 				gsap.from(animationSplitText.chars, {
-					duration: 1,
-					delay: delayValue,
-					x: translateXValue,
+					duration: isAboutHeroHeading ? 2.2 : 1,
+					delay: isAboutHeroHeading ? 0.2 : delayValue,
+					x: isAboutHeroHeading ? 28 : translateXValue,
 					autoAlpha: 0,
-					stagger: staggerAmount,
+					stagger: isAboutHeroHeading ? 0.07 : staggerAmount,
 					ease: easeType,
 					scrollTrigger: { trigger: element, start: "top 85%"},
 				});

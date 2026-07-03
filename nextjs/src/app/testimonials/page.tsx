@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from "react";
 
@@ -160,7 +160,7 @@ export default function Page() {
 </div>
 <div className="elementor-element elementor-element-391b10b elementor-widget elementor-widget-text-editor" data-id="391b10b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>The team transformed our brand’s online presence with creativity and precision. The results exceeded our expectations! Their digital marketing strategies helped us reach a broader audience and significantly boosted our sales.</p> </div>
+<p>The team transformed our brandâ€™s online presence with creativity and precision. The results exceeded our expectations! Their digital marketing strategies helped us reach a broader audience and significantly boosted our sales.</p> </div>
 </div>
 <div className="elementor-element elementor-element-9a0a5ef elementor-position-inline-end client-author-content elementor-view-default elementor-mobile-position-block-start elementor-widget elementor-widget-icon-box" data-id="9a0a5ef" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon-box.default">
 <div className="elementor-widget-container">
@@ -232,7 +232,7 @@ export default function Page() {
 </div>
 <div className="elementor-element elementor-element-5c7a0dd elementor-widget elementor-widget-text-editor" data-id="5c7a0dd" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>We approached Isabella Morgan with the goal of completely transforming our brand’s digital presence, and they exceeded all expectations. Their team took the time to understand our business.</p> </div>
+<p>We approached Isabella Morgan with the goal of completely transforming our brandâ€™s digital presence, and they exceeded all expectations. Their team took the time to understand our business.</p> </div>
 </div>
 <div className="elementor-element elementor-element-f4d4cbd elementor-position-inline-end client-author-content elementor-view-default elementor-mobile-position-block-start elementor-widget elementor-widget-icon-box" data-id="f4d4cbd" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon-box.default">
 <div className="elementor-widget-container">
@@ -403,3 +403,6 @@ export default function Page() {
 </div>
   );
 }
+
+
+

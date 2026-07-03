@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from "react";
 
@@ -118,7 +118,7 @@ export default function Page() {
 </div>
 <div className="elementor-element elementor-element-344d12c elementor-invisible elementor-widget elementor-widget-text-editor" data-id="344d12c" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>We’d love to hear from you! Whether you have questions, need support, or want to discuss a project, feel free to reach out.</p> </div>
+<p>Weâ€™d love to hear from you! Whether you have questions, need support, or want to discuss a project, feel free to reach out.</p> </div>
 </div>
 </div>
 <div className="elementor-element elementor-element-7fba004 e-con-full contact-info-box e-flex e-con e-child" data-id="7fba004" data-element_type="container" data-e-type="container">
@@ -217,7 +217,7 @@ export default function Page() {
 <p><input className="wpcf7-form-control wpcf7-submit has-spinner btn-default" id="msgSubmit" type="submit" defaultValue="Submit Message" />
 </p>
 </div>
-</div><p style={{"display": "none !important"}} className="akismet-fields-container" data-prefix="_wpcf7_ak_"><label>Δ<textarea name="_wpcf7_ak_hp_textarea" cols={45} rows={8} maxLength={100}></textarea></label><input type="hidden" id="ak_js_1" name="_wpcf7_ak_js" defaultValue="185" />
+</div><p style={{"display": "none !important"}} className="akismet-fields-container" data-prefix="_wpcf7_ak_"><label>Î”<textarea name="_wpcf7_ak_hp_textarea" cols={45} rows={8} maxLength={100}></textarea></label><input type="hidden" id="ak_js_1" name="_wpcf7_ak_js" defaultValue="185" />
 </p><div className="wpcf7-response-output" aria-hidden="true"></div>
 </form>
 </div>
@@ -243,3 +243,6 @@ export default function Page() {
 </div>
   );
 }
+
+
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from "react";
 
@@ -409,7 +409,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-655574c e-con-full e-flex elementor-invisible e-con e-child" data-e-type="container" data-element_type="container" data-id="655574c" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:300}">
 <div className="elementor-element elementor-element-36b2cfd service-footer elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="36b2cfd" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>Let’s make something great work together. <a href="./contact-us/index.html">Get Free Quote</a></p> </div>
+<p>Letâ€™s make something great work together. <a href="./contact-us/index.html">Get Free Quote</a></p> </div>
 </div>
 </div>
 </div>
@@ -825,7 +825,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Dynamic E-Commerce Platform</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Dynamic E-Commerce Platform Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
+<p>Dynamic E-Commerce Platform Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
 </div>
 </div>
 </div>
@@ -847,7 +847,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Innovative Identity Design</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Innovative design identity Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
+<p>Innovative design identity Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
 </div>
 </div>
 </div>
@@ -869,7 +869,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Dynamic Digital Campaign</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Dynamic Digital Campaign Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
+<p>Dynamic Digital Campaign Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
 </div>
 </div>
 </div>
@@ -891,7 +891,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Impactful Content Creation</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Impactful Content Creation Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
+<p>Impactful Content Creation Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
 </div>
 </div>
 </div>
@@ -913,7 +913,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Visionary Growth Strategy</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Visionary Growth Strategy Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
+<p>Visionary Growth Strategy Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
 </div>
 </div>
 </div>
@@ -935,7 +935,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Interactive Website Redesign</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Interactive Website Redesign Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
+<p>Interactive Website Redesign Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
 </div>
 </div>
 </div>
@@ -1466,3 +1466,6 @@ export default function Home() {
 </div>
   );
 }
+
+
+
