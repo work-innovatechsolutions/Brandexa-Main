@@ -174,3 +174,81 @@
   width: 25px !important;
   height: 25px !important;
 }
+
+.elementor-11570 .elementor-element.elementor-element-3db5f57 .brandexa-hero-title {
+  min-height: clamp(118px, 12vw, 285px) !important;
+  line-height: 1.08em !important;
+  text-align: center !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-3db5f57 .ekit-fancy-prefix-text {
+  display: block !important;
+  width: 100% !important;
+  line-height: 1.08em !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-3db5f57 .brandexa-fancy-word-list {
+  display: inline-grid !important;
+  grid-template: "word" minmax(1.08em, auto) / minmax(0, 1fr) !important;
+  justify-items: center !important;
+  align-items: center !important;
+  width: min(100%, var(--brandexa-word-width, 16ch)) !important;
+  min-height: 1.08em !important;
+  line-height: 1.08em !important;
+  overflow: hidden !important;
+  vertical-align: top !important;
+  white-space: nowrap !important;
+  will-change: width !important;
+  transition: width 620ms ease-in-out !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-3db5f57 .brandexa-fancy-word-list.is-clipping {
+  width: 2px !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-3db5f57 .brandexa-fancy-word-list b {
+  grid-area: word !important;
+  width: 100% !important;
+  min-height: 1.08em !important;
+  color: var(--e-global-color-accent) !important;
+  font-weight: 700 !important;
+  line-height: 1.08em !important;
+  opacity: 0 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  transition: opacity 180ms ease !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-3db5f57 .brandexa-fancy-word-list b.is-visible {
+  opacity: 1 !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-3db5f57 .brandexa-fancy-word-list::after {
+  content: "";
+  grid-area: word;
+  justify-self: end;
+  align-self: stretch;
+  width: 2px;
+  background: var(--e-global-color-accent);
+  transform: translateX(5px);
+  animation: brandexa-type-caret 0.8s steps(1) infinite;
+}
+
+@keyframes brandexa-type-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .elementor-11570 .elementor-element.elementor-element-3db5f57 .brandexa-hero-title {
+    min-height: clamp(96px, 17vw, 170px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .elementor-11570 .elementor-element.elementor-element-3db5f57 .brandexa-hero-title {
+    min-height: 92px !important;
+  }
+
+}

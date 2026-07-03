@@ -2,12 +2,59 @@
 
 import React, { useEffect, useState } from "react";
 
+const HERO_WORDS = ["Social Marketing", "Art & Design", "Digital World"];
+const HERO_TITLE_HOLD_MS = 2500;
+const HERO_TITLE_REVEAL_MS = 600;
+const HERO_TITLE_REVEAL_PAUSE_MS = 1500;
+
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [heroWordIndex, setHeroWordIndex] = useState(0);
+  const [isHeroWordClipped, setIsHeroWordClipped] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) {
+      return;
+    }
+
+    let isActive = true;
+    let clipTimer: number;
+    let switchTimer: number;
+    let nextTimer: number;
+
+    const runHeroTitleCycle = () => {
+      clipTimer = window.setTimeout(() => {
+        if (!isActive) {
+          return;
+        }
+
+        setIsHeroWordClipped(true);
+
+        switchTimer = window.setTimeout(() => {
+          if (!isActive) {
+            return;
+          }
+
+          setHeroWordIndex((index) => (index + 1) % HERO_WORDS.length);
+          setIsHeroWordClipped(false);
+          nextTimer = window.setTimeout(runHeroTitleCycle, HERO_TITLE_REVEAL_MS + HERO_TITLE_REVEAL_PAUSE_MS);
+        }, HERO_TITLE_REVEAL_MS);
+      }, HERO_TITLE_HOLD_MS);
+    };
+
+    runHeroTitleCycle();
+
+    return () => {
+      isActive = false;
+      window.clearTimeout(clipTimer);
+      window.clearTimeout(switchTimer);
+      window.clearTimeout(nextTimer);
+    };
+  }, [mounted]);
 
   if (!mounted) {
     return (
@@ -22,15 +69,15 @@ export default function Home() {
 <div className="elementor-background-video-container">
 <video autoPlay={true} className="elementor-background-video-hosted" loop={true} muted={true} playsInline={true} role="presentation"></video>
 </div><div className="elementor-element elementor-element-c07ab99 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="c07ab99">
-<div className="elementor-element elementor-element-3db5f57 custome-fancy-text elementor-widget elementor-widget-elementskit-fancy-animated-text" data-e-type="widget" data-element_type="widget" data-id="3db5f57" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-fancy-animated-text.default">
+<div className="elementor-element elementor-element-3db5f57 custome-fancy-text brandexa-hero-fancy-text elementor-widget" data-e-type="widget" data-element_type="widget" data-id="3db5f57" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}">
 <div className="elementor-widget-container">
-<div className="ekit-wid-con"> <h1 className="ekit-fancy-text clip is-full-width" data-animation-settings="{&quot;animationStyle&quot;:&quot;animated&quot;,&quot;animationDelay&quot;:2500,&quot;loadingBar&quot;:3800,&quot;lettersDelay&quot;:50,&quot;typeLettersDelay&quot;:150,&quot;duration&quot;:500,&quot;revealDuration&quot;:600,&quot;revealAnimationDelay&quot;:1500}" data-id="3db5f57">
+<div className="ekit-wid-con"> <h1 className="ekit-fancy-text clip is-full-width brandexa-hero-title">
 <span className="ekit-fancy-prefix-text">
 				Innovative solutions for			</span>
-<span className="ekit-fancy-text-lists">
-<b className="ekit-fancy-text elementor-repeater-item-d3fe5b6 is-visible">Social Marketing</b>
-<b className="ekit-fancy-text elementor-repeater-item-32e2d82">Art & Design</b>
-<b className="ekit-fancy-text elementor-repeater-item-0b5b5fd">Digital World</b>
+<span className={`ekit-fancy-text-lists brandexa-fancy-word-list${isHeroWordClipped ? " is-clipping" : ""}`} style={{ "--brandexa-word-width": `${HERO_WORDS[heroWordIndex].length + 1}ch` } as React.CSSProperties} aria-live="polite">
+{HERO_WORDS.map((word, index) => (
+<b className={`ekit-fancy-text elementor-repeater-item-${index}${index === heroWordIndex ? " is-visible" : " is-hidden"}`} key={word}>{word}</b>
+))}
 </span>
 </h1>
 </div> </div>
