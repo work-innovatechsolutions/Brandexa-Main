@@ -465,7 +465,6 @@ _stq.push([ "clickTrackerInit", "232411193", "11570" ]);
 //# sourceURL=jetpack-stats-js-before
 `}} />
                                 <Script data-wp-strategy="defer" defer={true} fetchPriority="low" id="jetpack-stats-js" src="https://stats.wp.com/e-202626.js" />
-                                <Script id="ekit-nav-menu-js" src="/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widgets/nav-menu.js?ver=3.9.9" />
                                 <Script id="ekit-header-offcanvas-js" src="/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widgets/header-offcanvas.js?ver=3.9.9" />
                                 <Script id="ekit-pro-vertical-menu-js" src="/wp-content/plugins/elementskit/widgets/init/assets/js/widgets/vertical-menu.js?ver=4.5.1" />
                                 <Script id="wp-emoji-settings" type="application/json" strategy="beforeInteractive" dangerouslySetInnerHTML={{

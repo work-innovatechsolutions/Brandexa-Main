@@ -7,12 +7,19 @@ import { usePathname } from "next/navigation";
 export default function Header() {
 	const [mounted, setMounted] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const pathname = usePathname();
 	const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 	const isActivePath = (href: string) => href === "/" ? normalizedPath === "/" : normalizedPath === href || normalizedPath.startsWith(`${href}/`);
 	const isPagesActive = ["/blog", "/faqs", "/pricing", "/team", "/testimonials", "/image-gallery", "/video-gallery", "/projects"].some(isActivePath);
 	const activeMenuItemClass = (href: string) => isActivePath(href) ? " current-menu-item active" : "";
 	const activeLinkClass = (href: string) => isActivePath(href) ? " active" : "";
+
+	const toggleMobileMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		event.stopPropagation();
+		setIsMobileMenuOpen((isOpen) => !isOpen);
+	};
 
 	useEffect(() => {
 		setMounted(true);
@@ -27,6 +34,10 @@ export default function Header() {
 		window.addEventListener("scroll", updateHeaderState, { passive: true });
 		return () => window.removeEventListener("scroll", updateHeaderState);
 	}, []);
+
+	useEffect(() => {
+		setIsMobileMenuOpen(false);
+	}, [pathname]);
 
 	if (!mounted) {
 		return <div className="ekit-template-content-header" style={{ minHeight: "80px" }} />;
@@ -64,9 +75,9 @@ export default function Header() {
 							<div className="elementor-element elementor-element-50130de elementor-widget elementor-widget-ekit-nav-menu" data-e-type="widget" data-element_type="widget" data-id="50130de" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="ekit-nav-menu.default">
 								<div className="elementor-widget-container">
 									<nav className="ekit-wid-con ekit_menu_responsive_tablet" data-close-on-anchor="no" data-hamburger-icon="icon icon-menu-11" data-hamburger-icon-type="icon" data-responsive-breakpoint="1024">
-										<button aria-label="hamburger-icon" className="elementskit-menu-hamburger elementskit-menu-toggler" type="button">
+										<button aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"} className="elementskit-menu-hamburger" onClick={toggleMobileMenu} type="button">
 											<i aria-hidden="true" className="ekit-menu-icon icon icon-menu-11"></i> </button>
-										<div className="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page- ekit-nav-dropdown-hover" id="ekit-megamenu-header-menu"><ul className="elementskit-navbar-nav elementskit-menu-po-center submenu-click-on-icon" id="menu-header-menu"><li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-11570 menu-item-5055 nav-item relative_position elementskit-mobile-builder-content${activeMenuItemClass("/")}`} data-vertical-menu="750px" id="menu-item-5055"><Link className={`ekit-menu-nav-link${activeLinkClass("/")}`} href="/">Home</Link>
+										<div className={`elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page- ekit-nav-dropdown-hover${isMobileMenuOpen ? " active" : ""}`} id="ekit-megamenu-header-menu"><ul className="elementskit-navbar-nav elementskit-menu-po-center submenu-click-on-icon" id="menu-header-menu"><li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-11570 menu-item-5055 nav-item relative_position elementskit-mobile-builder-content${activeMenuItemClass("/")}`} data-vertical-menu="750px" id="menu-item-5055"><Link className={`ekit-menu-nav-link${activeLinkClass("/")}`} href="/">Home</Link>
 										</li>
 											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-5056 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/about")}`} data-vertical-menu="750px" id="menu-item-5056"><Link className={`ekit-menu-nav-link${activeLinkClass("/about")}`} href="/about">About Us</Link></li>											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-our-work nav-item elementskit-mobile-builder-content${activeMenuItemClass("/our-work")}`} data-vertical-menu="750px" id="menu-item-our-work"><Link className={`ekit-menu-nav-link${activeLinkClass("/our-work")}`} href="/our-work">Our Work</Link></li>
 											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5058 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content${activeMenuItemClass("/services")}`} data-vertical-menu="750px" id="menu-item-5058"><Link className={`ekit-menu-nav-link ekit-menu-dropdown-toggle${activeLinkClass("/services")}`} href="/services">Services<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></Link>
@@ -87,8 +98,8 @@ export default function Header() {
 													</li></ul>
 											</li>
 											<li className={`mobile-menu menu-item menu-item-type-post_type menu-item-object-page menu-item-5057 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/contact")}`} data-vertical-menu="750px" id="menu-item-5057"><Link className={`ekit-menu-nav-link${activeLinkClass("/contact")}`} href="/contact">Contact us</Link></li>
-										</ul><div className="elementskit-nav-identity-panel"><button className="elementskit-menu-close elementskit-menu-toggler" type="button">X</button></div></div>
-										<div className="elementskit-menu-overlay elementskit-menu-offcanvas-elements elementskit-menu-toggler ekit-nav-menu--overlay"></div> </nav>
+										</ul></div>
+										<div className={`elementskit-menu-overlay elementskit-menu-offcanvas-elements ekit-nav-menu--overlay${isMobileMenuOpen ? " active" : ""}`} onClick={() => setIsMobileMenuOpen(false)}></div> </nav>
 								</div>
 							</div>
 						</div>
