@@ -5,26 +5,38 @@ import { useEffect } from "react";
 export default function ClientInit() {
   useEffect(() => {
     let attempts = 0;
+    let didInitElementor = false;
     
     const initScripts = () => {
       const w = window as any;
       if (w.jQuery) {
-        // Scripts are ready, force trigger DOM events
-        document.dispatchEvent(new Event("DOMContentLoaded"));
-        window.dispatchEvent(new Event("load"));
+        if (!document.documentElement.dataset.wpClientEventsReady) {
+          document.documentElement.dataset.wpClientEventsReady = "true";
+          document.dispatchEvent(new Event("DOMContentLoaded"));
+          window.dispatchEvent(new Event("load"));
+        }
         
-        // Trigger resize and scroll to wake up Waypoints/ScrollTrigger
         setTimeout(() => {
           window.dispatchEvent(new Event("resize"));
           window.dispatchEvent(new Event("scroll"));
-          if (w.jQuery && w.elementorFrontend) {
-             w.jQuery(window).trigger("elementor/frontend/init");
-             if (typeof w.elementorFrontend.init === 'function') {
-                 try { w.elementorFrontend.init(); } catch(e) {}
-             }
+
+          if (!didInitElementor && w.elementorFrontend?.hooks) {
+            didInitElementor = true;
+            try {
+              w.jQuery(window).trigger("elementor/frontend/init");
+            } catch (error) {
+              console.warn("Failed to trigger elementor/frontend/init:", error);
+            }
+
+            if (typeof w.elementorFrontend.init === "function" && !w.elementorFrontend.isEditMode?.()) {
+              try {
+                w.elementorFrontend.init();
+              } catch (error) {
+                console.warn("Failed to initialize Elementor frontend:", error);
+              }
+            }
           }
           
-          // Force re-execution of theme JS to rebind GSAP animations to React DOM
           if (!document.getElementById("theme-js-reinit")) {
             const script = document.createElement("script");
             script.id = "theme-js-reinit";
