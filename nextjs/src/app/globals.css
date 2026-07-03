@@ -163,6 +163,17 @@ body {
   background: #b8ff2c;
 }
 
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .elementor-11570 .brandexa-logo-mark-bolt::before {
   content: "";
   position: absolute;

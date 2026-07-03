@@ -7,6 +7,50 @@ export default function ClientInit() {
   const pathname = usePathname();
 
   useEffect(() => {
+    let frameId: number | undefined;
+    let pointerX = 0;
+    let pointerY = 0;
+    let ballX = 0;
+    let ballY = 0;
+
+    const updateCursor = () => {
+      const magicCursor = document.getElementById("magic-cursor");
+      const ball = document.getElementById("ball");
+
+      if (magicCursor && ball && window.innerWidth > 1024) {
+        magicCursor.style.opacity = "1";
+        magicCursor.style.visibility = "visible";
+        ballX += (pointerX - ballX) * 0.18;
+        ballY += (pointerY - ballY) * 0.18;
+
+        const w = window as any;
+        if (w.gsap?.set) {
+          w.gsap.set(ball, { x: ballX, y: ballY, xPercent: -50, yPercent: -50 });
+        } else {
+          ball.style.transform = `translate3d(${ballX}px, ${ballY}px, 0) translate(-50%, -50%)`;
+        }
+      }
+
+      frameId = window.requestAnimationFrame(updateCursor);
+    };
+
+    const handlePointerMove = (event: PointerEvent) => {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      document.getElementById("magic-cursor")?.style.setProperty("opacity", "1");
+    };
+
+    document.body.classList.add("tt-magic-cursor");
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    frameId = window.requestAnimationFrame(updateCursor);
+
+    return () => {
+      window.removeEventListener("pointermove", handlePointerMove);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
+  }, [pathname]);
+
+  useEffect(() => {
     let attempts = 0;
     let didInitElementor = false;
     let timeoutId: ReturnType<typeof setTimeout> | undefined;

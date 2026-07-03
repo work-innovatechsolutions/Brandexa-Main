@@ -507,94 +507,94 @@ export default function OurWorkSection({
             }
           }}
         >
-          <div className="relative max-h-[92vh] w-full max-w-[1320px] overflow-hidden rounded-[22px] bg-white text-[#333] shadow-[0_30px_90px_rgba(0,0,0,0.42)]">
+          <div className="relative max-h-[92vh] w-full max-w-[1320px] overflow-hidden rounded-[22px] border border-white/10 bg-[#070a0f] text-white shadow-[0_30px_90px_rgba(0,0,0,0.42)]">
             <button
               type="button"
               onClick={() => setSelectedWork(null)}
-              className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black text-white shadow-lg transition hover:bg-lime-400 hover:text-black"
+              className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white shadow-lg ring-1 ring-white/10 transition hover:bg-lime-400 hover:text-black"
               aria-label="Close case study"
             >
               <X className="h-5 w-5" />
             </button>
 
             <div
-              className="max-h-[92vh] overflow-y-auto overscroll-contain"
+              className="max-h-[92vh] overflow-y-auto overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               onWheel={(event) => event.stopPropagation()}
               onTouchMove={(event) => event.stopPropagation()}
             >
               <div className="px-5 py-8 sm:px-8 lg:px-12 lg:py-12">
                 <div className="mb-10">
-                  <p className="text-sm font-bold uppercase tracking-[0.24em] text-[#149bd7]">{selectedWork.category}</p>
-                  <h2 id="work-case-study-title" className="mt-3 text-[clamp(2.4rem,5vw,4.8rem)] font-bold leading-none text-[#333]">
+                  <p className="text-sm font-bold uppercase tracking-[0.24em] text-lime-300">{selectedWork.category}</p>
+                  <h2 id="work-case-study-title" className="mt-3 text-[clamp(2.4rem,5vw,4.8rem)] font-bold leading-none text-white">
                     {selectedWork.title}
                   </h2>
-                  <p className="mt-4 max-w-4xl text-lg leading-8 text-[#4a4a4a]">
+                  <p className="mt-4 max-w-4xl text-lg leading-8 text-white/65">
                     {selectedWork.sectors.join(" / ")}
                   </p>
                 </div>
 
-                <section className="grid gap-8 border-b border-[#e7e7e7] pb-12 lg:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.7fr)] lg:items-start">
-                  <div className="overflow-hidden rounded-[16px] bg-[#dfe6ea]">
+                <section className="grid gap-8 border-b border-white/10 pb-12 lg:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.7fr)] lg:items-start">
+                  <div className="overflow-hidden rounded-[16px] bg-white/5">
                     <img
                       src={selectedWork.image}
                       alt={`${selectedWork.title} project preview`}
-                      className="h-full min-h-[320px] w-full object-cover opacity-75"
+                      className="h-full min-h-[320px] w-full object-cover opacity-90"
                     />
                   </div>
 
                   <div>
-                    <h3 className="text-[34px] font-bold leading-tight text-[#333]">The Results</h3>
+                    <h3 className="text-[34px] font-bold leading-tight text-white">The Results</h3>
                     <div className="mt-6 space-y-4">
                       {selectedWork.caseStudy.resultCards.map((result) => (
-                        <div key={result.value} className="border border-[#159bda] px-6 py-6 text-center">
-                          <strong className="block text-[32px] font-bold leading-none text-[#149bd7]">{result.value}</strong>
-                          <span className="mt-3 block text-[18px] leading-7 text-[#333]">{result.label}</span>
+                        <div key={result.value} className="border border-lime-400/25 bg-white/[0.035] px-6 py-6 text-center shadow-[0_16px_36px_rgba(0,0,0,0.22)]">
+                          <strong className="block text-[32px] font-bold leading-none text-lime-300">{result.value}</strong>
+                          <span className="mt-3 block text-[18px] leading-7 text-white/72">{result.label}</span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </section>
 
-                <section className="border-b border-[#e7e7e7] py-12">
-                  <h3 className="text-[36px] font-bold text-[#333]">Client Testimonial</h3>
-                  <p className="mt-6 text-xl italic leading-8 text-[#333]">A quote from the client about their experience and results.</p>
-                  <blockquote className="relative mt-8 bg-[#eaf3f7] px-8 py-10 text-[clamp(1.25rem,2vw,1.65rem)] italic leading-[1.7] text-black sm:px-12">
+                <section className="border-b border-white/10 py-12">
+                  <h3 className="text-[36px] font-bold text-white">Client Testimonial</h3>
+                  <p className="mt-6 text-xl italic leading-8 text-white/70">A quote from the client about their experience and results.</p>
+                  <blockquote className="relative mt-8 bg-white/[0.055] border border-white/10 px-8 py-10 text-[clamp(1.25rem,2vw,1.65rem)] italic leading-[1.7] text-white sm:px-12">
                     "{selectedWork.caseStudy.testimonial.quote}"
-                    <span className="pointer-events-none absolute right-8 top-3 text-[88px] font-bold leading-none text-[#bfe7f6]">"</span>
-                    <footer className="mt-8 text-right text-lg not-italic text-black">
+                    <span className="pointer-events-none absolute right-8 top-3 text-[88px] font-bold leading-none text-lime-400/25">"</span>
+                    <footer className="mt-8 text-right text-lg not-italic text-white">
                       - <strong>{selectedWork.caseStudy.testimonial.author}</strong>, {selectedWork.caseStudy.testimonial.company}
                     </footer>
                   </blockquote>
                 </section>
 
-                <section className="border-b border-[#e7e7e7] py-12">
-                  <h3 className="text-[36px] font-bold text-[#333]">Background</h3>
-                  <p className="mt-6 max-w-6xl text-[20px] leading-9 text-[#3d3d3d]">{selectedWork.caseStudy.background}</p>
+                <section className="border-b border-white/10 py-12">
+                  <h3 className="text-[36px] font-bold text-white">Background</h3>
+                  <p className="mt-6 max-w-6xl text-[20px] leading-9 text-white/72">{selectedWork.caseStudy.background}</p>
                 </section>
 
-                <section className="border-b border-[#e7e7e7] py-12">
-                  <h3 className="text-[36px] font-bold text-[#333]">Services Used</h3>
+                <section className="border-b border-white/10 py-12">
+                  <h3 className="text-[36px] font-bold text-white">Services Used</h3>
                   <ul className="mt-6 list-disc space-y-3 pl-6 text-[20px] leading-8">
                     {selectedWork.caseStudy.services.map((service) => (
                       <li key={service}>
-                        <span className="text-[#149bd7]">{service}</span>
+                        <span className="text-lime-300">{service}</span>
                       </li>
                     ))}
                   </ul>
                 </section>
 
-                <section className="border-b border-[#e7e7e7] py-12">
-                  <h3 className="text-[36px] font-bold text-[#333]">Challenges & Objective</h3>
-                  <ul className="mt-6 list-disc space-y-3 pl-6 text-[20px] leading-8 text-[#333]">
+                <section className="border-b border-white/10 py-12">
+                  <h3 className="text-[36px] font-bold text-white">Challenges & Objective</h3>
+                  <ul className="mt-6 list-disc space-y-3 pl-6 text-[20px] leading-8 text-white/72">
                     {selectedWork.caseStudy.challenge.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </section>
 
-                <section className="border-b border-[#e7e7e7] py-12">
-                  <h3 className="text-[36px] font-bold text-[#333]">Our Solution</h3>
-                  <ul className="mt-6 list-disc space-y-3 pl-6 text-[20px] leading-8 text-[#333]">
+                <section className="border-b border-white/10 py-12">
+                  <h3 className="text-[36px] font-bold text-white">Our Solution</h3>
+                  <ul className="mt-6 list-disc space-y-3 pl-6 text-[20px] leading-8 text-white/72">
                     {selectedWork.caseStudy.solution.map((item) => {
                       const [lead, ...rest] = item.split(": ");
                       return (
@@ -607,25 +607,25 @@ export default function OurWorkSection({
                 </section>
 
                 <section className="py-12">
-                  <h3 className="text-[36px] font-bold text-[#333]">Results</h3>
+                  <h3 className="text-[36px] font-bold text-white">Results</h3>
                   <div className="mt-7 grid gap-8 lg:grid-cols-2">
                     <div>
-                      <h4 className="text-[24px] font-bold text-[#2f2f2f]">Facebook Results (Jan 1 - May 30, 2025)</h4>
-                      <ul className="mt-4 space-y-2 text-[18px] leading-7 text-[#2f2f2f]">
+                      <h4 className="text-[24px] font-bold text-white">Facebook Results (Jan 1 - May 30, 2025)</h4>
+                      <ul className="mt-4 space-y-2 text-[18px] leading-7 text-white/72">
                         {selectedWork.caseStudy.facebookResults.map((result) => (
                           <li key={result} className="flex gap-4">
-                            <span className="mt-2 h-2 w-5 flex-none rounded-full bg-[#149bd7]" />
+                            <span className="mt-2 h-2 w-5 flex-none rounded-full bg-lime-400" />
                             <span><strong>{result.split(":")[0]}:</strong>{result.includes(":") ? result.slice(result.indexOf(":") + 1) : ""}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-[24px] font-bold text-[#2f2f2f]">Instagram (Jan 1 - May 30, 2025)</h4>
-                      <ul className="mt-4 space-y-2 text-[18px] leading-7 text-[#2f2f2f]">
+                      <h4 className="text-[24px] font-bold text-white">Instagram (Jan 1 - May 30, 2025)</h4>
+                      <ul className="mt-4 space-y-2 text-[18px] leading-7 text-white/72">
                         {selectedWork.caseStudy.instagramResults.map((result) => (
                           <li key={result} className="flex gap-4">
-                            <span className="mt-2 h-2 w-5 flex-none rounded-full bg-[#149bd7]" />
+                            <span className="mt-2 h-2 w-5 flex-none rounded-full bg-lime-400" />
                             <span><strong>{result.split(":")[0]}:</strong>{result.includes(":") ? result.slice(result.indexOf(":") + 1) : ""}</span>
                           </li>
                         ))}
@@ -641,3 +641,4 @@ export default function OurWorkSection({
     </section>
   );
 }
+
