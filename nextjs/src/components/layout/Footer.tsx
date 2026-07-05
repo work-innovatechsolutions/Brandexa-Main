@@ -70,7 +70,7 @@ export default function Footer() {
 <div className="elementor-element elementor-element-a111120 footer-contact-item ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box" data-e-type="widget" data-element_type="widget" data-id="a111120" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-icon-box.default">
 <div className="elementor-widget-container">
 <div className="ekit-wid-con"> {/* link opening */}
-<a className="ekit_global_links" href="tel:(309)%208855-314">
+<a className="ekit_global_links" href="tel:+919330648291">
 {/* end link opening */}
 <div className="elementskit-infobox text- text-left icon-lef-right-aligin elementor-animation- media">
 <div className="elementskit-box-header elementor-animation-">
@@ -80,7 +80,7 @@ export default function Footer() {
 </div>
 <div className="box-body">
 <h4 className="elementskit-info-box-title">
-                    (309) 8855-314                </h4>
+                    +91 93306 48291                </h4>
 </div>
 </div>
 </a>
@@ -89,7 +89,7 @@ export default function Footer() {
 <div className="elementor-element elementor-element-1300394 footer-contact-item ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box" data-e-type="widget" data-element_type="widget" data-id="1300394" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-icon-box.default">
 <div className="elementor-widget-container">
 <div className="ekit-wid-con"> {/* link opening */}
-<a className="ekit_global_links" href="mailto:info@domainname.com">
+<a className="ekit_global_links" href="mailto:hello@brandextradigital.com">
 {/* end link opening */}
 <div className="elementskit-infobox text- text-left icon-lef-right-aligin elementor-animation- media">
 <div className="elementskit-box-header elementor-animation-">
@@ -99,7 +99,7 @@ export default function Footer() {
 </div>
 <div className="box-body">
 <h4 className="elementskit-info-box-title">
-                    info@domainname.com                </h4>
+                    hello@brandextradigital.com                </h4>
 </div>
 </div>
 </a>

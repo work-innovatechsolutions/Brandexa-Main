@@ -171,7 +171,7 @@ export default function Header() {
 																			<div className="elementor-element elementor-element-0126dec ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box" data-e-type="widget" data-element_type="widget" data-id="0126dec" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-icon-box.default">
 																				<div className="elementor-widget-container">
 																					<div className="ekit-wid-con"> {/* link opening */}
-																						<a className="ekit_global_links" href="tel:(309)%208855-314">
+																						<a className="ekit_global_links" href="tel:+919330648291">
 																							{/* end link opening */}
 																							<div className="elementskit-infobox text-center text-center icon-top-align elementor-animation-">
 																								<div className="elementskit-box-header elementor-animation-">
@@ -182,7 +182,7 @@ export default function Header() {
 																								<div className="box-body">
 																									<h3 className="elementskit-info-box-title">
 																										Phone                </h3>
-																									<p>(309) 8855-314</p>
+																									<p>+91 93306 48291</p>
 																								</div>
 																							</div>
 																						</a>
@@ -199,7 +199,7 @@ export default function Header() {
 																			<div className="elementor-element elementor-element-a52514b ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box" data-e-type="widget" data-element_type="widget" data-id="a52514b" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-icon-box.default">
 																				<div className="elementor-widget-container">
 																					<div className="ekit-wid-con"> {/* link opening */}
-																						<a className="ekit_global_links" href="mailto:info@domainname.com">
+																						<a className="ekit_global_links" href="mailto:hello@brandextradigital.com">
 																							{/* end link opening */}
 																							<div className="elementskit-infobox text-center text-center icon-top-align elementor-animation-">
 																								<div className="elementskit-box-header elementor-animation-">
@@ -210,7 +210,7 @@ export default function Header() {
 																								<div className="box-body">
 																									<h3 className="elementskit-info-box-title">
 																										Email                </h3>
-																									<p>info@domainname.com</p>
+																									<p>hello@brandextradigital.com</p>
 																								</div>
 																							</div>
 																						</a>
