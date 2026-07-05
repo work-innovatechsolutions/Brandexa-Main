@@ -37,7 +37,7 @@ export default function ContactUs1() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex overflow-hidden bg-[#16080d] px-4 py-4 md:h-[calc(100dvh-144px)] md:px-6 md:py-5"
+      className="relative flex overflow-visible bg-[#16080d] px-3 py-4 md:h-[calc(100dvh-144px)] md:overflow-hidden md:px-6 md:py-5"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(191,247,71,0.14),transparent_32%),radial-gradient(circle_at_86%_82%,rgba(191,247,71,0.10),transparent_28%)]" />
 
@@ -45,11 +45,11 @@ export default function ContactUs1() {
         initial={{ opacity: 0, y: 28 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-        className="relative mx-auto grid w-full max-w-[1360px] gap-8 overflow-hidden rounded-[28px] border border-white/12 bg-[#141211] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.38)] md:h-full md:grid-cols-[1fr_0.96fr] md:p-6 lg:p-7"
-        style={{ width: 'min(1360px, calc(100vw - 160px))' }}
+        className="relative mx-auto grid w-full max-w-[1360px] gap-6 overflow-hidden rounded-[22px] border border-white/12 bg-[#141211] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.38)] md:h-full md:grid-cols-[1fr_0.96fr] md:gap-8 md:rounded-[28px] md:p-6 lg:p-7"
+        style={{ width: 'min(1360px, calc(100vw - clamp(24px, 8vw, 160px)))' }}
       >
         <div className="relative min-w-0">
-          <div className="relative mb-7 overflow-hidden pb-2">
+          <div className="relative mb-7 overflow-hidden pb-2 text-center md:text-left">
             <div className="pointer-events-none absolute inset-x-0 -top-8 h-36">
               {sparkles.map((sparkle, index) => (
                 <motion.span
@@ -74,7 +74,7 @@ export default function ContactUs1() {
               ))}
             </div>
 
-            <h1 className="relative z-10 text-5xl font-bold tracking-tight text-white md:text-6xl">
+            <h1 className="relative z-10 text-4xl font-bold tracking-tight text-white md:text-6xl">
               Contact <span className="text-[#bff747] italic">Us</span>
             </h1>
           </div>
@@ -87,7 +87,7 @@ export default function ContactUs1() {
                   name="name"
                   required
                   placeholder="Enter your name"
-                  className="h-[46px] w-full rounded-md border border-white/12 bg-white/[0.055] px-4 text-base text-white outline-none transition placeholder:text-white/45 focus:border-[#bff747] focus:ring-4 focus:ring-[#bff747]/20"
+                  className="h-[52px] w-full rounded-md border border-white/12 bg-white/[0.055] px-4 text-base text-white outline-none transition placeholder:text-white/45 focus:border-[#bff747] focus:ring-4 focus:ring-[#bff747]/20 md:h-[46px]"
                 />
               </label>
 
@@ -98,7 +98,7 @@ export default function ContactUs1() {
                   type="email"
                   required
                   placeholder="Enter your email"
-                  className="h-[46px] w-full rounded-md border border-white/12 bg-white/[0.055] px-4 text-base text-white outline-none transition placeholder:text-white/45 focus:border-[#bff747] focus:ring-4 focus:ring-[#bff747]/20"
+                  className="h-[52px] w-full rounded-md border border-white/12 bg-white/[0.055] px-4 text-base text-white outline-none transition placeholder:text-white/45 focus:border-[#bff747] focus:ring-4 focus:ring-[#bff747]/20 md:h-[46px]"
                 />
               </label>
             </div>
@@ -109,7 +109,7 @@ export default function ContactUs1() {
                 name="message"
                 required
                 placeholder="Enter your message"
-                className="block h-[150px] w-full min-w-full resize-none rounded-md border border-white/12 bg-white/[0.055] px-4 py-3 text-base text-white outline-none transition placeholder:text-white/45 focus:border-[#bff747] focus:ring-4 focus:ring-[#bff747]/20 md:h-[22dvh] md:max-h-[190px] md:min-h-[130px]"
+                className="block h-[170px] w-full min-w-full resize-none rounded-md border border-white/12 bg-white/[0.055] px-4 py-3 text-base text-white outline-none transition placeholder:text-white/45 focus:border-[#bff747] focus:ring-4 focus:ring-[#bff747]/20 md:h-[22dvh] md:max-h-[190px] md:min-h-[130px]"
               />
             </label>
 
@@ -118,7 +118,7 @@ export default function ContactUs1() {
               whileTap={{ scale: 0.985 }}
               type="submit"
               disabled={isSubmitting}
-              className="flex h-[46px] w-full items-center justify-center rounded-full bg-gradient-to-b from-[#bff747] to-[#83c91f] text-base font-semibold text-black shadow-[0_2px_0_rgba(255,255,255,0.34)_inset] transition hover:from-[#d4ff6b] hover:to-[#8ddc22] disabled:cursor-not-allowed disabled:opacity-70"
+              className="flex h-[52px] w-full items-center justify-center rounded-full bg-gradient-to-b from-[#bff747] to-[#83c91f] text-base font-semibold text-black shadow-[0_2px_0_rgba(255,255,255,0.34)_inset] transition hover:from-[#d4ff6b] hover:to-[#8ddc22] disabled:cursor-not-allowed disabled:opacity-70 md:h-[46px]"
               style={{ borderRadius: 9999 }}
             >
               {isSubmitting ? (
