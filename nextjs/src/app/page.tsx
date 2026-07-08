@@ -1191,17 +1191,17 @@ export default function Home() {
 <div className="elementskit-single-pricing">
 <div className="elementskit-pricing-header">
 <svg fill="none" height="40" viewBox="0 0 37 40" width="37" xmlns="http://www.w3.org/2000/svg"><path d="M18.5 28.5278V31.4135" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path><path d="M18.5 14.2134V16.8991" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path><path d="M18.5002 38.4422C28.5002 38.4422 35.6431 34.8993 35.6431 27.0136C35.6431 18.4422 31.3574 12.7279 22.7859 8.44219L26.1574 4.09933C26.3287 3.81439 26.4216 3.48923 26.4267 3.15681C26.4318 2.8244 26.3489 2.49654 26.1865 2.20647C26.024 1.9164 25.7878 1.67443 25.5017 1.50508C25.2156 1.33574 24.8898 1.24504 24.5574 1.24219H12.4431C12.1106 1.24504 11.7849 1.33574 11.4988 1.50508C11.2127 1.67443 10.9764 1.9164 10.814 2.20647C10.6516 2.49654 10.5687 2.8244 10.5738 3.15681C10.5789 3.48923 10.6718 3.81439 10.8431 4.09933L14.2145 8.47076C5.64313 12.785 1.35742 18.4993 1.35742 27.0708C1.35742 34.8993 8.50024 38.4422 18.5002 38.4422Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M15.6435 27.2135C15.9921 27.6273 16.4308 27.9558 16.9261 28.1737C17.4214 28.3916 17.96 28.4932 18.5006 28.4706C19.3269 28.527 20.1429 28.2607 20.7769 27.7279C21.411 27.1951 21.8138 26.4372 21.9006 25.6135C21.8138 24.7898 21.411 24.0319 20.7769 23.4991C20.1429 22.9663 19.3269 22.7 18.5006 22.7564C17.6743 22.8127 16.8583 22.5464 16.2243 22.0136C15.5902 21.4808 15.1874 20.7229 15.1006 19.8992C15.1804 19.0727 15.5813 18.3104 16.217 17.7762C16.8527 17.2419 17.6727 16.9784 18.5006 17.0421C19.0317 17.0096 19.5634 17.0952 20.0574 17.2928C20.5515 17.4904 20.9956 17.7951 21.3577 18.1849" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg>
-<h3 className="elementskit-pricing-title">Low Cost					</h3>
+<h3 className="elementskit-pricing-title">Cost Effective					</h3>
 </div>
 <div className="elementskit-pricing-content">
 <ul className="elementskit-pricing-lists">
 <li className="elementor-repeater-item-7c3f13b">
 <svg aria-hidden="true" className="e-font-icon-svg e-fas-asterisk" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M478.21 334.093L336 256l142.21-78.093c11.795-6.477 15.961-21.384 9.232-33.037l-19.48-33.741c-6.728-11.653-21.72-15.499-33.227-8.523L296 186.718l3.475-162.204C299.763 11.061 288.937 0 275.48 0h-38.96c-13.456 0-24.283 11.061-23.994 24.514L216 186.718 77.265 102.607c-11.506-6.976-26.499-3.13-33.227 8.523l-19.48 33.741c-6.728 11.653-2.562 26.56 9.233 33.037L176 256 33.79 334.093c-11.795 6.477-15.961 21.384-9.232 33.037l19.48 33.741c6.728 11.653 21.721 15.499 33.227 8.523L216 325.282l-3.475 162.204C212.237 500.939 223.064 512 236.52 512h38.961c13.456 0 24.283-11.061 23.995-24.514L296 325.282l138.735 84.111c11.506 6.976 26.499 3.13 33.227-8.523l19.48-33.741c6.728-11.653 2.563-26.559-9.232-33.036z"></path></svg>								
-								Competitive fee								
+								Clear project pricing								
 															</li>
 <li className="elementor-repeater-item-48b5bf7">
 <svg aria-hidden="true" className="e-font-icon-svg e-fas-star-of-life" viewBox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.99 334.43L336.06 256l135.93-78.43c7.66-4.42 10.28-14.2 5.86-21.86l-32.02-55.43c-4.42-7.65-14.21-10.28-21.87-5.86l-135.93 78.43V16c0-8.84-7.17-16-16.01-16h-64.04c-8.84 0-16.01 7.16-16.01 16v156.86L56.04 94.43c-7.66-4.42-17.45-1.79-21.87 5.86L2.15 155.71c-4.42 7.65-1.8 17.44 5.86 21.86L143.94 256 8.01 334.43c-7.66 4.42-10.28 14.21-5.86 21.86l32.02 55.43c4.42 7.65 14.21 10.27 21.87 5.86l135.93-78.43V496c0 8.84 7.17 16 16.01 16h64.04c8.84 0 16.01-7.16 16.01-16V339.14l135.93 78.43c7.66 4.42 17.45 1.8 21.87-5.86l32.02-55.43c4.42-7.65 1.8-17.43-5.86-21.85z"></path></svg>								
-								Flexible rates								
+								Plans matched to your goals								
 															</li>
 </ul>
 </div>
@@ -1220,17 +1220,17 @@ export default function Home() {
 <div className="elementskit-single-pricing">
 <div className="elementskit-pricing-header">
 <svg fill="none" height="40" viewBox="0 0 39 40" width="39" xmlns="http://www.w3.org/2000/svg"><path d="M36.3859 15.6138H2.61447C1.01447 15.6138 0.328755 13.8709 1.5859 13.0423L18.4716 1.98518C18.7833 1.80179 19.1384 1.70508 19.5001 1.70508C19.8618 1.70508 20.217 1.80179 20.5287 1.98518L37.4144 13.0423C38.6716 13.8709 37.9859 15.6138 36.3859 15.6138Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M36.643 31.3281H2.35728C1.5683 31.3281 0.928711 31.9677 0.928711 32.7567V37.0424C0.928711 37.8314 1.5683 38.471 2.35728 38.471H36.643C37.4319 38.471 38.0715 37.8314 38.0715 37.0424V32.7567C38.0715 31.9677 37.4319 31.3281 36.643 31.3281Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M5.21436 15.6138V31.3281" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M12.3569 15.6138V31.3281" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M19.5 15.6138V31.3281" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M26.6431 15.6138V31.3281" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M33.7856 15.6138V31.3281" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg>
-<h3 className="elementskit-pricing-title">Permission Less					</h3>
+<h3 className="elementskit-pricing-title">Flexible Process					</h3>
 </div>
 <div className="elementskit-pricing-content">
 <ul className="elementskit-pricing-lists">
 <li className="elementor-repeater-item-7c3f13b">
 <svg aria-hidden="true" className="e-font-icon-svg e-fas-asterisk" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M478.21 334.093L336 256l142.21-78.093c11.795-6.477 15.961-21.384 9.232-33.037l-19.48-33.741c-6.728-11.653-21.72-15.499-33.227-8.523L296 186.718l3.475-162.204C299.763 11.061 288.937 0 275.48 0h-38.96c-13.456 0-24.283 11.061-23.994 24.514L216 186.718 77.265 102.607c-11.506-6.976-26.499-3.13-33.227 8.523l-19.48 33.741c-6.728 11.653-2.562 26.56 9.233 33.037L176 256 33.79 334.093c-11.795 6.477-15.961 21.384-9.232 33.037l19.48 33.741c6.728 11.653 21.721 15.499 33.227 8.523L216 325.282l-3.475 162.204C212.237 500.939 223.064 512 236.52 512h38.961c13.456 0 24.283-11.061 23.995-24.514L296 325.282l138.735 84.111c11.506 6.976 26.499 3.13 33.227-8.523l19.48-33.741c6.728-11.653 2.563-26.559-9.232-33.036z"></path></svg>								
-								Open for integration								
+								Smooth onboarding								
 															</li>
 <li className="elementor-repeater-item-48b5bf7">
 <svg aria-hidden="true" className="e-font-icon-svg e-fas-star-of-life" viewBox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.99 334.43L336.06 256l135.93-78.43c7.66-4.42 10.28-14.2 5.86-21.86l-32.02-55.43c-4.42-7.65-14.21-10.28-21.87-5.86l-135.93 78.43V16c0-8.84-7.17-16-16.01-16h-64.04c-8.84 0-16.01 7.16-16.01 16v156.86L56.04 94.43c-7.66-4.42-17.45-1.79-21.87 5.86L2.15 155.71c-4.42 7.65-1.8 17.44 5.86 21.86L143.94 256 8.01 334.43c-7.66 4.42-10.28 14.21-5.86 21.86l32.02 55.43c4.42 7.65 14.21 10.27 21.87 5.86l135.93-78.43V496c0 8.84 7.17 16 16.01 16h64.04c8.84 0 16.01-7.16 16.01-16V339.14l135.93 78.43c7.66 4.42 17.45 1.8 21.87-5.86l32.02-55.43c4.42-7.65 1.8-17.43-5.86-21.85z"></path></svg>								
-								Run your own nodes								
+								Fast approvals and updates								
 															</li>
 </ul>
 </div>
@@ -1249,17 +1249,17 @@ export default function Home() {
 <div className="elementskit-single-pricing">
 <div className="elementskit-pricing-header">
 <svg fill="none" height="39" viewBox="0 0 40 39" width="40" xmlns="http://www.w3.org/2000/svg"><path d="M35.5617 3.93506L25.8188 13.6779" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M4.13281 3.93506L13.8757 13.6779" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M4.13281 35.364L13.8757 25.6211" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M35.5617 35.364L25.8188 25.6211" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M19.8473 38.221C30.104 38.221 38.4187 29.9063 38.4187 19.6496C38.4187 9.39281 30.104 1.07812 19.8473 1.07812C9.5906 1.07812 1.27588 9.39281 1.27588 19.6496C1.27588 29.9063 9.5906 38.221 19.8473 38.221Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M19.8475 28.0783C24.5025 28.0783 28.2761 24.3047 28.2761 19.6498C28.2761 14.9948 24.5025 11.2212 19.8475 11.2212C15.1925 11.2212 11.4189 14.9948 11.4189 19.6498C11.4189 24.3047 15.1925 28.0783 19.8475 28.0783Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg>
-<h3 className="elementskit-pricing-title">Secure Data					</h3>
+<h3 className="elementskit-pricing-title">Reliable Delivery					</h3>
 </div>
 <div className="elementskit-pricing-content">
 <ul className="elementskit-pricing-lists">
 <li className="elementor-repeater-item-7c3f13b">
 <svg aria-hidden="true" className="e-font-icon-svg e-fas-asterisk" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M478.21 334.093L336 256l142.21-78.093c11.795-6.477 15.961-21.384 9.232-33.037l-19.48-33.741c-6.728-11.653-21.72-15.499-33.227-8.523L296 186.718l3.475-162.204C299.763 11.061 288.937 0 275.48 0h-38.96c-13.456 0-24.283 11.061-23.994 24.514L216 186.718 77.265 102.607c-11.506-6.976-26.499-3.13-33.227 8.523l-19.48 33.741c-6.728 11.653-2.562 26.56 9.233 33.037L176 256 33.79 334.093c-11.795 6.477-15.961 21.384-9.232 33.037l19.48 33.741c6.728 11.653 21.721 15.499 33.227 8.523L216 325.282l-3.475 162.204C212.237 500.939 223.064 512 236.52 512h38.961c13.456 0 24.283-11.061 23.995-24.514L296 325.282l138.735 84.111c11.506 6.976 26.499 3.13 33.227-8.523l19.48-33.741c6.728-11.653 2.563-26.559-9.232-33.036z"></path></svg>								
-								Open source sheet								
+								Transparent progress tracking								
 															</li>
 <li className="elementor-repeater-item-48b5bf7">
 <svg aria-hidden="true" className="e-font-icon-svg e-fas-star-of-life" viewBox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.99 334.43L336.06 256l135.93-78.43c7.66-4.42 10.28-14.2 5.86-21.86l-32.02-55.43c-4.42-7.65-14.21-10.28-21.87-5.86l-135.93 78.43V16c0-8.84-7.17-16-16.01-16h-64.04c-8.84 0-16.01 7.16-16.01 16v156.86L56.04 94.43c-7.66-4.42-17.45-1.79-21.87 5.86L2.15 155.71c-4.42 7.65-1.8 17.44 5.86 21.86L143.94 256 8.01 334.43c-7.66 4.42-10.28 14.21-5.86 21.86l32.02 55.43c4.42 7.65 14.21 10.27 21.87 5.86l135.93-78.43V496c0 8.84 7.17 16 16.01 16h64.04c8.84 0 16.01-7.16 16.01-16V339.14l135.93 78.43c7.66 4.42 17.45 1.8 21.87-5.86l32.02-55.43c4.42-7.65 1.8-17.43-5.86-21.85z"></path></svg>								
-								360 Security								
+								Quality checks before launch								
 															</li>
 </ul>
 </div>
@@ -1278,17 +1278,17 @@ export default function Home() {
 <div className="elementskit-single-pricing">
 <div className="elementskit-pricing-header">
 <svg fill="none" height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg"><path d="M12.8574 21.3281H10.0002C8.42225 21.3281 7.14307 22.6073 7.14307 24.1853V35.6138C7.14307 37.1918 8.42225 38.471 10.0002 38.471H12.8574C14.4353 38.471 15.7145 37.1918 15.7145 35.6138V24.1853C15.7145 22.6073 14.4353 21.3281 12.8574 21.3281Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M29.9999 21.3281H27.1428C25.5648 21.3281 24.2856 22.6073 24.2856 24.1853V35.6138C24.2856 37.1918 25.5648 38.471 27.1428 38.471H29.9999C31.5779 38.471 32.8571 37.1918 32.8571 35.6138V24.1853C32.8571 22.6073 31.5779 21.3281 29.9999 21.3281Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M1.42871 27.0424V19.8996C1.42871 14.9741 3.38534 10.2504 6.86816 6.76758C10.351 3.28476 15.0747 1.32813 20.0001 1.32812C24.9256 1.32813 29.6493 3.28476 33.1321 6.76758C36.6149 10.2504 38.5716 14.9741 38.5716 19.8996V27.0424" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg>
-<h3 className="elementskit-pricing-title">24 X 7 Support					</h3>
+<h3 className="elementskit-pricing-title">Ongoing Support					</h3>
 </div>
 <div className="elementskit-pricing-content">
 <ul className="elementskit-pricing-lists">
 <li className="elementor-repeater-item-7c3f13b">
 <svg aria-hidden="true" className="e-font-icon-svg e-fas-asterisk" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M478.21 334.093L336 256l142.21-78.093c11.795-6.477 15.961-21.384 9.232-33.037l-19.48-33.741c-6.728-11.653-21.72-15.499-33.227-8.523L296 186.718l3.475-162.204C299.763 11.061 288.937 0 275.48 0h-38.96c-13.456 0-24.283 11.061-23.994 24.514L216 186.718 77.265 102.607c-11.506-6.976-26.499-3.13-33.227 8.523l-19.48 33.741c-6.728 11.653-2.562 26.56 9.233 33.037L176 256 33.79 334.093c-11.795 6.477-15.961 21.384-9.232 33.037l19.48 33.741c6.728 11.653 21.721 15.499 33.227 8.523L216 325.282l-3.475 162.204C212.237 500.939 223.064 512 236.52 512h38.961c13.456 0 24.283-11.061 23.995-24.514L296 325.282l138.735 84.111c11.506 6.976 26.499 3.13 33.227-8.523l19.48-33.741c6.728-11.653 2.563-26.559-9.232-33.036z"></path></svg>								
-								Toll free number								
+								Responsive client communication								
 															</li>
 <li className="elementor-repeater-item-48b5bf7">
 <svg aria-hidden="true" className="e-font-icon-svg e-fas-star-of-life" viewBox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.99 334.43L336.06 256l135.93-78.43c7.66-4.42 10.28-14.2 5.86-21.86l-32.02-55.43c-4.42-7.65-14.21-10.28-21.87-5.86l-135.93 78.43V16c0-8.84-7.17-16-16.01-16h-64.04c-8.84 0-16.01 7.16-16.01 16v156.86L56.04 94.43c-7.66-4.42-17.45-1.79-21.87 5.86L2.15 155.71c-4.42 7.65-1.8 17.44 5.86 21.86L143.94 256 8.01 334.43c-7.66 4.42-10.28 14.21-5.86 21.86l32.02 55.43c4.42 7.65 14.21 10.27 21.87 5.86l135.93-78.43V496c0 8.84 7.17 16 16.01 16h64.04c8.84 0 16.01-7.16 16.01-16V339.14l135.93 78.43c7.66 4.42 17.45 1.8 21.87-5.86l32.02-55.43c4.42-7.65 1.8-17.43-5.86-21.85z"></path></svg>								
-								Ticket systems								
+								Post-launch assistance								
 															</li>
 </ul>
 </div>
