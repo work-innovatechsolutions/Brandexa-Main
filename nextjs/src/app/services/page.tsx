@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState } from "react";
 
@@ -124,7 +124,7 @@ export default function Page() {
 <div className="elementor-element elementor-element-f9805d9 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-id="f9805d9" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
 <div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="./services/branding-and-identity/index.html">
+<a className="elementor-icon" href="/services/branding-and-identity">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
 </div>
 </div>
@@ -161,7 +161,7 @@ export default function Page() {
 <div className="elementor-element elementor-element-bfd9b48 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-id="bfd9b48" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
 <div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="./services/digital-marketing/index.html">
+<a className="elementor-icon" href="/services/digital-marketing">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
 </div>
 </div>
@@ -198,7 +198,7 @@ export default function Page() {
 <div className="elementor-element elementor-element-0842f30 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-id="0842f30" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
 <div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="./services/creative-content-production/index.html">
+<a className="elementor-icon" href="/services/creative-content-production">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
 </div>
 </div>
@@ -235,7 +235,7 @@ export default function Page() {
 <div className="elementor-element elementor-element-c706110 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-id="c706110" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
 <div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="./services/content-creation/index.html">
+<a className="elementor-icon" href="/services/content-creation">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
 </div>
 </div>
@@ -272,7 +272,7 @@ export default function Page() {
 <div className="elementor-element elementor-element-28efab7 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-id="28efab7" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
 <div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="./services/e-commerce-solutions/index.html">
+<a className="elementor-icon" href="/services/e-commerce-solutions">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
 </div>
 </div>
@@ -309,7 +309,7 @@ export default function Page() {
 <div className="elementor-element elementor-element-6b9f1c8 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-id="6b9f1c8" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
 <div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="./services/ux-ui-design/index.html">
+<a className="elementor-icon" href="/services/ux-ui-design">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
 </div>
 </div>

@@ -1,6 +1,6 @@
 import ServiceDetailPage from "@/components/sections/ServiceDetailPage";
 import { servicePages } from "../service-pages";
 
-export default function ContentCreationPage() {
-  return <ServiceDetailPage service={servicePages["content-creation"]} />;
+export default function GoogleAdsPage() {
+  return <ServiceDetailPage service={servicePages["google-ads"]} />;
 }

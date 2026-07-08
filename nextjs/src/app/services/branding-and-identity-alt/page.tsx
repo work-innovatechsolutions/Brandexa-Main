@@ -399,42 +399,42 @@ export default function Page() {
 <div className="elementor-widget-container">
 <ul className="elementor-icon-list-items">
 <li className="elementor-icon-list-item">
-<a href="./services/branding-and-identity/index.html">
+<a href="/services/branding-and-identity">
 <span className="elementor-icon-list-icon">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </span>
 <span className="elementor-icon-list-text">Branding And Identity</span>
 </a>
 </li>
 <li className="elementor-icon-list-item">
-<a href="./services/digital-marketing/index.html">
+<a href="/services/digital-marketing">
 <span className="elementor-icon-list-icon">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </span>
 <span className="elementor-icon-list-text">Digital Marketing</span>
 </a>
 </li>
 <li className="elementor-icon-list-item">
-<a href="./services/creative-content-production/index.html">
+<a href="/services/creative-content-production">
 <span className="elementor-icon-list-icon">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </span>
 <span className="elementor-icon-list-text">Creative Content Production</span>
 </a>
 </li>
 <li className="elementor-icon-list-item">
-<a href="./services/content-creation/index.html">
+<a href="/services/content-creation">
 <span className="elementor-icon-list-icon">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </span>
 <span className="elementor-icon-list-text">Content Creation</span>
 </a>
 </li>
 <li className="elementor-icon-list-item">
-<a href="./services/e-commerce-solutions/index.html">
+<a href="/services/e-commerce-solutions">
 <span className="elementor-icon-list-icon">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </span>
 <span className="elementor-icon-list-text">E-Commerce Solutions</span>
 </a>
 </li>
 <li className="elementor-icon-list-item">
-<a href="./services/ux-ui-design/index.html">
+<a href="/services/ux-ui-design">
 <span className="elementor-icon-list-icon">
 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="currentColor"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </span>
 <span className="elementor-icon-list-text">UX/UI Design</span>

@@ -8,17 +8,40 @@ export default function Header() {
 	const [mounted, setMounted] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const pathname = usePathname();
 	const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 	const isActivePath = (href: string) => href === "/" ? normalizedPath === "/" : normalizedPath === href || normalizedPath.startsWith(`${href}/`);
-	const isPagesActive = ["/blog", "/faqs", "/pricing", "/team", "/testimonials", "/image-gallery", "/video-gallery", "/projects"].some(isActivePath);
+	const isPagesActive = ["/blog", "/faqs", "/pricing", "/team", "/testimonials", "/image-gallery", "/video-gallery", "/projects", "/privacy-policy"].some(isActivePath);
 	const activeMenuItemClass = (href: string) => isActivePath(href) ? " current-menu-item active" : "";
 	const activeLinkClass = (href: string) => isActivePath(href) ? " active" : "";
+	const serviceLinks = [
+		{ href: "/services/branding-and-identity", label: "Branding And Identity", id: "menu-item-10122" },
+		{ href: "/services/digital-marketing", label: "Digital Marketing", id: "menu-item-5064" },
+		{ href: "/services/creative-content-production", label: "Creative Content Production", id: "menu-item-10124" },
+		{ href: "/services/content-creation", label: "Content Creation", id: "menu-item-10123" },
+		{ href: "/services/e-commerce-solutions", label: "E-commerce Solutions", id: "menu-item-10125" },
+		{ href: "/services/ux-ui-design", label: "UX/UI Design", id: "menu-item-10126" },
+		{ href: "/services/social-media-marketing", label: "Social Media Marketing", id: "menu-item-social-media-marketing" },
+		{ href: "/services/google-ads", label: "Google Ads", id: "menu-item-google-ads" },
+		{ href: "/services/social-media-ads", label: "Social Media Ads", id: "menu-item-social-media-ads" },
+		{ href: "/services/video-editing", label: "Video Editing", id: "menu-item-video-editing" },
+	];
 
 	const toggleMobileMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 		event.stopPropagation();
 		setIsMobileMenuOpen((isOpen) => !isOpen);
+	};
+
+	const openSidebar = (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		setIsSidebarOpen(true);
+	};
+
+	const closeSidebar = (event?: React.MouseEvent<HTMLElement>) => {
+		event?.preventDefault();
+		setIsSidebarOpen(false);
 	};
 
 	useEffect(() => {
@@ -37,7 +60,28 @@ export default function Header() {
 
 	useEffect(() => {
 		setIsMobileMenuOpen(false);
+		setIsSidebarOpen(false);
 	}, [pathname]);
+
+	useEffect(() => {
+		if (!isSidebarOpen) {
+			return;
+		}
+
+		const closeOnEscape = (event: KeyboardEvent) => {
+			if (event.key === "Escape") {
+				setIsSidebarOpen(false);
+			}
+		};
+
+		document.body.style.overflow = "hidden";
+		document.addEventListener("keydown", closeOnEscape);
+
+		return () => {
+			document.body.style.overflow = "";
+			document.removeEventListener("keydown", closeOnEscape);
+		};
+	}, [isSidebarOpen]);
 
 	if (!mounted) {
 		return <div className="ekit-template-content-header" style={{ minHeight: "80px" }} />;
@@ -82,14 +126,19 @@ export default function Header() {
 											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-5056 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/about")}`} data-vertical-menu="750px" id="menu-item-5056"><Link className={`ekit-menu-nav-link${activeLinkClass("/about")}`} href="/about">About Us</Link></li>											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-our-work nav-item elementskit-mobile-builder-content${activeMenuItemClass("/our-work")}`} data-vertical-menu="750px" id="menu-item-our-work"><Link className={`ekit-menu-nav-link${activeLinkClass("/our-work")}`} href="/our-work">Our Work</Link></li>
 											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5058 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content${activeMenuItemClass("/services")}`} data-vertical-menu="750px" id="menu-item-5058"><Link className={`ekit-menu-nav-link ekit-menu-dropdown-toggle${activeLinkClass("/services")}`} href="/services">Services<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></Link>
 												<ul className="elementskit-dropdown elementskit-submenu-panel">
-													<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10122 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10122"><a className="dropdown-item" href="./index.html?page_id=10099">Branding And Identity</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-5064 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-5064"><a className="dropdown-item" href="./index.html?page_id=230">Digital Marketing</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10124 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10124"><a className="dropdown-item" href="./index.html?page_id=10100">Creative Content Production</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10123 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10123"><a className="dropdown-item" href="./index.html?page_id=10101">Content Creation</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10125 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10125"><a className="dropdown-item" href="./index.html?page_id=10102">E-commerce Solutions</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10126 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10126"><a className="dropdown-item" href="./index.html?page_id=10103">UX/UI Design</a></li></ul>
+													{serviceLinks.map((item) => (
+														<li key={item.href} className={`menu-item menu-item-type-post_type menu-item-object-page nav-item elementskit-mobile-builder-content${activeMenuItemClass(item.href)}`} data-vertical-menu="750px" id={item.id}>
+															<Link className={`dropdown-item${activeLinkClass(item.href)}`} href={item.href}>{item.label}</Link>
+														</li>
+													))}
+												</ul>
 											</li>
 											<li className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5059 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content${isPagesActive ? " current-menu-ancestor active" : ""}`} data-vertical-menu="750px" id="menu-item-5059"><a className={`ekit-menu-nav-link ekit-menu-dropdown-toggle${isPagesActive ? " active" : ""}`} href="#">Pages<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
 												<ul className="elementskit-dropdown elementskit-submenu-panel">
 													<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-7232 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-7232"><a className="dropdown-item" href="./index.html?page_id=11569">Blog</a> </li><li className="menu-item menu-item-type-post_type_archive menu-item-object-awaiken-project menu-item-8525 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8525"><a className="dropdown-item" href="./index.html?post_type=awaiken-project">Projects</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5065 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-5065"><a className="dropdown-item" href="./index.html?page_id=1755">Team<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
 														<ul className="elementskit-dropdown elementskit-submenu-panel">
 															<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10674 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10674"><a className="dropdown-item" href="./index.html?page_id=10557">Brooklyn Simmons</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10676 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10676"><a className="dropdown-item" href="./index.html?page_id=10552">Emily Davis</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10678 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10678"><a className="dropdown-item" href="./index.html?page_id=3198">Jessica Taylor</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-10680 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10680"><a className="dropdown-item" href="./index.html?page_id=10536">Sarah Mitchell</a> </li></ul>
-													</li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-8107 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8107"><a className="dropdown-item" href="./index.html?page_id=6247">FAQS</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-8109 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8109"><a className="dropdown-item" href="./index.html?page_id=5001">Pricing Plan</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-8108 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8108"><a className="dropdown-item" href="./index.html?page_id=4562">Image gallery</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-8112 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8112"><a className="dropdown-item" href="./index.html?page_id=11572">Video Gallery</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-8111 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8111"><a className="dropdown-item" href="./index.html?page_id=3938">Testimonial</a> </li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10565 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10565"><a className="dropdown-item" href="#">Header Layouts<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
+													</li><li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-8107 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/faqs")}`} data-vertical-menu="750px" id="menu-item-8107"><Link className={`dropdown-item${activeLinkClass("/faqs")}`} href="/faqs">FAQS</Link> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-8109 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8109"><a className="dropdown-item" href="./index.html?page_id=5001">Pricing Plan</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-8108 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8108"><a className="dropdown-item" href="./index.html?page_id=4562">Image gallery</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-8112 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8112"><a className="dropdown-item" href="./index.html?page_id=11572">Video Gallery</a> </li><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-8111 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-8111"><a className="dropdown-item" href="./index.html?page_id=3938">Testimonial</a> </li><li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy nav-item elementskit-mobile-builder-content${activeMenuItemClass("/privacy-policy")}`} data-vertical-menu="750px" id="menu-item-privacy-policy"><Link className={`dropdown-item${activeLinkClass("/privacy-policy")}`} href="/privacy-policy">Privacy Policy</Link> </li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10565 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10565"><a className="dropdown-item" href="#">Header Layouts<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
 														<ul className="elementskit-dropdown elementskit-submenu-panel">
 															<li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-10569 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10569"><a className="dropdown-item" href="./index.html?elementskit_template=header" target="_blank">Header Layout – 1</a> </li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-10571 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10571"><a className="dropdown-item" href="./index.html?elementskit_template=header-layout-2" target="_blank">Header Layout – 2</a> </li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-10573 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10573"><a className="dropdown-item" href="./index.html?elementskit_template=header-layout-3" target="_blank">Header Layout – 3</a> </li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-10574 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10574"><a className="dropdown-item" href="./index.html?elementskit_template=header-layout-4" target="_blank">Header Layout – 4</a> </li></ul>
 													</li><li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10575 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-10575"><a className="dropdown-item" href="#">Footer Layouts<i aria-hidden="true" className="icon icon-down-arrow1 elementskit-submenu-indicator"></i></a>
@@ -98,28 +147,35 @@ export default function Header() {
 													</li></ul>
 											</li>
 											<li className={`mobile-menu menu-item menu-item-type-post_type menu-item-object-page menu-item-5057 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/contact")}`} data-vertical-menu="750px" id="menu-item-5057"><Link className={`ekit-menu-nav-link${activeLinkClass("/contact")}`} href="/contact">Contact us</Link></li>
+											<li className="brandexa-mobile-consultation menu-item menu-item-type-custom menu-item-object-custom nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-mobile-consultation"><a className="ekit-menu-nav-link" data-consultation-trigger="true" href="#book-consultation">Book a Free Consultation</a></li>
 										</ul></div>
 										<div className={`elementskit-menu-overlay elementskit-menu-offcanvas-elements ekit-nav-menu--overlay${isMobileMenuOpen ? " active" : ""}`} onClick={() => setIsMobileMenuOpen(false)}></div> </nav>
 								</div>
 							</div>
 						</div>
 						<div className="elementor-element elementor-element-ff28529 e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="ff28529">
+							<a className="brandexa-header-consultation" data-consultation-trigger="true" href="#book-consultation">Book a Free Consultation</a>
 							<div className="elementor-element elementor-element-5db1bc3 header-social-links elementor-widget elementor-widget-elementskit-social-media" data-e-type="widget" data-element_type="widget" data-id="5db1bc3" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-social-media.default">
 								<div className="elementor-widget-container">
 									<div className="ekit-wid-con"> <ul className="ekit_social_media">
 										<li className="elementor-repeater-item-1ae5b06">
-											<a aria-label="Twitter" className="twitter" href="#">
-												<svg aria-hidden="true" className="e-font-icon-svg e-fab-x-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>
+											<a aria-label="LinkedIn" className="linkedin" href="https://www.linkedin.com/company/brandexagrowth/?viewAsMember=true" rel="noopener noreferrer" target="_blank">
+												<svg aria-hidden="true" className="e-font-icon-svg e-fab-linkedin-in" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
 											</a>
 										</li>
 										<li className="elementor-repeater-item-aae13d8">
-											<a aria-label="Facebook" className="f" href="#">
+											<a aria-label="Facebook" className="f" href="https://www.facebook.com/brandexagrowth/" rel="noopener noreferrer" target="_blank">
 												<svg aria-hidden="true" className="e-font-icon-svg e-fab-facebook-f" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
 											</a>
 										</li>
 										<li className="elementor-repeater-item-4221e1e">
-											<a aria-label="Instagram" className="instagram" href="#">
+											<a aria-label="Instagram" className="instagram" href="https://www.instagram.com/brandexagrowth/" rel="noopener noreferrer" target="_blank">
 												<svg aria-hidden="true" className="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+											</a>
+										</li>
+										<li className="elementor-repeater-item-4221e1e">
+											<a aria-label="YouTube" className="youtube" href="https://www.youtube.com/@brandexagrowth" rel="noopener noreferrer" target="_blank">
+												<svg aria-hidden="true" className="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597C14.999 166.945 15 256 15 256s-.001 89.055 11.345 131.917c6.281 23.65 24.787 42.276 48.284 48.597C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.322 42.003-24.947 48.284-48.597C561.001 345.055 561 256 561 256s.001-89.055-11.345-131.917zM232 334V178l142 78-142 78z"></path></svg>
 											</a>
 										</li>
 									</ul>
@@ -128,17 +184,17 @@ export default function Header() {
 							<div className="elementor-element elementor-element-34a5ede btn-popup ekit-off-canvas-position-right elementor-widget elementor-widget-elementskit-header-offcanvas" data-e-type="widget" data-element_type="widget" data-id="34a5ede" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-header-offcanvas.default">
 								<div className="elementor-widget-container">
 									<div className="ekit-wid-con"> <div className="ekit-offcanvas-toggle-wraper before">
-										<a aria-label="offcanvas-menu" className="ekit_navSidebar-button ekit_offcanvas-sidebar" href="#">
-											<i aria-hidden="true" className="icon icon-menu-9"></i> </a>
+										<button aria-expanded={isSidebarOpen} aria-label="Open contact panel" className="ekit_navSidebar-button ekit_offcanvas-sidebar" onClick={openSidebar} type="button">
+											<i aria-hidden="true" className="icon icon-menu-9"></i> </button>
 									</div>
 										{/* offset cart strart */}
 										{/* sidebar cart item */}
-										<div className="ekit-sidebar-group info-group ekit-slide" data-settings="{&quot;disable_bodyscroll&quot;:&quot;yes&quot;}">
-											<div className="ekit-overlay ekit-bg-black"></div>
+										<div className={`ekit-sidebar-group info-group ekit-slide${isSidebarOpen ? " active" : ""}`} data-settings="{&quot;disable_bodyscroll&quot;:&quot;yes&quot;}">
+											<button aria-label="Close contact panel" className="ekit-overlay ekit-bg-black" onClick={closeSidebar} type="button"></button>
 											<div className="ekit-sidebar-widget">
 												<div className="ekit_sidebar-widget-container">
 													<div className="ekit_widget-heading before">
-														<a aria-label="close-icon" className="ekit_close-side-widget" href="#">
+														<a aria-label="close-icon" className="ekit_close-side-widget" href="#" onClick={closeSidebar}>
 															<i aria-hidden="true" className="icon icon-cancel"></i>
 														</a>
 													</div>
@@ -258,18 +314,23 @@ export default function Header() {
 																				<div className="elementor-widget-container">
 																					<div className="ekit-wid-con"> <ul className="ekit_social_media">
 																						<li className="elementor-repeater-item-b2b9260">
-																							<a aria-label="Twitter" className="twitter" href="#">
-																								<svg aria-hidden="true" className="e-font-icon-svg e-fab-x-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>
+																							<a aria-label="LinkedIn" className="linkedin" href="https://www.linkedin.com/company/brandexagrowth/?viewAsMember=true" rel="noopener noreferrer" target="_blank">
+																								<svg aria-hidden="true" className="e-font-icon-svg e-fab-linkedin-in" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>
 																							</a>
 																						</li>
 																						<li className="elementor-repeater-item-7af1cfe">
-																							<a aria-label="facebook" className="f" href="#">
+																							<a aria-label="Facebook" className="f" href="https://www.facebook.com/brandexagrowth/" rel="noopener noreferrer" target="_blank">
 																								<svg aria-hidden="true" className="e-font-icon-svg e-fab-facebook-f" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
 																							</a>
 																						</li>
 																						<li className="elementor-repeater-item-509005f">
-																							<a aria-label="Instagram" className="instagram" href="#">
+																							<a aria-label="Instagram" className="instagram" href="https://www.instagram.com/brandexagrowth/" rel="noopener noreferrer" target="_blank">
 																								<svg aria-hidden="true" className="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+																							</a>
+																						</li>
+																						<li className="elementor-repeater-item-509005f">
+																							<a aria-label="YouTube" className="youtube" href="https://www.youtube.com/@brandexagrowth" rel="noopener noreferrer" target="_blank">
+																								<svg aria-hidden="true" className="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597C14.999 166.945 15 256 15 256s-.001 89.055 11.345 131.917c6.281 23.65 24.787 42.276 48.284 48.597C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.322 42.003-24.947 48.284-48.597C561.001 345.055 561 256 561 256s.001-89.055-11.345-131.917zM232 334V178l142 78-142 78z"></path></svg>
 																							</a>
 																						</li>
 																					</ul>

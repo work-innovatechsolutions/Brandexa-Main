@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState } from "react";
 
@@ -114,11 +114,10 @@ export default function Home() {
 <div className="elementor-element elementor-element-f66ef66 elementor-align-center elementor-invisible elementor-widget elementor-widget-button" data-e-type="widget" data-element_type="widget" data-id="f66ef66" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="button.default">
 <div className="elementor-widget-container">
 <div className="elementor-button-wrapper">
-<a className="elementor-button elementor-button-link elementor-size-sm" href="./contact-us/index.html">
-<span className="elementor-button-content-wrapper">
-<span className="elementor-button-icon">
-<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.8569 9.67962L8.24994 18.2866L6.83594 16.8726L15.4419 8.26562H7.85694V6.26562H18.8569V17.2656H16.8569V9.67962Z" fill="currentColor"></path></svg> </span>
-<span className="elementor-button-text">Get In Touch</span>
+<a className="brandexa-hero-cta" data-consultation-trigger="true" href="#book-consultation">
+<span className="brandexa-hero-cta__label">Book a Free Consultation</span>
+<span aria-hidden="true" className="brandexa-hero-cta__arrow">
+<svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M16.8569 9.67962L8.24994 18.2866L6.83594 16.8726L15.4419 8.26562H7.85694V6.26562H18.8569V17.2656H16.8569V9.67962Z" fill="currentColor"></path></svg>
 </span>
 </a>
 </div>
@@ -329,7 +328,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-26328bc elementor-invisible elementor-widget elementor-widget-button" data-e-type="widget" data-element_type="widget" data-id="26328bc" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="button.default">
 <div className="elementor-widget-container">
 <div className="elementor-button-wrapper">
-<a className="elementor-button elementor-button-link elementor-size-sm" href="./services/index.html">
+<a className="elementor-button elementor-button-link elementor-size-sm" href="/services">
 <span className="elementor-button-content-wrapper">
 <span className="elementor-button-icon">
 <svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.8569 9.67962L8.24994 18.2866L6.83594 16.8726L15.4419 8.26562H7.85694V6.26562H18.8569V17.2656H16.8569V9.67962Z" fill="currentColor"></path></svg> </span>
@@ -355,7 +354,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-4308116 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="4308116" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
 <div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="./services/branding-and-identity/index.html">
+<a className="elementor-icon" href="/services/branding-and-identity">
 <svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
 </div>
 </div>
@@ -392,7 +391,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-cbdafe7 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="cbdafe7" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
 <div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="./services/digital-marketing/index.html">
+<a className="elementor-icon" href="/services/digital-marketing">
 <svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
 </div>
 </div>
@@ -429,7 +428,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-232651b service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="232651b" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
 <div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="./services/creative-content-production/index.html">
+<a className="elementor-icon" href="/services/creative-content-production">
 <svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
 </div>
 </div>
@@ -456,7 +455,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-655574c e-con-full e-flex elementor-invisible e-con e-child" data-e-type="container" data-element_type="container" data-id="655574c" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:300}">
 <div className="elementor-element elementor-element-36b2cfd service-footer elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="36b2cfd" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>Letâ€™s make something great work together. <a href="./contact-us/index.html">Get Free Quote</a></p> </div>
+<p>Let’s make something great work together. <a href="./contact-us/index.html">Get Free Quote</a></p> </div>
 </div>
 </div>
 </div>
@@ -872,7 +871,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Dynamic E-Commerce Platform</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Dynamic E-Commerce Platform Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
+<p>Dynamic E-Commerce Platform Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
 </div>
 </div>
 </div>
@@ -894,7 +893,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Innovative Identity Design</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Innovative design identity Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
+<p>Innovative design identity Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
 </div>
 </div>
 </div>
@@ -916,7 +915,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Dynamic Digital Campaign</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Dynamic Digital Campaign Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
+<p>Dynamic Digital Campaign Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
 </div>
 </div>
 </div>
@@ -938,7 +937,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Impactful Content Creation</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Impactful Content Creation Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
+<p>Impactful Content Creation Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
 </div>
 </div>
 </div>
@@ -960,7 +959,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Visionary Growth Strategy</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Visionary Growth Strategy Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
+<p>Visionary Growth Strategy Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
 </div>
 </div>
 </div>
@@ -982,7 +981,7 @@ export default function Home() {
 <h3 className="awaiken-portfolio-grid-item__title">Interactive Website Redesign</h3>
 </a>
 <div className="awaiken-portfolio-grid-item__excerpt">
-<p>Interactive Website Redesign Home Custom Branding Website Design Digital Marketing Strategy Consulting [â€¦]</p>
+<p>Interactive Website Redesign Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
 </div>
 </div>
 </div>
