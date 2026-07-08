@@ -24,6 +24,7 @@ type SmtpConfig = {
 const CRLF = "\r\n";
 const SMTP_TIMEOUT_MS = 8000;
 const MEETING_LINK = "https://meet.google.com/ugm-kcyy-wub";
+const INTERNAL_NOTIFY_TO = "hello@brandexagrowth.com";
 
 function sanitizeHeader(value: string) {
   return value.replace(/[\r\n]+/g, " ").trim();
@@ -185,6 +186,99 @@ function createMessage(payload: Required<ConsultationPayload>, config: SmtpConfi
   ].join(CRLF);
 }
 
+function createInternalMessage(payload: Required<ConsultationPayload>, config: SmtpConfig) {
+  const brandName = "Brandexa Growth";
+  const safeEmail = sanitizeHeader(payload.email);
+  const safeMeetingDate = escapeHtml(payload.meetingDate);
+  const safeMeetingTime = escapeHtml(payload.meetingTime);
+  const htmlQuery = escapeHtml(payload.query).replace(/\n/g, "<br />");
+  const subject = `New consultation booked by ${sanitizeHeader(payload.name)}`;
+
+  const text = [
+    "A new free consultation has been booked.",
+    "",
+    "Consultation details:",
+    `Name: ${payload.name}`,
+    `Email: ${payload.email}`,
+    `Query: ${payload.query}`,
+    `Meeting date: ${payload.meetingDate}`,
+    `Time: ${payload.meetingTime}`,
+    `Google Meet: ${MEETING_LINK}`,
+  ].join(CRLF);
+
+  const html = `
+    <div style="margin:0; padding:0; background:#f4f6f1; font-family:Arial, Helvetica, sans-serif; color:#181818;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse; background:#f4f6f1;">
+        <tr>
+          <td align="center" style="padding:28px 16px;">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse; max-width:680px; background:#ffffff; border-radius:18px; overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,0.08);">
+              <tr>
+                <td style="background:#101010; padding:30px 34px;">
+                  <p style="margin:0 0 10px; color:#b8ff2c; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">New Consultation</p>
+                  <h1 style="margin:0; color:#ffffff; font-size:30px; line-height:1.18; font-weight:800;">A consultation has been booked</h1>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:30px 34px;">
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:separate; border-spacing:0; border:1px solid #e5e7df; border-radius:14px; overflow:hidden;">
+                    <tr>
+                      <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">Name</td>
+                      <td style="padding:14px 16px; border-bottom:1px solid #e5e7df; color:#181818; font-size:15px;">${escapeHtml(payload.name)}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">Email</td>
+                      <td style="padding:14px 16px; border-bottom:1px solid #e5e7df; color:#181818; font-size:15px;"><a href="mailto:${safeEmail}" style="color:#181818; text-decoration:underline;">${escapeHtml(payload.email)}</a></td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">Query</td>
+                      <td style="padding:14px 16px; border-bottom:1px solid #e5e7df; color:#181818; font-size:15px; line-height:1.6;">${htmlQuery}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">Meeting Date</td>
+                      <td style="padding:14px 16px; border-bottom:1px solid #e5e7df; color:#181818; font-size:15px;">${safeMeetingDate}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 16px; background:#fafbf7; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">Time</td>
+                      <td style="padding:14px 16px; color:#181818; font-size:15px;">${safeMeetingTime}</td>
+                    </tr>
+                  </table>
+                  <p style="margin:24px 0 0; color:#4b4b4b; font-size:15px; line-height:1.7;">Google Meet: <a href="${MEETING_LINK}" style="color:#101010; text-decoration:underline;">${MEETING_LINK}</a></p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+  `;
+
+  const boundary = `brandexa-internal-${Date.now().toString(36)}`;
+
+  return [
+    `From: ${brandName} <${sanitizeHeader(config.from)}>`,
+    `To: ${brandName} <${INTERNAL_NOTIFY_TO}>`,
+    `Reply-To: ${sanitizeHeader(payload.name)} <${safeEmail}>`,
+    `Subject: ${subject}`,
+    "MIME-Version: 1.0",
+    `Content-Type: multipart/alternative; boundary="${boundary}"`,
+    "",
+    `--${boundary}`,
+    "Content-Type: text/plain; charset=UTF-8",
+    "Content-Transfer-Encoding: 7bit",
+    "",
+    text,
+    "",
+    `--${boundary}`,
+    "Content-Type: text/html; charset=UTF-8",
+    "Content-Transfer-Encoding: 7bit",
+    "",
+    html,
+    "",
+    `--${boundary}--`,
+    "",
+  ].join(CRLF);
+}
+
 function readResponse(socket: net.Socket | tls.TLSSocket) {
   return new Promise<string>((resolve, reject) => {
     let buffer = "";
@@ -302,14 +396,40 @@ async function sendMail(payload: Required<ConsultationPayload>) {
     assertSmtpOk(await connection.write("AUTH LOGIN"), [334]);
     assertSmtpOk(await connection.write(Buffer.from(config.user).toString("base64")), [334]);
     assertSmtpOk(await connection.write(Buffer.from(config.pass).toString("base64")), [235]);
-    assertSmtpOk(await connection.write(`MAIL FROM:<${sanitizeHeader(config.from)}>`), [250]);
-    assertSmtpOk(await connection.write(`RCPT TO:<${sanitizeHeader(payload.email)}>`), [250, 251]);
 
-    assertSmtpOk(await connection.write("DATA"), [354]);
-    assertSmtpOk(await connection.write(`${createMessage(payload, config)}${CRLF}.`), [250]);
+    const sendSmtpMessage = async (recipient: string, message: string) => {
+      assertSmtpOk(await connection.write(`MAIL FROM:<${sanitizeHeader(config.from)}>`), [250]);
+      assertSmtpOk(await connection.write(`RCPT TO:<${sanitizeHeader(recipient)}>`), [250, 251]);
+      assertSmtpOk(await connection.write("DATA"), [354]);
+      assertSmtpOk(await connection.write(`${message}${CRLF}.`), [250]);
+    };
+
+    await sendSmtpMessage(payload.email, createMessage(payload, config));
+    await sendSmtpMessage(INTERNAL_NOTIFY_TO, createInternalMessage(payload, config));
     await connection.write("QUIT").catch(() => "");
   } finally {
     connection.close();
+  }
+}
+
+async function saveConsultationToSheet(payload: Required<ConsultationPayload>) {
+  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+
+  if (!webhookUrl) {
+    return;
+  }
+
+  const response = await fetch(webhookUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    const responseText = await response.text().catch(() => "");
+    throw new Error(`Google Sheet rejected the booking: ${response.status} ${responseText}`.trim());
   }
 }
 
@@ -330,7 +450,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
     }
 
-    await sendMail({ name, email, query, meetingDate, meetingTime });
+    const consultation = { name, email, query, meetingDate, meetingTime };
+
+    await sendMail(consultation);
+    await saveConsultationToSheet(consultation);
 
     return NextResponse.json({ ok: true });
   } catch (error) {
