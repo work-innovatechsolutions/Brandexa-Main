@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, ChevronRight, Quote, Star, X } from "lucide-react";
+import { ArrowRight, ChevronRight, X } from "lucide-react";
 
 type WorkItem = {
   title: string;
@@ -10,6 +10,7 @@ type WorkItem = {
   sectors: string[];
   image: string;
   caseStudy: CaseStudy;
+  sourceUrl?: string;
 };
 
 type CaseStudy = {
@@ -30,18 +31,92 @@ type CaseStudy = {
   instagramResults: string[];
 };
 
-type ReviewCard = {
-  name: string;
-  date: string;
-  text: string;
-};
-
 type OurWorkSectionProps = {
   showMoreButton?: boolean;
   moreButtonHref?: string;
   moreButtonLabel?: string;
   compact?: boolean;
 };
+
+const projectImages = [
+  "/wp-content/uploads/2024/11/project-1-2.webp",
+  "/wp-content/uploads/2024/11/project-3-2.webp",
+  "/wp-content/uploads/2024/11/project-6-2.webp",
+  "/wp-content/uploads/2024/11/project-4-2.webp",
+  "/wp-content/uploads/2024/11/project-5-2.webp",
+  "/wp-content/uploads/2024/11/project-2-2.webp",
+];
+
+const externalProjectLinks = [
+  { title: "Clearon Bleach Tablets", category: "E-Commerce", sectors: ["Consumer Products", "Marketing"], url: "https://www.lyfemarketing.com/portfolio-posts/clearon-bleach-tablets/" },
+  { title: "Ray of Hope Christian Church", category: "Nonprofit", sectors: ["Religious & Nonprofit", "Community"], url: "https://www.lyfemarketing.com/portfolio-posts/ray-hope-christian-church/" },
+  { title: "Cafe Alibaba", category: "Restaurant", sectors: ["Food & Beverage", "Local Business"], url: "https://www.lyfemarketing.com/portfolio-posts/cafe-alibaba-case-study/" },
+  { title: "Mortgage Markets CUSO", category: "Finance", sectors: ["Financial Services", "Lead Generation"], url: "https://www.lyfemarketing.com/portfolio-posts/mortgage-markets-cuso/" },
+  { title: "Arctic Collagen", category: "Wellness", sectors: ["Health & Wellness", "E-Commerce"], url: "https://www.lyfemarketing.com/portfolio-posts/arctic-collagen/" },
+  { title: "Vital Vibe Health & Fitness", category: "Fitness", sectors: ["Health & Wellness", "Social Media"], url: "https://www.lyfemarketing.com/portfolio-posts/vital-vibe-health-fitness/" },
+  { title: "Wrecked Angles", category: "Automotive", sectors: ["Entertainment", "Social Media"], url: "https://www.lyfemarketing.com/portfolio-posts/wrecked-angles/" },
+  { title: "Axiom Structures", category: "B2B", sectors: ["Construction", "Lead Generation"], url: "https://www.lyfemarketing.com/portfolio-posts/axiom-structures/" },
+  { title: "Daryl D Black", category: "Personal Brand", sectors: ["Coaching", "Content Strategy"], url: "https://www.lyfemarketing.com/portfolio-posts/daryl-d-black/" },
+  { title: "Spray Daze Tan", category: "Beauty", sectors: ["Beauty", "Local Business"], url: "https://www.lyfemarketing.com/portfolio-posts/spray-daze-tan/" },
+  { title: "FoodFixer Experience", category: "Food", sectors: ["Food & Beverage", "Campaign Strategy"], url: "https://www.lyfemarketing.com/portfolio-posts/foodfixer-experience/" },
+  { title: "Power of Partnerships", category: "B2B", sectors: ["Partnerships", "Content Marketing"], url: "https://www.lyfemarketing.com/portfolio-posts/power-of-partnerships/" },
+  { title: "Soultuary Studios", category: "Wellness", sectors: ["Health & Wellness", "Branding"], url: "https://www.lyfemarketing.com/portfolio-posts/soultuary-studios/" },
+  { title: "Vegax Holdings", category: "B2B", sectors: ["Investment", "Digital Marketing"], url: "https://www.lyfemarketing.com/portfolio-posts/vegax-holdings/" },
+  { title: "Pooltree System", category: "Home Services", sectors: ["Service Business", "Lead Generation"], url: "https://www.lyfemarketing.com/portfolio-posts/pooltree-system/" },
+  { title: "Cenaps", category: "Healthcare", sectors: ["Medical", "Digital Marketing"], url: "https://www.lyfemarketing.com/portfolio-posts/cenaps/" },
+  { title: "Jalia Walda", category: "Personal Brand", sectors: ["Beauty", "Content Strategy"], url: "https://www.lyfemarketing.com/portfolio-posts/jalia-walda/" },
+  { title: "Comfort One Shoes", category: "Retail", sectors: ["E-Commerce", "Apparel / Fashion"], url: "https://www.lyfemarketing.com/portfolio-posts/comfort-one-shoes/" },
+  { title: "Vulcan Strength", category: "Fitness", sectors: ["Health & Wellness", "E-Commerce"], url: "https://www.lyfemarketing.com/portfolio-posts/vulcan-strength/" },
+  { title: "Lady Ease Feminine Care", category: "Healthcare", sectors: ["Medical", "Consumer Products"], url: "https://www.lyfemarketing.com/portfolio-posts/lady-ease-feminine-care/" },
+  { title: "Eat Below the Redline", category: "Food", sectors: ["Food & Beverage", "Content Marketing"], url: "https://www.lyfemarketing.com/portfolio-posts/eat-below-the-redline/" },
+  { title: "Clean Program", category: "Wellness", sectors: ["Health & Wellness", "E-Commerce"], url: "https://www.lyfemarketing.com/portfolio-posts/clean-program/" },
+  { title: "Short Videos", category: "Video", sectors: ["Short Video Marketing", "Content Creation"], url: "https://www.lyfemarketing.com/portfolio-posts/short-videos/" },
+  { title: "My Lala Leggings", category: "Fashion", sectors: ["Apparel / Fashion", "E-Commerce"], url: "https://www.lyfemarketing.com/portfolio-posts/my-lala-leggings/" },
+  { title: "Weston Boucher", category: "Social Ads", sectors: ["Social Media Ads", "Personal Brand"], url: "https://www.lyfemarketing.com/portfolio-posts/weston-boucher-social-advertising/" },
+  { title: "Ancient Keto", category: "Wellness", sectors: ["Health & Wellness", "Social Media Ads"], url: "https://www.lyfemarketing.com/portfolio-posts/ancient-keto/" },
+  { title: "Forever Diamonds", category: "Jewelry", sectors: ["Retail", "Luxury"], url: "https://www.lyfemarketing.com/portfolio-posts/forever-diamonds/" },
+  { title: "Advanced Windows and Siding", category: "Home Services", sectors: ["Service Business", "Lead Generation"], url: "https://www.lyfemarketing.com/portfolio-posts/advanced-windows-and-siding/" },
+  { title: "Egyptian Magic", category: "Social Media", sectors: ["Beauty", "Social Media Management"], url: "https://www.lyfemarketing.com/portfolio-posts/egyptian-magic-smm/" },
+  { title: "Wingstop", category: "Restaurant", sectors: ["Food & Beverage", "Campaign Strategy"], url: "https://www.lyfemarketing.com/portfolio-posts/wingstop/" },
+  { title: "Domino's", category: "Restaurant", sectors: ["Food & Beverage", "Digital Marketing"], url: "https://www.lyfemarketing.com/portfolio-posts/dominos-case-study/" },
+  { title: "Mastermine Investments", category: "Finance", sectors: ["Financial Services", "Lead Generation"], url: "https://www.lyfemarketing.com/portfolio-posts/mastermine-investments/" },
+  { title: "Loan Cabin", category: "Finance", sectors: ["Financial Services", "Digital Marketing"], url: "https://www.lyfemarketing.com/portfolio-posts/loan-cabin/" },
+  { title: "Celebrate Relaxed Hair", category: "Beauty", sectors: ["Beauty", "Content Marketing"], url: "https://www.lyfemarketing.com/portfolio-posts/celebrate-relaxed-hair/" },
+];
+
+function makeExternalWorkItem(project: (typeof externalProjectLinks)[number], index: number): WorkItem {
+  return {
+    title: project.title,
+    category: project.category,
+    sectors: project.sectors,
+    image: projectImages[index % projectImages.length],
+    sourceUrl: project.url,
+    caseStudy: {
+      background: `${project.title} is a selected portfolio reference covering ${project.sectors.join(", ").toLowerCase()} work. View the full external case study for the original campaign details and creative direction.`,
+      services: project.sectors,
+      challenge: [
+        "Clarify the offer, audience, and campaign message for stronger digital performance.",
+        "Build a practical content and advertising approach that supports measurable growth.",
+      ],
+      solution: [
+        "Created a focused digital strategy around audience intent and campaign goals.",
+        "Used channel-specific creative and performance tracking to improve engagement and lead quality.",
+      ],
+      testimonial: {
+        quote: "View the linked case study for the complete project story and campaign context.",
+        author: "Portfolio Reference",
+        company: project.title,
+      },
+      resultCards: [
+        { value: "Case", label: "Study available" },
+        { value: "Multi", label: "Channel campaign" },
+        { value: "Growth", label: "Focused execution" },
+      ],
+      facebookResults: ["Campaign structure: audience-led", "Creative: platform-ready", "Goal: measurable growth"],
+      instagramResults: ["Content: visual-first", "Engagement: optimized", "Reporting: performance-focused"],
+    },
+  };
+}
 
 const workItems: WorkItem[] = [
   {
@@ -244,6 +319,7 @@ const workItems: WorkItem[] = [
       instagramResults: ["Product taps: +28%", "Profile actions: +20%", "Story clicks: +26%"],
     },
   },
+  ...externalProjectLinks.map(makeExternalWorkItem),
 ];
 
 const filters = ["All", "Industry", "Services"] as const;
@@ -271,19 +347,6 @@ const chips = [
   "Service Business",
   "Entertainment",
 ] as const;
-
-const reviews: ReviewCard[] = [
-  {
-    name: "David Tran",
-    date: "25 June 2026",
-    text: "Very knowledgeable and helpful. The team cleaned up our ads account and helped us get exceptional ROAs.",
-  },
-  {
-    name: "Rachael Dengler",
-    date: "11 June 2026",
-    text: "A responsive, proactive team that consistently delivers high-quality campaigns and clear communication.",
-  },
-];
 
 export default function OurWorkSection({
   showMoreButton = false,
@@ -347,7 +410,7 @@ export default function OurWorkSection({
           </p>
         </div>
 
-        <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_420px] xl:items-start">
+        <div>
           <div>
             <div className="mb-5 flex flex-wrap gap-6 text-[15px] font-semibold text-white/55">
               {filters.map((item) => (
@@ -392,16 +455,28 @@ export default function OurWorkSection({
               </a>
             ) : null}
 
-            <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
               {visibleItems.map((item) => (
                 <article
                   key={item.title}
                   role="button"
                   tabIndex={0}
-                  onClick={() => setSelectedWork(item)}
+                  onClick={() => {
+                    if (item.sourceUrl) {
+                      window.open(item.sourceUrl, "_blank", "noopener,noreferrer");
+                      return;
+                    }
+
+                    setSelectedWork(item);
+                  }}
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") {
                       event.preventDefault();
+                      if (item.sourceUrl) {
+                        window.open(item.sourceUrl, "_blank", "noopener,noreferrer");
+                        return;
+                      }
+
                       setSelectedWork(item);
                     }
                   }}
@@ -428,71 +503,17 @@ export default function OurWorkSection({
                       <p className="mt-2 text-[11px] font-semibold uppercase leading-6 tracking-[0.18em] text-sky-400">
                         {item.sectors.join(", ")}
                       </p>
+                      {item.sourceUrl ? (
+                        <p className="mt-3 text-[12px] font-bold uppercase tracking-[0.18em] text-white/42 transition group-hover:text-lime-300">
+                          View external case study
+                        </p>
+                      ) : null}
                     </div>
                   </div>
                 </article>
               ))}
             </div>
           </div>
-
-          <aside className="space-y-5 xl:sticky xl:top-24">
-            <div className="rounded-[24px] border border-white/10 bg-[#0f141b] p-6 shadow-[0_22px_46px_rgba(0,0,0,0.3)]">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-[13px] font-bold uppercase tracking-[0.24em] text-white/55">Lyfe Marketing</p>
-                  <div className="mt-3 flex items-center gap-2 text-amber-400">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <Star key={index} className="h-4.5 w-4.5 fill-current" />
-                    ))}
-                  </div>
-                  <p className="mt-3 text-[18px] font-medium leading-7 text-white">550 Google reviews</p>
-                </div>
-              </div>
-            </div>
-
-            {reviews.map((review, index) => (
-              <article
-                key={review.name}
-                className={`rounded-[24px] border border-white/10 p-6 shadow-[0_22px_46px_rgba(0,0,0,0.3)] transition duration-300 hover:-translate-y-1 ${
-                  index === 0 ? "bg-[linear-gradient(180deg,#111823_0%,#0d131c_100%)]" : "bg-[#0f141b]"
-                }`}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-lime-400/12 text-lime-300">
-                      <Quote className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-[21px] font-semibold leading-tight text-white">{review.name}</h4>
-                      <p className="mt-1 text-[14px] text-white/45">{review.date}</p>
-                    </div>
-                  </div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-[22px] font-black text-sky-400 shadow-sm">
-                    G
-                  </div>
-                </div>
-
-                <div className="mt-5 flex items-center gap-2 text-amber-400">
-                  {Array.from({ length: 5 }).map((_, starIndex) => (
-                    <Star key={starIndex} className="h-4.5 w-4.5 fill-current" />
-                  ))}
-                  <span className="ml-1 rounded-full bg-lime-400/14 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-lime-300">
-                    Verified
-                  </span>
-                </div>
-
-                <p className="mt-5 text-[16px] leading-8 text-white/72">{review.text}</p>
-                {index === 1 ? (
-                  <button
-                    type="button"
-                    className="mt-5 text-sm font-semibold uppercase tracking-[0.16em] text-white/45 transition hover:text-white"
-                  >
-                    Read more
-                  </button>
-                ) : null}
-              </article>
-            ))}
-          </aside>
         </div>
       </div>
       {isBrowser && selectedWork ? createPortal((

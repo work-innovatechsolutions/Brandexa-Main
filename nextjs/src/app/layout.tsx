@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import ClientInit from "@/components/layout/ClientInit";
 import LenisProvider from "@/components/layout/LenisProvider";
 import ConsultationModal from "@/components/layout/ConsultationModal";
+import GlobalReviews from "@/components/layout/GlobalReviews";
 
 export const metadata: Metadata = {
         title: "Brandexa",
@@ -326,6 +327,7 @@ var JETPACK_MU_WPCOM_SETTINGS = {"assetsUrl":"//wp-content/mu-plugins/wpcomsh/je
                                         <Header />
                                         <ClientInit />
                                         {children}
+                                        <GlobalReviews />
                                         <Footer />
                                         <ConsultationModal />
                                 </LenisProvider>

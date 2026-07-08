@@ -351,6 +351,97 @@ a[data-consultation-trigger].elementor-button:focus {
   text-align: center;
 }
 
+.brandexa-global-reviews {
+  padding: 72px 0 86px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(184, 255, 44, 0.1), transparent 32%),
+    #050505;
+}
+
+.brandexa-global-reviews-inner {
+  width: min(1320px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.brandexa-global-reviews p {
+  margin: 0 0 14px;
+  color: #b8ff2c;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.brandexa-global-reviews h2 {
+  max-width: 760px;
+  margin: 0 0 30px;
+  color: #ffffff;
+  font-size: clamp(34px, 4vw, 64px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.brandexa-elfsight-reviews-frame {
+  overflow: hidden;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  box-shadow: none;
+  color: #ffffff;
+  padding: 0;
+}
+
+.brandexa-elfsight-reviews-frame [class^="elfsight-app-"],
+.brandexa-elfsight-reviews-frame [class*=" elfsight-app-"] {
+  min-height: 260px;
+  color: #ffffff;
+}
+
+.brandexa-elfsight-reviews-frame [class^="elfsight-app-"] *,
+.brandexa-elfsight-reviews-frame [class*=" elfsight-app-"] * {
+  color: inherit;
+}
+
+.brandexa-elfsight-reviews-frame a[href*="elfsight"],
+.brandexa-elfsight-reviews-frame [class*="Badge"],
+.brandexa-elfsight-reviews-frame [class*="badge"],
+.brandexa-elfsight-reviews-frame [class*="Branding"],
+.brandexa-elfsight-reviews-frame [class*="branding"],
+.eapps-widget-toolbar,
+.eapps-widget-toolbar-panel,
+.eapps-widget-toolbar-panel-wrapper,
+.eapps-widget-toolbar-panel-share,
+.eapps-widget-toolbar-panel-only-you,
+.eapps-widget-toolbar-panel-logo,
+.eapps-widget-toolbar-panel-powered-by,
+.eapps-widget-toolbar-panel-link,
+a[href*="elfsight.com"][target="_blank"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+@media (max-width: 720px) {
+  .brandexa-global-reviews {
+    padding: 54px 0;
+  }
+
+  .brandexa-global-reviews-inner {
+    width: min(100% - 32px, 1320px);
+  }
+
+  .brandexa-global-reviews h2 {
+    margin-bottom: 22px;
+    font-size: 32px;
+  }
+
+  .brandexa-elfsight-reviews-frame {
+    border-radius: 18px;
+  }
+}
+
 @media (max-width: 767px) {
   .footer-work-together .work-together-btn {
     position: static !important;
