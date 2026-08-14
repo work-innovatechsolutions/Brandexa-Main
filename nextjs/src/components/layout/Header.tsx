@@ -10,6 +10,7 @@ export default function Header() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const pathname = usePathname();
+	if (pathname?.startsWith("/ads")) return null;
 	const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 	const isActivePath = (href: string) => href === "/" ? normalizedPath === "/" : normalizedPath === href || normalizedPath.startsWith(`${href}/`);
 	const isPagesActive = ["/blog", "/faqs", "/pricing", "/team", "/testimonials", "/image-gallery", "/video-gallery", "/projects", "/privacy-policy"].some(isActivePath);

@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -12,6 +14,8 @@ export default function Footer() {
       akjs.setAttribute("value", new Date().getTime().toString());
     }
   }, []);
+
+  if (pathname?.startsWith("/ads")) return null;
 
   if (!mounted) {
     return <div className="ekit-template-content-footer" style={{ minHeight: "150px" }} />;

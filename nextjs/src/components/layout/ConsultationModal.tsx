@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 type FormState = {
   name: string;
@@ -19,6 +20,7 @@ const initialFormState: FormState = {
 };
 
 export default function ConsultationModal() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [form, setForm] = useState<FormState>(initialFormState);
@@ -132,6 +134,8 @@ export default function ConsultationModal() {
       setMessage(error instanceof Error ? error.message : "Unable to book the consultation right now.");
     }
   };
+
+  if (pathname?.startsWith("/ads")) return null;
 
   if (!isOpen) {
     return null;

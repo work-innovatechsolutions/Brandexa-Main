@@ -7,6 +7,7 @@ export default function ClientInit() {
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname?.startsWith("/ads")) return;
     let frameId: number | undefined;
     let pointerX = 0;
     let pointerY = 0;
@@ -51,6 +52,7 @@ export default function ClientInit() {
   }, [pathname]);
 
   useEffect(() => {
+    if (pathname?.startsWith("/ads")) return;
     let attempts = 0;
     let didInitElementor = false;
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
