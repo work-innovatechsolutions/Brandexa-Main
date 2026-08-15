@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ArrowRight, Sparkles, CheckCircle2, Lock, Flame } from "lucide-react";
 import { trackEvent, EVENTS } from "@/lib/tracking";
 
@@ -11,9 +11,12 @@ export function ScarcitySlotsSection() {
   const [justClaimedSlot, setJustClaimedSlot] = useState<boolean>(false);
   const [hasAnimated, setHasAnimated] = useState<boolean>(false);
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
   // Trigger live countdown from 3 to 2 after entering view
   useEffect(() => {
-    if (hasAnimated) return;
+    if (!isInView || hasAnimated) return;
 
     const timer = setTimeout(() => {
       setJustClaimedSlot(true);
@@ -27,7 +30,7 @@ export function ScarcitySlotsSection() {
     }, 2600);
 
     return () => clearTimeout(timer);
-  }, [hasAnimated]);
+  }, [isInView, hasAnimated]);
 
   // Generate 8 total slots
   const slots = Array.from({ length: 8 }, (_, i) => {
@@ -44,6 +47,7 @@ export function ScarcitySlotsSection() {
 
   return (
     <section
+      ref={sectionRef}
       id="scarcity-slots"
       className="relative py-20 sm:py-28 overflow-hidden bg-slate-950 text-white border-t border-white/5"
     >
