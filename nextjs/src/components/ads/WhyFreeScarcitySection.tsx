@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { trackEvent, EVENTS } from "@/lib/tracking";
@@ -15,7 +16,9 @@ export function WhyFreeScarcitySection({
   const scrollToBooking = (e: React.MouseEvent) => {
     e.preventDefault();
     trackEvent(EVENTS.CTA_CLICK, { location: "scarcity" });
-    document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("open-booking"));
+    }
   };
 
   const headlineText = "WHY WOULD WE DO THIS FOR FREE?";
@@ -147,14 +150,14 @@ export function WhyFreeScarcitySection({
           transition={{ duration: 0.4, delay: 0.3 }}
           className="text-center"
         >
-          <a
-            href="#booking"
-            onClick={scrollToBooking}
+          <Link
+            href="/ads/account-setup"
+            onClick={() => trackEvent(EVENTS.CTA_CLICK, { location: "scarcity" })}
             className="group inline-flex items-center gap-3 px-10 py-5 text-base sm:text-lg font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-2xl shadow-2xl shadow-emerald-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
           >
             <span>CLAIM MY FREE AD MANAGEMENT NOW</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -38,7 +38,6 @@ export default function AdsLayout({
       <AdHeader />
       <main className="w-full">{children}</main>
       <AdFooter />
-      <StickyMobileCTA />
 
       {/* Meta Pixel placeholder — connect before production */}
       {/* <Script id="meta-pixel" strategy="afterInteractive">{`...`}</Script> */}

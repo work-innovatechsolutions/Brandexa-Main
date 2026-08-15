@@ -67,7 +67,7 @@ export function BookingSection() {
     return (
       <section
         id="booking"
-        className="relative py-24 sm:py-36 overflow-hidden bg-slate-950 text-white"
+        className="relative w-full text-white"
       >
         <div className="max-w-xl mx-auto px-5 sm:px-8 text-center">
           <div className="bg-slate-900/90 border border-emerald-500/30 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
@@ -126,7 +126,7 @@ export function BookingSection() {
   return (
     <section
       id="booking"
-      className="relative py-24 sm:py-36 overflow-hidden bg-slate-950 text-white"
+      className="relative w-full text-white"
     >
       {/* Background glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-emerald-500/10 rounded-full blur-[150px] pointer-events-none" />
