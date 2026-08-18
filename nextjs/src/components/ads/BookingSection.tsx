@@ -207,7 +207,7 @@ export function BookingSection() {
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-300 tracking-wider uppercase flex items-center gap-2">
                       <Phone className="w-4 h-4 text-emerald-400" />
-                      WhatsApp / Phone *
+                      WhatsApp Number *
                     </label>
                     <input
                       type="tel"
@@ -264,14 +264,17 @@ export function BookingSection() {
                   </div>
                 </div>
 
-                {/* Next button */}
+                {/* Next button with rich animations */}
                 <button
                   type="button"
                   onClick={goToStep2}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-4 text-base font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all shadow-xl shadow-emerald-500/20 active:scale-[0.98] cursor-pointer mt-4"
+                  className="group relative w-full overflow-hidden flex items-center justify-center gap-3 px-6 py-4 sm:py-5 text-base font-black text-slate-950 bg-gradient-to-r from-lime-400 via-[#84cc16] to-emerald-400 hover:from-lime-300 hover:to-emerald-300 rounded-2xl shadow-[0_0_30px_rgba(132,204,22,0.4)] hover:shadow-[0_0_50px_rgba(132,204,22,0.65)] transition-all duration-300 hover:scale-[1.015] active:scale-[0.98] cursor-pointer mt-4 uppercase tracking-wider"
                 >
-                  <span>PROCEED TO CALENDAR SELECTION</span>
-                  <ArrowRight className="w-5 h-5" />
+                  {/* Light Sheen Sweep Effect */}
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform ease-out pointer-events-none" />
+
+                  <span className="relative z-10">PROCEED TO CALENDAR SELECTION</span>
+                  <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-300 stroke-[2.5]" />
                 </button>
               </div>
             )}
@@ -379,16 +382,19 @@ export function BookingSection() {
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="px-6 py-4 text-sm font-bold text-slate-300 border border-slate-800 rounded-xl hover:border-slate-700 hover:text-white bg-slate-950 transition-colors"
+                    className="px-6 py-4 text-sm font-bold text-slate-300 border border-slate-800 rounded-2xl hover:border-slate-700 hover:text-white bg-slate-950 transition-colors cursor-pointer"
                   >
                     ← Back
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 flex items-center justify-center gap-2 px-6 py-4 text-base font-black text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all shadow-xl shadow-emerald-500/20 active:scale-[0.98] cursor-pointer"
+                    className="group relative overflow-hidden flex-1 flex items-center justify-center gap-3 px-6 py-4 sm:py-5 text-base font-black text-slate-950 bg-gradient-to-r from-lime-400 via-[#84cc16] to-emerald-400 hover:from-lime-300 hover:to-emerald-300 rounded-2xl shadow-[0_0_30px_rgba(132,204,22,0.4)] hover:shadow-[0_0_50px_rgba(132,204,22,0.65)] transition-all duration-300 hover:scale-[1.015] active:scale-[0.98] cursor-pointer uppercase tracking-wider"
                   >
-                    <span>CONFIRM DETAILS & BOOK MY MEETING</span>
-                    <ArrowRight className="w-5 h-5" />
+                    {/* Light Sheen Sweep Effect */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform ease-out pointer-events-none" />
+
+                    <span className="relative z-10">CONFIRM DETAILS & BOOK MY MEETING</span>
+                    <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1.5 transition-transform duration-300 stroke-[2.5]" />
                   </button>
                 </div>
 

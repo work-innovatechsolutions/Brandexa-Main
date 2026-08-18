@@ -7,41 +7,55 @@ import { ArrowRight, Sparkles, CheckCircle2, Lock, Flame } from "lucide-react";
 import { trackEvent, EVENTS } from "@/lib/tracking";
 
 export function ScarcitySlotsSection() {
-  const [availableCount, setAvailableCount] = useState<number>(3);
-  const [justClaimedSlot, setJustClaimedSlot] = useState<boolean>(false);
-  const [hasAnimated, setHasAnimated] = useState<boolean>(false);
+  const [availableCount, setAvailableCount] = useState<number>(6);
+  const [recentClaimedSlot, setRecentClaimedSlot] = useState<number | null>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  // Trigger live countdown from 3 to 2 after entering view
+  // Out of 12: 6 available initially -> 1 claimed after 10s (slot 6) -> 1 claimed after +20s (slot 5)
   useEffect(() => {
-    if (!isInView || hasAnimated) return;
+    if (!isInView) return;
 
-    const timer = setTimeout(() => {
-      setJustClaimedSlot(true);
+    // 1st claim after 10 seconds: Slot #06 is claimed
+    const timer1 = setTimeout(() => {
+      setRecentClaimedSlot(6);
       
-      const countTimer = setTimeout(() => {
-        setAvailableCount(2);
-        setHasAnimated(true);
-      }, 700);
+      const countTimer1 = setTimeout(() => {
+        setAvailableCount(5);
+      }, 500);
 
-      return () => clearTimeout(countTimer);
-    }, 2600);
+      // 2nd claim after another 20 seconds (30 seconds total from view): Slot #05 is claimed
+      const timer2 = setTimeout(() => {
+        setRecentClaimedSlot(5);
+        
+        const countTimer2 = setTimeout(() => {
+          setAvailableCount(4);
+        }, 500);
 
-    return () => clearTimeout(timer);
-  }, [isInView, hasAnimated]);
+        return () => clearTimeout(countTimer2);
+      }, 20000);
 
-  // Generate 8 total slots
-  const slots = Array.from({ length: 8 }, (_, i) => {
+      return () => {
+        clearTimeout(countTimer1);
+        clearTimeout(timer2);
+      };
+    }, 10000);
+
+    return () => clearTimeout(timer1);
+  }, [isInView]);
+
+  // Generate 12 total slots
+  const slots = Array.from({ length: 12 }, (_, i) => {
     const slotNumber = i + 1;
-    let isAvailable = slotNumber <= availableCount;
-    let isTransitioning = slotNumber === 3 && justClaimedSlot && availableCount === 3;
+    const isAvailable = slotNumber <= availableCount;
+    const isJustClaimed = slotNumber === recentClaimedSlot;
 
     return {
       num: String(slotNumber).padStart(2, "0"),
+      slotNumber,
       isAvailable,
-      isTransitioning,
+      isJustClaimed,
     };
   });
 
@@ -49,7 +63,7 @@ export function ScarcitySlotsSection() {
     <section
       ref={sectionRef}
       id="scarcity-slots"
-      className="relative py-20 sm:py-28 overflow-hidden bg-slate-950 text-white border-t border-white/5"
+      className="relative py-24 sm:py-36 overflow-hidden bg-transparent text-white border-t border-white/5"
     >
       {/* Ambient background light */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-emerald-500/10 blur-[150px] rounded-full pointer-events-none" />
@@ -70,12 +84,17 @@ export function ScarcitySlotsSection() {
                 exit={{ opacity: 0, y: 6 }}
                 transition={{ duration: 0.3 }}
               >
-                {availableCount === 3 ? (
-                  "HIGH DEMAND: 3 SPOTS REMAINING"
-                ) : (
+                {availableCount === 6 ? (
+                  "HIGH DEMAND: 6 SPOTS REMAINING"
+                ) : availableCount === 5 ? (
                   <span className="text-lime-400 font-extrabold flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-lime-400 animate-ping inline-block" />
-                    LIVE UPDATE: ONLY 2 SPOTS LEFT (1 JUST CLAIMED)
+                    LIVE UPDATE: ONLY 5 SPOTS LEFT (1 JUST CLAIMED)
+                  </span>
+                ) : (
+                  <span className="text-amber-400 font-extrabold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping inline-block" />
+                    LIVE UPDATE: ONLY 4 SPOTS LEFT (CRITICAL CAPACITY)
                   </span>
                 )}
               </motion.span>
@@ -83,7 +102,7 @@ export function ScarcitySlotsSection() {
           </div>
 
           <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white uppercase">
-            ONLY 8 BUSINESSES. <span className="text-slate-500">EVERY MONTH.</span>
+            ONLY 12 BUSINESSES. <span className="text-slate-500">EVERY MONTH.</span>
           </h3>
 
           <p className="text-xs sm:text-sm text-slate-400 mt-2 max-w-lg mx-auto font-medium">
@@ -91,11 +110,11 @@ export function ScarcitySlotsSection() {
           </p>
         </div>
 
-        {/* 8 Slot Indicators Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 sm:gap-3.5 max-w-6xl mx-auto mb-10 sm:mb-12">
+        {/* 12 Slot Indicators Grid (2 Rows of 6 on Desktop) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 max-w-5xl mx-auto mb-10 sm:mb-12">
           {slots.map((slot) => {
             const isAvailable = slot.isAvailable;
-            const isJustClaimed = slot.num === "03" && justClaimedSlot;
+            const isJustClaimed = slot.isJustClaimed;
 
             return (
               <motion.div
@@ -114,7 +133,7 @@ export function ScarcitySlotsSection() {
               >
                 {/* Just Claimed Live Alert Bubble */}
                 {isJustClaimed && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-black font-black text-[8px] font-mono px-2 py-0.5 rounded-full shadow-md whitespace-nowrap animate-bounce">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-black font-black text-[8px] font-mono px-2 py-0.5 rounded-full shadow-md whitespace-nowrap animate-bounce z-20">
                     JUST CLAIMED!
                   </div>
                 )}

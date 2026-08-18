@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { GrowthBlueprint } from "@/components/ads/blueprint/GrowthBlueprint";
 import { BlueprintCTA } from "@/components/ads/blueprint/BlueprintCTA";
-import { Sparkles, ArrowDown } from "lucide-react";
+import { Sparkles, ArrowDown, ArrowRight } from "lucide-react";
+import { trackEvent, EVENTS } from "@/lib/tracking";
 
 export default function AccountSetupBlueprintPage() {
   return (
@@ -49,6 +51,18 @@ export default function AccountSetupBlueprintPage() {
             <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-slate-400 animate-bounce">
               <ArrowDown className="w-4 h-4 text-emerald-400" />
             </div>
+          </div>
+
+          {/* CTA Action Button */}
+          <div className="mt-8 flex flex-col items-center">
+            <Link
+              href="/ads/account-setup/form"
+              onClick={() => trackEvent(EVENTS.CTA_CLICK, { location: "blueprint_hero_cta" })}
+              className="group inline-flex items-center justify-center gap-3 px-8 sm:px-12 py-4 sm:py-5 text-sm sm:text-base font-black text-slate-950 bg-gradient-to-r from-lime-400 via-[#84cc16] to-emerald-400 hover:from-lime-300 hover:to-emerald-300 rounded-2xl shadow-[0_0_35px_rgba(132,204,22,0.35)] hover:shadow-[0_0_50px_rgba(132,204,22,0.55)] hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer uppercase tracking-wider"
+            >
+              <span>NEXT STEP: PROCEED TO ACCOUNT SETUP</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform stroke-[2.5]" />
+            </Link>
           </div>
         </section>
 

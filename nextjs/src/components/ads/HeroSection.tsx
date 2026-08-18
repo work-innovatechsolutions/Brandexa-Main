@@ -259,13 +259,13 @@ export function HeroSection() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         leftColRef.current,
-        { opacity: 0, x: -35 },
-        { opacity: 1, x: 0, duration: 1, ease: "power3.out" }
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
       );
       gsap.fromTo(
         ".hud-tilt-target",
-        { opacity: 0, scale: 0.94, y: 25 },
-        { opacity: 1, scale: 1, y: 0, duration: 1.2, delay: 0.1, ease: "power3.out" }
+        { opacity: 0, scale: 0.94, y: 30 },
+        { opacity: 1, scale: 1, y: 0, duration: 1.2, delay: 0.15, ease: "power3.out" }
       );
     }, sectionRef);
 
@@ -295,22 +295,130 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative min-h-[92vh] lg:min-h-screen bg-[#02050A] text-white overflow-hidden pt-24 lg:pt-28 pb-10 flex flex-col justify-between selection:bg-lime-500/30 selection:text-lime-200"
     >
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div 
-          className="absolute top-0 right-0 w-[800px] h-[600px] opacity-15"
+      {/* ── Animated Aura Background ── */}
+      <style>{`
+        @keyframes aura-float-1 {
+          0%, 100% { transform: translate(0px, 0px) scale(1); }
+          33%       { transform: translate(-60px, 40px) scale(1.15); }
+          66%       { transform: translate(40px, -50px) scale(0.92); }
+        }
+        @keyframes aura-float-2 {
+          0%, 100% { transform: translate(0px, 0px) scale(1); }
+          40%       { transform: translate(70px, -30px) scale(1.2); }
+          75%       { transform: translate(-45px, 55px) scale(0.88); }
+        }
+        @keyframes aura-float-3 {
+          0%, 100% { transform: translate(0px, 0px) scale(1); }
+          50%       { transform: translate(-50px, -40px) scale(1.18); }
+          80%       { transform: translate(30px, 40px) scale(0.9); }
+        }
+        @keyframes aura-breathe {
+          0%, 100% { opacity: 0.55; transform: scale(1); }
+          50%       { opacity: 0.9; transform: scale(1.12); }
+        }
+        @keyframes aura-breathe-2 {
+          0%, 100% { opacity: 0.45; transform: scale(1); }
+          50%       { opacity: 0.8; transform: scale(1.1); }
+        }
+        @keyframes aura-breathe-3 {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50%       { opacity: 0.75; transform: scale(1.08); }
+        }
+        @keyframes aura-breathe-center {
+          0%, 100% { opacity: 0.35; transform: scale(1); }
+          50%       { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        /* ── Text entrance animations ── */
+        @keyframes hero-fade-up {
+          from { opacity: 0; transform: translateY(40px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes hero-fade-in {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes hero-slide-reveal {
+          from { opacity: 0; transform: translateY(60px) skewY(2deg); }
+          to   { opacity: 1; transform: translateY(0) skewY(0deg); }
+        }
+        @keyframes hero-scale-in {
+          from { opacity: 0; transform: scale(0.92) translateY(20px); }
+          to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .hero-anim {
+          opacity: 0;
+          animation-fill-mode: forwards;
+          animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+      `}</style>
+
+      <div className="absolute inset-0 pointer-events-none z-0">
+
+        {/* Dot grid */}
+        <div
+          className="absolute top-0 right-0 w-[800px] h-[600px] opacity-10 overflow-hidden"
           style={{
             backgroundImage: `radial-gradient(circle, rgba(56, 189, 248, 0.45) 1px, transparent 1.5px)`,
             backgroundSize: "28px 28px"
           }}
         />
 
-        <div className="absolute top-1/6 right-0 w-[650px] h-[650px] bg-sky-500/10 blur-[150px] rounded-full" />
-        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-emerald-500/5 blur-[130px] rounded-full" />
-        <div className="absolute top-1/3 left-0 w-[450px] h-[450px] bg-blue-900/10 blur-[130px] rounded-full" />
+        {/* ── Animated Aura Orbs ── */}
+
+        {/* Orb 1 — Lime/Green — upper-left (LARGE) */}
+        <div
+          className="absolute -top-20 -left-20 w-[900px] h-[900px] rounded-full"
+          style={{
+            background: "radial-gradient(circle at 40% 40%, rgba(132,204,22,0.75) 0%, rgba(16,185,129,0.45) 38%, transparent 65%)",
+            filter: "blur(55px)",
+            animation: "aura-breathe 10s ease-in-out infinite, aura-float-1 14s ease-in-out infinite",
+          }}
+        />
+
+        {/* Orb 2 — Sky Blue — upper-right (LARGE) */}
+        <div
+          className="absolute -top-20 -right-20 w-[850px] h-[850px] rounded-full"
+          style={{
+            background: "radial-gradient(circle at 60% 35%, rgba(56,189,248,0.7) 0%, rgba(59,130,246,0.38) 42%, transparent 65%)",
+            filter: "blur(60px)",
+            animation: "aura-breathe-2 13s ease-in-out infinite, aura-float-2 17s ease-in-out infinite",
+          }}
+        />
+
+        {/* Orb 3 — Emerald — bottom-center (LARGE) */}
+        <div
+          className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-full"
+          style={{
+            background: "radial-gradient(ellipse at 50% 85%, rgba(16,185,129,0.65) 0%, rgba(6,182,212,0.35) 45%, transparent 70%)",
+            filter: "blur(65px)",
+            animation: "aura-breathe-3 16s ease-in-out infinite, aura-float-3 19s ease-in-out infinite",
+          }}
+        />
+
+        {/* Center lime pulse — behind headline */}
+        <div
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[550px] rounded-full"
+          style={{
+            background: "radial-gradient(ellipse at 50% 50%, rgba(132,204,22,0.35) 0%, rgba(56,189,248,0.15) 50%, transparent 70%)",
+            filter: "blur(45px)",
+            animation: "aura-breathe-center 8s ease-in-out infinite",
+          }}
+        />
+
+        {/* Extra — Violet/Purple accent — mid-left */}
+        <div
+          className="absolute top-1/2 -left-10 w-[500px] h-[500px] rounded-full"
+          style={{
+            background: "radial-gradient(circle at 30% 50%, rgba(139,92,246,0.35) 0%, rgba(99,102,241,0.15) 50%, transparent 70%)",
+            filter: "blur(70px)",
+            animation: "aura-breathe-2 11s ease-in-out infinite 2s",
+          }}
+        />
 
         {/* Volumetric data waves */}
         <svg
-          className="absolute bottom-0 left-0 right-0 w-full h-[320px] opacity-80"
+          className="absolute bottom-0 left-0 right-0 w-full h-[320px] opacity-60"
           viewBox="0 0 1440 320"
           fill="none"
           preserveAspectRatio="none"
@@ -358,79 +466,107 @@ export function HeroSection() {
         </svg>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-8 w-full z-10 my-auto">
+
+      <div className="relative w-full px-4 sm:px-8 lg:px-16 z-10 my-auto flex flex-col items-center">
         
-
-        {/* Hero split layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+        {/* ROW 1: Large Heading, Subheadings, and CTAs (Full Width Centered) */}
+        <div ref={leftColRef} className="w-full max-w-7xl mx-auto text-center space-y-6 mb-12 sm:mb-16">
           
-          <div ref={leftColRef} className="lg:col-span-5 space-y-6">
-            
-            <div className="inline-flex items-center gap-2">
-              <span className="relative flex h-3 w-3 items-center justify-center">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500" />
-              </span>
-              <span className="text-xs sm:text-sm font-extrabold tracking-widest text-sky-400 uppercase font-mono">
-                ● PERFORMANCE MARKETING SYSTEM
-              </span>
-            </div>
-
-            <h1 className="text-[clamp(2.4rem,4.4vw,4.1rem)] font-black leading-[1.02] tracking-tight uppercase font-sans">
-              <span className="block text-white">GETTING HUNDREDS</span>
-              <span className="block text-white">OF LEADS, BUT</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-400 to-lime-300 drop-shadow-[0_0_20px_rgba(132,204,22,0.35)]">
-                ZERO QUALIFIED BUYERS?
-              </span>
-            </h1>
-
-            <p className="text-sm sm:text-base text-slate-350 leading-relaxed max-w-xl font-normal">
-              We fix your lead quality with scroll-stopping video creatives, and manage your Meta Ads for{" "}
-              <span className="text-lime-400 font-bold underline underline-offset-4 decoration-lime-500/50">
-                100% FREE
-              </span>.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1.5">
-              <Link
-                href="/ads/account-setup"
-                onClick={() => trackEvent(EVENTS.CTA_CLICK, { location: "hero_primary" })}
-                className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-4 text-xs sm:text-sm font-extrabold text-slate-950 bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-lime-300 hover:to-emerald-300 rounded-full shadow-[0_4px_20px_rgba(132,204,22,0.3)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 cursor-pointer"
-              >
-                <span>CLAIM YOUR FREE AD MANAGEMENT</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform stroke-[2.5]" />
-              </Link>
-
-              <a
-                href="#process"
-                onClick={scrollToProcess}
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 text-xs sm:text-sm font-bold text-slate-200 hover:text-white bg-slate-950/60 hover:bg-slate-900 border border-slate-700/60 rounded-full backdrop-blur-xl transition-all cursor-pointer shadow-md hover:shadow-[0_0_15px_rgba(56,189,248,0.15)]"
-              >
-                <div className="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center bg-slate-800/40 mr-1.5">
-                  <Play className="w-2.5 h-2.5 fill-white text-white ml-0.5" />
-                </div>
-                <span>SEE HOW IT WORKS</span>
-              </a>
-            </div>
-
-            <div className="flex items-center gap-3 pt-2">
-              <div className="w-10 h-10 rounded-2xl bg-sky-950/70 border border-sky-500/35 flex items-center justify-center text-sky-400 shadow-[0_0_12px_rgba(56,189,248,0.25)]">
-                <Users className="w-5 h-5 text-sky-400" />
-              </div>
-              <div className="text-xs font-semibold leading-snug">
-                <div className="text-slate-400 font-mono text-[10px]">
-                  ONLY 5 CLIENTS ACCEPTED EACH MONTH
-                </div>
-                <div className="text-white">
-                  <span className="text-lime-400 font-black">2 SPOTS</span> CURRENTLY AVAILABLE
-                </div>
-              </div>
-            </div>
-
+          {/* Eyebrow badge — animates in first */}
+          <div
+            className="hero-anim inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/25 backdrop-blur-md"
+            style={{ animation: "hero-fade-up 0.7s 0.1s forwards" }}
+          >
+            <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500" />
+            </span>
+            <span className="text-xs sm:text-sm font-extrabold tracking-widest text-sky-400 uppercase font-mono">
+              ● PERFORMANCE MARKETING SYSTEM
+            </span>
           </div>
 
-          <div className="lg:col-span-7 relative flex justify-center lg:justify-end">
-            <div ref={hudContainerRef} className="relative w-full max-w-[550px] lg:max-w-[54vw] z-10">
+          {/* Large Headline */}
+          <h1
+            style={{ fontSize: "clamp(2rem, 5.5vw, 7rem)", lineHeight: 1.08 }}
+            className="font-black tracking-tight uppercase font-sans overflow-hidden"
+          >
+            {/* Line 1 — slides up */}
+            <span
+              className="hero-anim block text-white"
+              style={{ animation: "hero-slide-reveal 0.85s 0.3s forwards" }}
+            >
+              GETTING HUNDREDS OF LEADS, BUT
+            </span>
+            {/* Line 2 — slides up with more delay */}
+            <span
+              className="hero-anim block text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-400 to-lime-300"
+              style={{ marginTop: "0.1em", animation: "hero-slide-reveal 0.85s 0.55s forwards" }}
+            >
+              ZERO QUALIFIED BUYERS?
+            </span>
+          </h1>
+
+          {/* Subheading — fades up after headline */}
+          <p
+            className="hero-anim text-lg sm:text-xl md:text-2xl text-slate-200 leading-relaxed max-w-4xl mx-auto font-medium"
+            style={{ animation: "hero-fade-up 0.8s 0.85s forwards" }}
+          >
+            We fix your lead quality with scroll-stopping video creatives, and manage your Meta Ads for{" "}
+            <span className="text-lime-400 font-black underline underline-offset-8 decoration-lime-500/60">
+              100% FREE
+            </span>.
+          </p>
+
+          {/* CTA Buttons — scale in */}
+          <div
+            className="hero-anim flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-1.5"
+            style={{ animation: "hero-scale-in 0.75s 1.1s forwards" }}
+          >
+            <Link
+              href="/ads/account-setup"
+              onClick={() => trackEvent(EVENTS.CTA_CLICK, { location: "hero_primary" })}
+              className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-4 text-xs sm:text-sm font-extrabold text-slate-950 bg-gradient-to-r from-lime-400 to-emerald-400 hover:from-lime-300 hover:to-emerald-300 rounded-full shadow-[0_4px_20px_rgba(132,204,22,0.3)] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 cursor-pointer"
+            >
+              <span>CLAIM YOUR FREE AD MANAGEMENT</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform stroke-[2.5]" />
+            </Link>
+
+            <a
+              href="#process"
+              onClick={scrollToProcess}
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 text-xs sm:text-sm font-bold text-slate-200 hover:text-white bg-slate-950/60 hover:bg-slate-900 border border-slate-700/60 rounded-full backdrop-blur-xl transition-all cursor-pointer shadow-md hover:shadow-[0_0_15px_rgba(56,189,248,0.15)]"
+            >
+              <div className="w-5 h-5 rounded-full border border-slate-500 flex items-center justify-center bg-slate-800/40 mr-1.5">
+                <Play className="w-2.5 h-2.5 fill-white text-white ml-0.5" />
+              </div>
+              <span>SEE HOW IT WORKS</span>
+            </a>
+          </div>
+
+          {/* Micro Capacity Badge — last to appear */}
+          <div
+            className="hero-anim flex items-center justify-center gap-3 pt-1"
+            style={{ animation: "hero-fade-in 0.7s 1.35s forwards" }}
+          >
+            <div className="w-9 h-9 rounded-xl bg-sky-950/70 border border-sky-500/35 flex items-center justify-center text-sky-400 shadow-[0_0_12px_rgba(56,189,248,0.25)]">
+              <Users className="w-4 h-4 text-sky-400" />
+            </div>
+            <div className="text-xs font-semibold leading-snug text-left">
+              <div className="text-slate-400 font-mono text-[10px]">
+                ONLY 12 CLIENTS ACCEPTED EACH MONTH
+              </div>
+              <div className="text-white">
+                <span className="text-lime-400 font-black">6 SPOTS</span> CURRENTLY AVAILABLE
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ROW 2: Hero Image Card / 3D Dashboard HUD */}
+        <div className="w-full max-w-4xl mx-auto relative flex justify-center pb-8">
+          <div ref={hudContainerRef} className="relative w-full max-w-[650px] lg:max-w-[720px] z-10">
               
               {/* Floating Top Meta Badge */}
               <div className="absolute -top-8 left-10 z-30 flex flex-col items-center">
@@ -620,8 +756,6 @@ export function HeroSection() {
 
             </div>
           </div>
-
-        </div>
 
         {/* Technical scroll indicator */}
         <div className="flex flex-col items-center justify-center pt-8 text-slate-550 text-center select-none">

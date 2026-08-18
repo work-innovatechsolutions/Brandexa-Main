@@ -57,7 +57,7 @@ export function ResultsSection() {
   return (
     <section
       id="results"
-      className="relative py-24 sm:py-36 overflow-hidden bg-slate-950 text-white"
+      className="relative py-20 sm:py-32 overflow-hidden bg-transparent text-white"
     >
       {/* Background ambient light */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-600/15 blur-[170px] rounded-full pointer-events-none" />

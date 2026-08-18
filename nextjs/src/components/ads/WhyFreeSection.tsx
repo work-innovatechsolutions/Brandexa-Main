@@ -10,7 +10,7 @@ export function WhyFreeSection() {
   return (
     <section
       id="why-free"
-      className="relative py-24 sm:py-36 overflow-hidden bg-slate-950 text-white border-t border-white/5"
+      className="relative py-24 sm:py-36 overflow-hidden bg-transparent text-white"
     >
       {/* Ambient background light */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-emerald-500/10 blur-[160px] rounded-full pointer-events-none" />

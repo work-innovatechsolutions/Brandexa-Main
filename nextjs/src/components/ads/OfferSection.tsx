@@ -43,7 +43,7 @@ export function OfferSection() {
   return (
     <section
       id="offer"
-      className="relative py-24 sm:py-36 overflow-hidden bg-slate-950 text-white"
+      className="relative py-20 sm:py-32 overflow-hidden bg-transparent text-white"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[380px] bg-blue-600/15 blur-[160px] rounded-full pointer-events-none" />

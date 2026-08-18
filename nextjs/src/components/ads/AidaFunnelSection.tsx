@@ -189,7 +189,7 @@ export function AidaFunnelSection() {
 
   return (
     <section 
-      className="relative py-24 sm:py-32 bg-[#02050A] text-white overflow-hidden border-b border-white/5"
+      className="relative py-24 sm:py-32 bg-transparent text-white overflow-hidden border-b border-white/5"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
