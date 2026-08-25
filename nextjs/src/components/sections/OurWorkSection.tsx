@@ -169,7 +169,7 @@ const workItems: WorkItem[] = [
     title: "Future Leaders",
     category: "Content",
     sectors: ["Education", "Content System"],
-    image: "/wp-content/uploads/2024/11/project-4-2.webp",
+    image: "/work-samples/future-leaders.webp",
     caseStudy: {
       background:
         "Future Leaders, an educational organization providing specialized academic programs and student counseling, needed a cohesive content system that could communicate their curriculum, student achievements, and alumni outcomes. Their primary goal was to build long-term trust with parent demographics while remaining relatable and inspiring to prospective students.",
@@ -202,7 +202,7 @@ const workItems: WorkItem[] = [
     title: "Bright Dental",
     category: "SEO",
     sectors: ["Healthcare", "Search Growth"],
-    image: "/wp-content/uploads/2024/11/project-5-2.webp",
+    image: "/work-samples/bright-dental.webp",
     caseStudy: {
       background:
         "Bright Dental wanted stronger local search visibility and clearer paths for prospective patients to discover their services and request appointments. Operating in a highly competitive suburban area, they faced stiff competition from larger dental networks and needed to stand out on local map packs and search engine result pages.",
@@ -235,7 +235,7 @@ const workItems: WorkItem[] = [
     title: "Urban Threads",
     category: "E-Commerce",
     sectors: ["Apparel / Fashion", "Storefront Design"],
-    image: "/wp-content/uploads/2024/11/project-2-2.webp",
+    image: "/work-samples/urban-threads.webp",
     caseStudy: {
       background:
         "Urban Threads needed a cleaner storefront experience for product discovery, collection browsing, and style-led campaign moments. As an independent fashion boutique competing with fast-fashion giants, they needed their online storefront to feel premium, visually cohesive, and extremely easy to navigate on mobile devices.",
