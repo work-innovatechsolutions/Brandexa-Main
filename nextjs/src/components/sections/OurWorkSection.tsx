@@ -268,7 +268,7 @@ const workItems: WorkItem[] = [
     title: "Clearon Bleach Tablets",
     category: "E-Commerce",
     sectors: ["Consumer Products", "Marketing"],
-    image: "/work-samples/clearon.png",
+    image: "/work-samples/clearon.webp",
     caseStudy: {
       background:
         "Clearon Bleach Tablets is a pioneering consumer product brand featured in over 700 Walmart stores nationwide. The brand offers an exclusive effervescent, fizzy formula for convenient deep cleaning. This multi-purpose product provides a wealth of cleaning solutions, from whitening and deodorizing laundry to removing tough mold and mildew stains indoors and outdoors. They came to LYFE Marketing to design an active digital marketing presence aimed at reaching their core target market of young adults and college students who value convenient, fast-acting household items.",
@@ -317,7 +317,7 @@ const workItems: WorkItem[] = [
     title: "Ray of Hope Christian Church",
     category: "Nonprofit",
     sectors: ["Religious & Nonprofit", "Community"],
-    image: "/work-samples/ray-of-hope.png",
+    image: "/work-samples/ray-of-hope.webp",
     caseStudy: {
       background:
         "Ray of Hope Christian Church is one of Georgia's premiere churches, affiliated with the Christian Church (Disciples of Christ) which represents hundreds of thousands of members in the U.S. and Canada. Eager to expand their reach, build their digital community, and welcome a new wave of local families, they came to LYFE Marketing to design a robust social media program proven to drive worship service attendance and digital streaming views.",
@@ -360,7 +360,7 @@ const workItems: WorkItem[] = [
     title: "Cafe Alibaba",
     category: "Restaurant",
     sectors: ["Food & Beverage", "Local Business"],
-    image: "/work-samples/cafe-alibaba.png",
+    image: "/work-samples/cafe-alibaba.webp",
     caseStudy: {
       background:
         "Café Alibaba landed onto Georgia State University’s campus in April, bringing their premium international food selection, Hookah lounge, and excellent drink pricing to the heart of Atlanta. To capture the student body before the fall semester began, they enlisted LYFE Marketing to create a massive buzz and establish Café Alibaba as the primary student hangout spot.",
@@ -401,7 +401,7 @@ const workItems: WorkItem[] = [
     title: "Mortgage Markets CUSO",
     category: "Finance",
     sectors: ["Financial Services", "Lead Generation"],
-    image: "/work-samples/mortgage-markets-cuso.png",
+    image: "/work-samples/mortgage-markets-cuso.webp",
     caseStudy: {
       background:
         "Mortgage Markets CUSO is a digital mortgage service provider that partners with credit unions and realtors to deliver high-touch, tech-enabled mortgage solutions. Their audience spans both B2C (first-time homebuyers) and B2B (credit union partners) markets, and their goal is to increase brand visibility, generate leads, and improve member engagement across social platforms. Having worked with 5 previous marketing agencies without seeing success, they needed a custom approach to content.",
@@ -460,7 +460,7 @@ const workItems: WorkItem[] = [
     title: "Arctic Collagen",
     category: "Wellness",
     sectors: ["Health & Wellness", "E-Commerce"],
-    image: "/work-samples/arctic-collagen.png",
+    image: "/work-samples/arctic-collagen.webp",
     caseStudy: {
       background:
         "ArcticCollagen™ is a premium wellness brand specializing in hydrolyzed marine collagen supplements sourced from the pristine Arctic waters of Northern Europe and hydrolyzed in Norway. The brand caters to health-conscious consumers, beauty enthusiasts, and athletes. With a commitment to science-backed formulas, sustainability, and high-quality ingredients, ArcticCollagen™ stands out in the marine collagen market.",
@@ -504,7 +504,7 @@ const workItems: WorkItem[] = [
     title: "Vital Vibe Health N Fitness",
     category: "Fitness",
     sectors: ["Health & Wellness", "Social Media"],
-    image: "/work-samples/vital-vibe-fitness.png",
+    image: "/work-samples/vital-vibe-fitness.webp",
     caseStudy: {
       background:
         "Vital Vibe Health N Fitness is a motivational fitness brand that promotes healthy living, workout routines, and a connection between physical and mental health. Founded by software engineer Elijah, the brand targets individuals seeking a balanced lifestyle. As a fast-growing startup, Vital Vibe was looking for a scalable marketing partner to grow their online presence.",
@@ -546,7 +546,7 @@ const workItems: WorkItem[] = [
     title: "Wrecked Angles",
     category: "Automotive",
     sectors: ["Entertainment", "Social Media"],
-    image: "/work-samples/wrecked-angles.png",
+    image: "/work-samples/wrecked-angles.webp",
     caseStudy: {
       background:
         "Wrecked Angles is a daily webcomic that delivers original humor on Facebook. Unlike other humor channels that recycle old memes and cartoons, Wrecked Angles provides fresh, original content for an audience aged 40+ who simply need a laugh.",
@@ -589,7 +589,7 @@ const workItems: WorkItem[] = [
     title: "Axiom Structures",
     category: "B2B",
     sectors: ["Construction", "Lead Generation"],
-    image: "/work-samples/axiom-structures.png",
+    image: "/work-samples/axiom-structures.webp",
     caseStudy: {
       background:
         "Axiom Structures is a Florida-based structural engineering firm offering high-quality engineering designs, inspections, and consulting services for residential and commercial construction projects. Their services include structural plans for renovations, window/door engineering, and metal canopy designs.",
@@ -631,7 +631,7 @@ const workItems: WorkItem[] = [
     title: "Daryl D Black",
     category: "Personal Brand",
     sectors: ["Coaching", "Content Strategy"],
-    image: "/work-samples/daryl-d-black.png",
+    image: "/work-samples/daryl-d-black.webp",
     caseStudy: {
       background:
         "Daryl D. Black is a leadership consultant and speaker helping organizations elevate communication, decision-making, and performance under pressure. With a growing presence in the executive coaching space, Daryl sought to generate more qualified leads and raise awareness of his services.",
@@ -673,7 +673,7 @@ const workItems: WorkItem[] = [
     title: "Spray Daze Tan",
     category: "Beauty",
     sectors: ["Beauty", "Local Business"],
-    image: "/work-samples/spray-daze.png",
+    image: "/work-samples/spray-daze.webp",
     caseStudy: {
       background:
         "Spray Daze Tan is a premium airbrush spray tanning salon based in San Diego, CA, catering to clients seeking a sunless, streak-free glow for special events, weddings, vacations, and everyday confidence. Despite a loyal customer base, they needed a data-driven strategy to scale booking volume.",
@@ -716,7 +716,7 @@ const workItems: WorkItem[] = [
     title: "Foodfixer Experience (Eat Plants)",
     category: "Food",
     sectors: ["Food & Beverage", "Campaign Strategy"],
-    image: "/work-samples/redline.png",
+    image: "/work-samples/redline.webp",
     caseStudy: {
       background:
         "Foodfixer Experience (Eat Plants) is a health coaching business offering group-based solutions for individuals, primarily men and women over 30, who are struggling with weight and health issues that aren't resolved through typical fad diets. They needed to turn their coaching offer into a profitable revenue program.",
@@ -760,7 +760,7 @@ const workItems: WorkItem[] = [
     title: "Power of Partnerships",
     category: "B2B",
     sectors: ["Partnerships", "Content Marketing"],
-    image: "/work-samples/power-of-partnerships.png",
+    image: "/work-samples/power-of-partnerships.webp",
     caseStudy: {
       background:
         "Power of Partnerships is a mission-driven travel brand that transforms everyday travel bookings into opportunities to support cancer research — at no extra cost to the traveler. Partnering with travel giants like Expedia, VRBO, and Hotels.com, they provide concierge booking services.",
@@ -803,7 +803,7 @@ const workItems: WorkItem[] = [
     title: "Soultuary Studios",
     category: "Wellness",
     sectors: ["Health & Wellness", "Branding"],
-    image: "/work-samples/soultuary.png",
+    image: "/work-samples/soultuary.webp",
     caseStudy: {
       background:
         "Soultuary Studios is a premium content creation rental space that also serves as a venue for small events, workshops, and wellness activities. Designed for photographers, videographers, and wellness professionals, the space offers a visually stunning environment with natural light.",
@@ -848,7 +848,7 @@ const workItems: WorkItem[] = [
     title: "VegaX Holdings",
     category: "B2B",
     sectors: ["Investment", "Digital Marketing"],
-    image: "/work-samples/vegax.png",
+    image: "/work-samples/vegax.webp",
     caseStudy: {
       background:
         "VegaX Holdings brings investors direct access to actionable indexes and index-driven crypto products that can improve investment portfolios. Investors lack easy ways to add crypto to their portfolios and find the market difficult to understand. VegaX makes access simple.",
@@ -890,7 +890,7 @@ const workItems: WorkItem[] = [
     title: "PoolTree System",
     category: "Home Services",
     sectors: ["Service Business", "Lead Generation"],
-    image: "/work-samples/pooltree.png",
+    image: "/work-samples/pooltree.webp",
     caseStudy: {
       background:
         "PoolTree System sells a patented wintertime maintenance system for above-ground pools. The owners have 65 years of pool experience across retail, construction, and maintenance, selling through Shopify and Amazon.",
@@ -931,7 +931,7 @@ const workItems: WorkItem[] = [
     title: "CENAPS",
     category: "Healthcare",
     sectors: ["Medical", "Digital Marketing"],
-    image: "/work-samples/cenaps.png",
+    image: "/work-samples/cenaps.webp",
     caseStudy: {
       background:
         "The CENAPS® Corporation (Center for Applied Sciences) was founded by Terence T. Gorski in 1982. CENAPS® is committed to providing clinical skills training, workbooks, and clinical tools for behavioral health and wellness, helping chemically addicted relapse-prone clients.",
@@ -973,7 +973,7 @@ const workItems: WorkItem[] = [
     title: "Jalia Walda",
     category: "Personal Brand",
     sectors: ["Beauty", "Content Strategy"],
-    image: "/work-samples/jalia-walda.png",
+    image: "/work-samples/jalia-walda.webp",
     caseStudy: {
       background:
         "Jalia Walda is a health and wellness e-commerce brand selling tummy teas, soaps, body creams, and feminine hygiene. She came to LYFE Marketing to increase exposure and scale sales.",
@@ -1016,7 +1016,7 @@ const workItems: WorkItem[] = [
     title: "Comfort One Shoes",
     category: "Retail",
     sectors: ["E-Commerce", "Apparel / Fashion"],
-    image: "/work-samples/comfort-one-shoes.png",
+    image: "/work-samples/comfort-one-shoes.webp",
     caseStudy: {
       background:
         "Comfort One Shoes offers a variety of premium shoe brands focusing on a 'Euro comfort fit.' Brands include On Running, Birkenstock, Dansko, Keen, and Oboz.",
@@ -1059,7 +1059,7 @@ const workItems: WorkItem[] = [
     title: "Vulcan Strength",
     category: "Fitness",
     sectors: ["Health & Wellness", "E-Commerce"],
-    image: "/work-samples/vulcan-strength.png",
+    image: "/work-samples/vulcan-strength.webp",
     caseStudy: {
       background:
         "Vulcan Strength is a primary supplier of Olympic weightlifting, CrossFit, home gym, and commercial fitness equipment. They are a 100% Veteran-owned company, manufacturing equipment abroad and in the USA.",
@@ -1101,7 +1101,7 @@ const workItems: WorkItem[] = [
     title: "Lady Ease Feminine Care",
     category: "Healthcare",
     sectors: ["Medical", "Consumer Products"],
-    image: "/work-samples/lady-ease.png",
+    image: "/work-samples/lady-ease.webp",
     caseStudy: {
       background:
         "Lady Ease is a feminine skincare brand specializing in natural vaginal moisturizing oils, creams, and serums. They partnered with LYFE Marketing to increase website traffic and build an email list.",
@@ -1142,7 +1142,7 @@ const workItems: WorkItem[] = [
     title: "Eat Below the Redline",
     category: "Food",
     sectors: ["Food & Beverage", "Content Marketing"],
-    image: "/work-samples/redline.png",
+    image: "/work-samples/redline.webp",
     caseStudy: {
       background:
         "Eat Plants and Thrive (Eat Below the Redline) helps individuals switch to a whole-food, plant-based diet to manage chronic health conditions. They came to LYFE to build a challenge funnel.",
@@ -1183,7 +1183,7 @@ const workItems: WorkItem[] = [
     title: "Clean Program",
     category: "Wellness",
     sectors: ["Health & Wellness", "E-Commerce"],
-    image: "/work-samples/clean-program.png",
+    image: "/work-samples/clean-program.webp",
     caseStudy: {
       background:
         "Clean Program sells premium cleanses and detox kits founded by Dr. Junger, a well-known wellness expert and author. They wanted to increase brand awareness and e-commerce revenue.",
@@ -1224,7 +1224,7 @@ const workItems: WorkItem[] = [
     title: "Short Videos",
     category: "Video",
     sectors: ["Short Video Marketing", "Content Creation"],
-    image: "/work-samples/short-videos.png",
+    image: "/work-samples/short-videos.webp",
     caseStudy: {
       background:
         "We have been experimenting with short form videos (TikTok, Reels, and YouTube Shorts) to build brand consumer trust, drive website traffic, and increase sales for small businesses.",
@@ -1268,7 +1268,7 @@ const workItems: WorkItem[] = [
     title: "My Lala Leggings",
     category: "Fashion",
     sectors: ["Apparel / Fashion", "E-Commerce"],
-    image: "/work-samples/my-lala-leggings.png",
+    image: "/work-samples/my-lala-leggings.webp",
     caseStudy: {
       background:
         "My LaLa Leggings is an affordable fashion brand offering stylish, quality leggings and shirts since 2014. They came to LYFE Marketing to improve their social media advertising efficiency.",
@@ -1308,7 +1308,7 @@ const workItems: WorkItem[] = [
     title: "Weston Boucher",
     category: "Social Ads",
     sectors: ["Social Media Ads", "Personal Brand"],
-    image: "/work-samples/weston-boucher.png",
+    image: "/work-samples/weston-boucher.webp",
     caseStudy: {
       background:
         "Weston Boucher is a premium men's clothing company founded by model Weston Boucher, specializing in comfortable and stylish clothing. They needed help increasing their brand presence and website traffic.",
@@ -1348,7 +1348,7 @@ const workItems: WorkItem[] = [
     title: "Ancient Keto",
     category: "Wellness",
     sectors: ["Health & Wellness", "Social Media Ads"],
-    image: "/work-samples/ancient-keto.png",
+    image: "/work-samples/ancient-keto.webp",
     caseStudy: {
       background:
         "Ancient Keto specializes in ketogenic products that help promote healthy weight loss. They came to LYFE to help them generate more qualified leads and raise brand awareness using a lead magnet.",
@@ -1388,7 +1388,7 @@ const workItems: WorkItem[] = [
     title: "Forever Diamonds",
     category: "Jewelry",
     sectors: ["Retail", "Luxury"],
-    image: "/work-samples/forever-diamonds.png",
+    image: "/work-samples/forever-diamonds.webp",
     caseStudy: {
       background:
         "Forever Diamonds is a premium jewelry store in Georgia's Lenox Mall, offering quality jewelry at affordable prices. They wanted to grow brand awareness and drive foot traffic inside the mall.",
@@ -1429,7 +1429,7 @@ const workItems: WorkItem[] = [
     title: "Advanced Windows and Siding",
     category: "Home Services",
     sectors: ["Service Business", "Lead Generation"],
-    image: "/work-samples/advanced-windows-and-siding.png",
+    image: "/work-samples/advanced-windows-and-siding.webp",
     caseStudy: {
       background:
         "Advanced Windows and Siding is an Illinois-based door and window replacement company offering services since 1976. They came to us to manage their social media platforms.",
@@ -1468,7 +1468,7 @@ const workItems: WorkItem[] = [
     title: "Egyptian Magic",
     category: "Social Media",
     sectors: ["Beauty", "Social Media Management"],
-    image: "/work-samples/egyptian-magic.png",
+    image: "/work-samples/egyptian-magic.webp",
     caseStudy: {
       background:
         "Egyptian Magic is a 100% natural, multi-purpose skin balm widely used as a celebrity skin moisturizer. They came to LYFE Marketing to manage their social media channels and drive follower growth.",
@@ -1509,7 +1509,7 @@ const workItems: WorkItem[] = [
     title: "Wingstop",
     category: "Restaurant",
     sectors: ["Food & Beverage", "Campaign Strategy"],
-    image: "/work-samples/wingstop.png",
+    image: "/work-samples/wingstop.webp",
     caseStudy: {
       background:
         "Wingstop is a popular chicken wing restaurant chain with locations across the globe. Wingstop came to LYFE Marketing to increase engagement on Instagram and Twitter to obtain new customers.",
@@ -1549,7 +1549,7 @@ const workItems: WorkItem[] = [
     title: "Domino's",
     category: "Restaurant",
     sectors: ["Food & Beverage", "Digital Marketing"],
-    image: "/work-samples/dominos.png",
+    image: "/work-samples/dominos.webp",
     caseStudy: {
       background:
         "Domino's came to LYFE Marketing with a goal to build more active Facebook fans and respond to every customer comment in a timely manner for 75 of their Washington franchise locations.",
@@ -1590,7 +1590,7 @@ const workItems: WorkItem[] = [
     title: "Mastermine Investments",
     category: "Finance",
     sectors: ["Financial Services", "Lead Generation"],
-    image: "/work-samples/mastermine-investments.png",
+    image: "/work-samples/mastermine-investments.webp",
     caseStudy: {
       background:
         "Mastermine Investments, LLC is a real estate coaching and mentoring firm providing financial freedom programs. They came to LYFE Marketing to increase lead acquisition.",
@@ -1630,7 +1630,7 @@ const workItems: WorkItem[] = [
     title: "Loan Cabin",
     category: "Finance",
     sectors: ["Financial Services", "Digital Marketing"],
-    image: "/work-samples/loan-cabin.png",
+    image: "/work-samples/loan-cabin.webp",
     caseStudy: {
       background:
         "Loan Cabin is a residential mortgage lending company based in Chicago offering competitive rates and low lender fees. They wanted to build their lead pipeline and social presence.",
@@ -1671,7 +1671,7 @@ const workItems: WorkItem[] = [
     title: "Celebrate Relaxed Hair",
     category: "Beauty",
     sectors: ["Beauty", "Content Marketing"],
-    image: "/work-samples/celebrate-relaxed-hair.png",
+    image: "/work-samples/celebrate-relaxed-hair.webp",
     caseStudy: {
       background:
         "Celebrate Relaxed Hair helps women maintain healthy relaxed hair routines. They came to LYFE Marketing to grow a dedicated community and drive website traffic.",
@@ -1873,11 +1873,7 @@ export default function OurWorkSection({
                 >
                   <div className="h-full w-full cursor-pointer">
                     <div className="relative aspect-[1.22/1] overflow-hidden bg-slate-800">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                      />
+                      <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                       <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 to-transparent" />
                     </div>
                     <div className="px-5 py-4">
