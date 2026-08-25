@@ -33,6 +33,7 @@ export function BookingSection() {
   const [selectedDate, setSelectedDate] = useState(12);
   const [selectedTime, setSelectedTime] = useState("02:30 PM");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
   const goToStep2 = () => {
@@ -53,13 +54,36 @@ export function BookingSection() {
     setStep(2);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError("");
+
+    try {
+      // Fire AiSensy WhatsApp notification
+      await fetch("/api/whatsapp-notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName,
+          phone,
+          email,
+          valuation,
+          date: `Aug ${selectedDate}, 2026`,
+          time: selectedTime,
+        }),
+      });
+    } catch (err) {
+      console.error("[WhatsApp notify] Failed:", err);
+    }
+
     trackEvent(EVENTS.FORM_SUBMITTED, {
       valuation,
       date: `Aug ${selectedDate}`,
       time: selectedTime,
     });
+
+    setIsLoading(false);
     setIsSubmitted(true);
   };
 

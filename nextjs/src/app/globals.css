@@ -378,7 +378,7 @@ a[data-consultation-trigger].elementor-button:focus {
   margin: 0 auto;
 }
 
-.brandexa-global-reviews p {
+.brandexa-global-reviews .brandexa-global-reviews-kicker {
   margin: 0 0 14px;
   color: #b8ff2c;
   font-size: 13px;
