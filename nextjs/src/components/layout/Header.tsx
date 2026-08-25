@@ -137,16 +137,19 @@ export default function Header() {
 										</li>
 											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-5056 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/about")}`} data-vertical-menu="750px" id="menu-item-5056"><Link className={`ekit-menu-nav-link${activeLinkClass("/about")}`} href="/about">About Us</Link></li>											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-our-work nav-item elementskit-mobile-builder-content${activeMenuItemClass("/our-work")}`} data-vertical-menu="750px" id="menu-item-our-work"><Link className={`ekit-menu-nav-link${activeLinkClass("/our-work")}`} href="/our-work">Our Work</Link></li>
 											<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5058 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content${activeMenuItemClass("/services")}${openMobileDropdown === "services" ? " is-open active" : ""}`} data-vertical-menu="750px" id="menu-item-5058">
-												<button
-													type="button"
-													aria-expanded={openMobileDropdown === "services"}
-													aria-label="Toggle Services menu"
-													className={`ekit-menu-nav-link ekit-menu-dropdown-toggle${activeLinkClass("/services")}${openMobileDropdown === "services" ? " active" : ""}`}
-													onClick={(e) => toggleDropdown("services", e)}
+												<Link
+													className={`ekit-menu-nav-link ekit-menu-dropdown-toggle${activeLinkClass("/services")}`}
+													href="/services"
+													onClick={(e) => {
+														if (typeof window !== "undefined" && window.innerWidth <= 1024) {
+															e.preventDefault();
+															toggleDropdown("services");
+														}
+													}}
 												>
-													<span>Services</span>
+													Services
 													<i aria-hidden="true" className={`icon icon-down-arrow1 elementskit-submenu-indicator${openMobileDropdown === "services" ? " is-open" : ""}`}></i>
-												</button>
+												</Link>
 												<ul className={`elementskit-dropdown elementskit-submenu-panel${openMobileDropdown === "services" ? " is-open" : ""}`}>
 													{serviceLinks.map((item) => (
 														<li key={item.href} className={`menu-item menu-item-type-post_type menu-item-object-page nav-item elementskit-mobile-builder-content${activeMenuItemClass(item.href)}`} data-vertical-menu="750px" id={item.id}>
@@ -156,16 +159,19 @@ export default function Header() {
 												</ul>
 											</li>
 											<li className={`menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5059 nav-item elementskit-dropdown-has relative_position elementskit-dropdown-menu-default_width elementskit-mobile-builder-content${isPagesActive ? " current-menu-ancestor active" : ""}${openMobileDropdown === "pages" ? " is-open active" : ""}`} data-vertical-menu="750px" id="menu-item-5059">
-												<button
-													type="button"
-													aria-expanded={openMobileDropdown === "pages"}
-													aria-label="Toggle Pages menu"
-													className={`ekit-menu-nav-link ekit-menu-dropdown-toggle${isPagesActive ? " active" : ""}${openMobileDropdown === "pages" ? " active" : ""}`}
-													onClick={(e) => toggleDropdown("pages", e)}
+												<a
+													className={`ekit-menu-nav-link ekit-menu-dropdown-toggle${isPagesActive ? " active" : ""}`}
+													href="#"
+													onClick={(e) => {
+														e.preventDefault();
+														if (typeof window !== "undefined" && window.innerWidth <= 1024) {
+															toggleDropdown("pages");
+														}
+													}}
 												>
-													<span>Pages</span>
+													Pages
 													<i aria-hidden="true" className={`icon icon-down-arrow1 elementskit-submenu-indicator${openMobileDropdown === "pages" ? " is-open" : ""}`}></i>
-												</button>
+												</a>
 												<ul className={`elementskit-dropdown elementskit-submenu-panel${openMobileDropdown === "pages" ? " is-open" : ""}`}>
 													<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-7232 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-7232"><Link className="dropdown-item" href="/blog/content-marketing-essentials">Blog</Link> </li>
 													<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-8107 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/faqs")}`} data-vertical-menu="750px" id="menu-item-8107"><Link className={`dropdown-item${activeLinkClass("/faqs")}`} href="/faqs">FAQS</Link> </li>

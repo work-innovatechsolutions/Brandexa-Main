@@ -1030,9 +1030,7 @@ a[href*="elfsight.com"][target="_blank"] {
   }
 
   .brandexa-site-header .elementskit-navbar-nav > li > a,
-  .brandexa-site-header .elementskit-navbar-nav > li > a.ekit-menu-nav-link,
-  .brandexa-site-header .elementskit-navbar-nav > li > button,
-  .brandexa-site-header .elementskit-navbar-nav > li > button.ekit-menu-nav-link {
+  .brandexa-site-header .elementskit-navbar-nav > li > a.ekit-menu-nav-link {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -1060,16 +1058,13 @@ a[href*="elfsight.com"][target="_blank"] {
 
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-item > a,
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-ancestor > a,
-  .brandexa-site-header .elementskit-navbar-nav > li > a.active,
-  .brandexa-site-header .elementskit-navbar-nav > li > button.active {
+  .brandexa-site-header .elementskit-navbar-nav > li > a.active {
     background: #b8ff2c !important;
     color: #050505 !important;
   }
 
   .brandexa-site-header .elementskit-navbar-nav > li > a:hover,
-  .brandexa-site-header .elementskit-navbar-nav > li > a:focus,
-  .brandexa-site-header .elementskit-navbar-nav > li > button:hover,
-  .brandexa-site-header .elementskit-navbar-nav > li > button:focus {
+  .brandexa-site-header .elementskit-navbar-nav > li > a:focus {
     background: rgba(184, 255, 44, 0.12) !important;
     color: #b8ff2c !important;
   }
@@ -1077,17 +1072,14 @@ a[href*="elfsight.com"][target="_blank"] {
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-item > a:hover,
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-ancestor > a:hover,
   .brandexa-site-header .elementskit-navbar-nav > li > a.active:hover,
-  .brandexa-site-header .elementskit-navbar-nav > li > button.active:hover,
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-item > a:focus,
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-ancestor > a:focus,
-  .brandexa-site-header .elementskit-navbar-nav > li > a.active:focus,
-  .brandexa-site-header .elementskit-navbar-nav > li > button.active:focus {
+  .brandexa-site-header .elementskit-navbar-nav > li > a.active:focus {
     background: #b8ff2c !important;
     color: #050505 !important;
   }
 
-  .brandexa-site-header .elementskit-navbar-nav > li > a .elementskit-submenu-indicator,
-  .brandexa-site-header .elementskit-navbar-nav > li > button .elementskit-submenu-indicator {
+  .brandexa-site-header .elementskit-navbar-nav > li > a .elementskit-submenu-indicator {
     margin-left: 6px !important;
     color: currentColor !important;
     fill: currentColor !important;
@@ -1096,25 +1088,6 @@ a[href*="elfsight.com"][target="_blank"] {
 
   .brandexa-site-header .elementskit-navbar-nav > li.mobile-menu {
     grid-column: auto !important;
-  }
-
-  .brandexa-site-header .elementskit-dropdown-wrapper {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    border-radius: 12px !important;
-  }
-
-  .brandexa-site-header .elementskit-dropdown-btn {
-    background: transparent !important;
-    border: none !important;
-    color: currentColor !important;
-    cursor: pointer !important;
-    padding: 8px 14px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
   }
 
   .brandexa-site-header .elementskit-submenu-indicator {
