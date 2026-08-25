@@ -460,14 +460,13 @@
   }
 
   .elementor-11570 .elementor-element-f66ef66 .brandexa-hero-cta__label {
-    min-height: 60px !important;
+    min-height: 56px !important;
     width: min(300px, calc(100vw - 64px)) !important;
-    padding: 0 18px !important;
-    background: rgba(255, 255, 255, 0.24) !important;
-    color: #ffffff !important;
+    padding: 0 20px !important;
+    background: var(--e-global-color-accent) !important;
+    color: var(--e-global-color-black) !important;
     font-size: 16px !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    font-weight: 700 !important;
   }
 
   .elementor-11570 .elementor-element-f66ef66 .brandexa-hero-cta__arrow {
@@ -479,3 +478,73 @@
   }
 
 }
+
+/* =========================================================
+   Hero Section Viewport Height & CTA Visibility Optimization
+   Ensures the CTA button is fully visible above the fold
+   ========================================================= */
+@media (min-width: 1025px) {
+  .elementor-11570 .elementor-element.elementor-element-464af3d {
+    --padding-top: 155px !important;
+    --padding-bottom: 35px !important;
+    min-height: 100vh !important;
+    justify-content: center !important;
+  }
+
+  .elementor-11570 .elementor-element-c07ab99 {
+    --row-gap: 36px !important;
+    --gap: 36px 36px !important;
+    --column-gap: 36px !important;
+  }
+
+  .elementor-11570 .elementor-element-3db5f57 .ekit-fancy-text,
+  .elementor-11570 .elementor-element-3db5f57 .ekit-fancy-text a {
+    font-size: clamp(74px, 7.2vw, 114px) !important;
+    line-height: 1.15 !important;
+    font-weight: 300 !important;
+  }
+
+  .elementor-11570 .elementor-element-a12fa04 {
+    margin-top: 0px !important;
+    --padding-left: 140px !important;
+  }
+
+  .elementor-11570 .elementor-element-f66ef66 {
+    margin-top: 12px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .elementor-11570 .elementor-element-f66ef66 .brandexa-hero-cta__label {
+    min-height: 62px !important;
+    padding: 0 32px !important;
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+  }
+
+  .elementor-11570 .elementor-element-f66ef66 .brandexa-hero-cta__arrow {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  .elementor-11570 .elementor-element-f66ef66 .brandexa-hero-cta__arrow svg {
+    width: 25px !important;
+    height: 25px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .elementor-11570 .elementor-element.elementor-element-464af3d {
+    --padding-top: 135px !important;
+    --padding-bottom: 30px !important;
+  }
+
+  .elementor-11570 .elementor-element-c07ab99 {
+    --row-gap: 28px !important;
+    --gap: 28px 28px !important;
+  }
+
+  .elementor-11570 .elementor-element-f66ef66 {
+    margin-top: 6px !important;
+  }
+}
+

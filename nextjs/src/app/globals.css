@@ -1030,7 +1030,9 @@ a[href*="elfsight.com"][target="_blank"] {
   }
 
   .brandexa-site-header .elementskit-navbar-nav > li > a,
-  .brandexa-site-header .elementskit-navbar-nav > li > a.ekit-menu-nav-link {
+  .brandexa-site-header .elementskit-navbar-nav > li > a.ekit-menu-nav-link,
+  .brandexa-site-header .elementskit-navbar-nav > li > button,
+  .brandexa-site-header .elementskit-navbar-nav > li > button.ekit-menu-nav-link {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -1040,11 +1042,16 @@ a[href*="elfsight.com"][target="_blank"] {
     padding: 12px 14px !important;
     border-radius: 14px !important;
     color: #ffffff !important;
+    font-family: inherit !important;
     font-size: 18px !important;
     font-weight: 600 !important;
     line-height: 1.25 !important;
     text-decoration: none !important;
+    text-align: left !important;
     white-space: nowrap !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
     transition:
       background-color 240ms ease,
       color 240ms ease,
@@ -1053,13 +1060,16 @@ a[href*="elfsight.com"][target="_blank"] {
 
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-item > a,
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-ancestor > a,
-  .brandexa-site-header .elementskit-navbar-nav > li > a.active {
+  .brandexa-site-header .elementskit-navbar-nav > li > a.active,
+  .brandexa-site-header .elementskit-navbar-nav > li > button.active {
     background: #b8ff2c !important;
     color: #050505 !important;
   }
 
   .brandexa-site-header .elementskit-navbar-nav > li > a:hover,
-  .brandexa-site-header .elementskit-navbar-nav > li > a:focus {
+  .brandexa-site-header .elementskit-navbar-nav > li > a:focus,
+  .brandexa-site-header .elementskit-navbar-nav > li > button:hover,
+  .brandexa-site-header .elementskit-navbar-nav > li > button:focus {
     background: rgba(184, 255, 44, 0.12) !important;
     color: #b8ff2c !important;
   }
@@ -1067,14 +1077,17 @@ a[href*="elfsight.com"][target="_blank"] {
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-item > a:hover,
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-ancestor > a:hover,
   .brandexa-site-header .elementskit-navbar-nav > li > a.active:hover,
+  .brandexa-site-header .elementskit-navbar-nav > li > button.active:hover,
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-item > a:focus,
   .brandexa-site-header .elementskit-navbar-nav > li.current-menu-ancestor > a:focus,
-  .brandexa-site-header .elementskit-navbar-nav > li > a.active:focus {
+  .brandexa-site-header .elementskit-navbar-nav > li > a.active:focus,
+  .brandexa-site-header .elementskit-navbar-nav > li > button.active:focus {
     background: #b8ff2c !important;
     color: #050505 !important;
   }
 
-  .brandexa-site-header .elementskit-navbar-nav > li > a .elementskit-submenu-indicator {
+  .brandexa-site-header .elementskit-navbar-nav > li > a .elementskit-submenu-indicator,
+  .brandexa-site-header .elementskit-navbar-nav > li > button .elementskit-submenu-indicator {
     margin-left: 6px !important;
     color: currentColor !important;
     fill: currentColor !important;
@@ -1085,23 +1098,63 @@ a[href*="elfsight.com"][target="_blank"] {
     grid-column: auto !important;
   }
 
+  .brandexa-site-header .elementskit-dropdown-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+  }
+
+  .brandexa-site-header .elementskit-dropdown-btn {
+    background: transparent !important;
+    border: none !important;
+    color: currentColor !important;
+    cursor: pointer !important;
+    padding: 8px 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .brandexa-site-header .elementskit-submenu-indicator {
+    transition: transform 0.25s ease !important;
+    display: inline-block !important;
+  }
+
+  .brandexa-site-header .elementskit-submenu-indicator.is-open,
+  .brandexa-site-header .elementskit-dropdown-has.is-open .elementskit-submenu-indicator {
+    transform: rotate(180deg) !important;
+  }
+
   .brandexa-site-header .elementskit-navbar-nav .elementskit-submenu-panel {
     position: static !important;
     inset: auto !important;
-    display: grid !important;
+    display: none !important;
     width: 100% !important;
     min-width: 0 !important;
-    max-height: 320px !important;
-    margin-top: 4px !important;
-    padding: 6px !important;
+    max-height: 0 !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
     background: rgba(255, 255, 255, 0.06) !important;
     border: 1px solid rgba(184, 255, 44, 0.14) !important;
     border-radius: 12px !important;
     box-shadow: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
+    overflow: hidden !important;
+  }
+
+  .brandexa-site-header .elementskit-navbar-nav .elementskit-submenu-panel.is-open {
+    display: grid !important;
+    max-height: 380px !important;
+    margin-top: 6px !important;
+    padding: 6px !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    transform: none !important;
     overflow-y: auto !important;
   }
 

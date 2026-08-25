@@ -43,12 +43,12 @@ type OurWorkSectionProps = {
 };
 
 const projectImages = [
-  "/wp-content/uploads/2024/11/project-1-2.webp",
-  "/wp-content/uploads/2024/11/project-3-2.webp",
-  "/wp-content/uploads/2024/11/project-6-2.webp",
-  "/wp-content/uploads/2024/11/project-4-2.webp",
-  "/wp-content/uploads/2024/11/project-5-2.webp",
-  "/wp-content/uploads/2024/11/project-2-2.webp",
+  "/work-samples/scoogie-events.webp",
+  "/work-samples/wallhogs.webp",
+  "/work-samples/mission-hills.webp",
+  "/work-samples/future-leaders.webp",
+  "/work-samples/bright-dental.webp",
+  "/work-samples/urban-threads.webp",
 ];
 
 const workItems: WorkItem[] = [
@@ -56,7 +56,7 @@ const workItems: WorkItem[] = [
     title: "Scoogie Events",
     category: "Branding",
     sectors: ["Local Business", "Service Business"],
-    image: "/wp-content/uploads/2024/11/project-1-2.webp",
+    image: "/work-samples/scoogie-events.webp",
     caseStudy: {
       background:
         "Scoogie Events needed a sharper identity system and a clearer digital presence for local event promotion, sponsor visibility, and recurring community campaigns. As a premier event organizer in their region, they faced growing competition from larger national event brands and needed their local grassroots community energy to shine through in every touchpoint. They wanted to attract a new generation of active runners while maintaining strong ties with their long-term local participants and regional business sponsors.",
@@ -90,7 +90,7 @@ const workItems: WorkItem[] = [
     title: "Wallhogs",
     category: "Website",
     sectors: ["E-Commerce", "Social Media Management"],
-    image: "/wp-content/uploads/2024/11/project-3-2.webp",
+    image: "/work-samples/wallhogs.webp",
     caseStudy: {
       background:
         "Wallhogs is a U.S.-based custom wall decor company offering personalized wall decals, murals, and art prints. With a diverse customer base ranging from homeowners to small business owners and interior decorators, Wallhogs wanted to boost their brand visibility and engagement across Facebook and Instagram to stay top-of-mind and drive more qualified traffic to their website. They needed an agency partner capable of translating their highly customizable product catalog into engaging, lifestyle-focused social content that builds buying intent.",
@@ -136,7 +136,7 @@ const workItems: WorkItem[] = [
     title: "Mission Hills",
     category: "Marketing",
     sectors: ["Sports & Leisure", "Campaign Strategy"],
-    image: "/wp-content/uploads/2024/11/project-6-2.webp",
+    image: "/work-samples/mission-hills.webp",
     caseStudy: {
       background:
         "Mission Hills, a premium golf and country club, needed comprehensive campaign support that could make seasonal membership offers, banquet facilities, and guest packages easier to discover online. To attract a younger demographic of players while retaining their long-term prestige, they needed to bridge traditional luxury marketing with modern digital target-audience funnels.",
