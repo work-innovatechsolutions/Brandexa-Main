@@ -2054,3 +2054,353 @@ body::-webkit-scrollbar {
     min-height: 88px;
   }
 }
+
+/* ==========================================================================
+   Brandexa Services Section & Cards Styling
+   ========================================================================== */
+
+.elementor-11570 .elementor-element-3edb675 {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 30px !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  margin-top: 20px !important;
+}
+
+.elementor-11570 .service-item,
+.elementor-11570 .elementor-element.elementor-element-3ee705f {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  width: calc(33.333% - 20px) !important;
+  min-height: 380px !important;
+  background: rgba(14, 18, 27, 0.85) !important;
+  background-image: url("/wp-content/uploads/2024/11/service-bg-5.svg") !important;
+  background-position: top left !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 28px !important;
+  padding: 38px 34px !important;
+  box-sizing: border-box !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.elementor-11570 .service-item:hover,
+.elementor-11570 .elementor-element.elementor-element-3ee705f:hover {
+  border-color: rgba(132, 204, 22, 0.45) !important;
+  background-color: rgba(18, 24, 38, 0.95) !important;
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.7), 0 0 30px -8px rgba(132, 204, 22, 0.15) !important;
+}
+
+/* Service Top Row */
+.elementor-11570 .service-top-row,
+.elementor-11570 .elementor-element.elementor-element-1e99c43 {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin-bottom: 36px !important;
+}
+
+/* Icon Widget */
+.elementor-11570 .service-item-icon .elementor-icon,
+.elementor-11570 .elementor-element.elementor-element-ef6a159 .elementor-icon {
+  display: flex !important;
+  align-items: center !important;
+  color: #84cc16 !important;
+  fill: #84cc16 !important;
+}
+
+.elementor-11570 .service-item-icon svg,
+.elementor-11570 .elementor-element.elementor-element-ef6a159 svg {
+  width: 52px !important;
+  height: 52px !important;
+  color: #84cc16 !important;
+  stroke: #84cc16 !important;
+  transition: transform 0.3s ease !important;
+}
+
+.elementor-11570 .service-item:hover .service-item-icon svg {
+  transform: scale(1.06) !important;
+}
+
+/* Arrow Button Widget */
+.elementor-11570 .service-item-btn .elementor-icon,
+.elementor-11570 .elementor-element.elementor-element-4308116 .elementor-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: #e2e8f0 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.elementor-11570 .service-item:hover .service-item-btn .elementor-icon,
+.elementor-11570 .service-item:hover .elementor-element.elementor-element-4308116 .elementor-icon {
+  background: #84cc16 !important;
+  color: #050507 !important;
+  border-color: #84cc16 !important;
+  transform: rotate(45deg) scale(1.08) !important;
+  box-shadow: 0 0 20px rgba(132, 204, 22, 0.4) !important;
+}
+
+.elementor-11570 .service-item-btn svg,
+.elementor-11570 .elementor-element.elementor-element-4308116 svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: currentColor !important;
+}
+
+/* Info Box / Typography */
+.elementor-11570 .service-bottom-row,
+.elementor-11570 .elementor-element.elementor-element-a1e75a1 {
+  width: 100% !important;
+}
+
+.elementor-11570 .service-item .elementskit-infobox {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.elementor-11570 .service-item .elementskit-info-box-title {
+  font-family: var(--e-global-typography-secondary-font-family), "Outfit", system-ui, sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  line-height: 1.3em !important;
+  color: #ffffff !important;
+  margin: 0 0 14px 0 !important;
+  transition: color 0.3s ease !important;
+}
+
+.elementor-11570 .service-item:hover .elementskit-info-box-title {
+  color: #84cc16 !important;
+}
+
+.elementor-11570 .service-item .elementskit-infobox .box-body > p {
+  font-family: var(--e-global-typography-text-font-family), system-ui, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.65em !important;
+  color: #94a3b8 !important;
+  margin: 0 !important;
+}
+
+/* Service Footer */
+.elementor-11570 .service-footer p {
+  font-size: 16px !important;
+  color: #94a3b8 !important;
+  text-align: center !important;
+}
+
+.elementor-11570 .service-footer a {
+  color: #84cc16 !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  margin-left: 6px !important;
+  transition: color 0.2s ease !important;
+}
+
+.elementor-11570 .service-footer a:hover {
+  color: #a3e635 !important;
+}
+
+/* Responsive Grid for Services */
+@media (max-width: 1024px) {
+  .elementor-11570 .service-item,
+  .elementor-11570 .elementor-element.elementor-element-3ee705f {
+    width: calc(50% - 15px) !important;
+    padding: 30px 26px !important;
+    min-height: 340px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .elementor-11570 .elementor-element-3edb675 {
+    gap: 20px !important;
+  }
+
+  .elementor-11570 .service-item,
+  .elementor-11570 .elementor-element.elementor-element-3ee705f {
+    width: 100% !important;
+    padding: 26px 22px !important;
+    min-height: auto !important;
+  }
+
+  .elementor-11570 .service-top-row,
+  .elementor-11570 .elementor-element.elementor-element-1e99c43 {
+    margin-bottom: 24px !important;
+  }
+
+  .elementor-11570 .service-item .elementskit-info-box-title {
+    font-size: 20px !important;
+  }
+}
+
+/* ==========================================================================
+   Brandexa Pill + Arrow Buttons Height & Alignment Fix
+   ========================================================================== */
+
+.elementor-11570 .elementor-element.elementor-element-26328bc .elementor-button,
+.elementor-11570 .elementor-element.elementor-element-ef1816f .elementor-button,
+.elementor-11570 .elementor-element-26328bc a.elementor-button,
+.elementor-11570 .elementor-element-ef1816f a.elementor-button,
+.elementor-11570 .elementor-widget-button .elementor-button {
+  min-height: 62px !important;
+  height: 62px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  overflow: visible !important;
+  text-decoration: none !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.elementor-11570 .elementor-element-26328bc .elementor-button::before,
+.elementor-11570 .elementor-element-26328bc .elementor-button::after,
+.elementor-11570 .elementor-element-26328bc .elementor-button-content-wrapper::before,
+.elementor-11570 .elementor-element-26328bc .elementor-button-content-wrapper::after,
+.elementor-11570 .elementor-element-ef1816f .elementor-button::before,
+.elementor-11570 .elementor-element-ef1816f .elementor-button::after,
+.elementor-11570 .elementor-element-ef1816f .elementor-button-content-wrapper::before,
+.elementor-11570 .elementor-element-ef1816f .elementor-button-content-wrapper::after,
+.elementor-11570 .elementor-widget-button .elementor-button::before,
+.elementor-11570 .elementor-widget-button .elementor-button::after,
+.elementor-11570 .elementor-widget-button .elementor-button-content-wrapper::before,
+.elementor-11570 .elementor-widget-button .elementor-button-content-wrapper::after {
+  display: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  content: none !important;
+  box-shadow: none !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-26328bc .elementor-button-content-wrapper,
+.elementor-11570 .elementor-element.elementor-element-ef1816f .elementor-button-content-wrapper,
+.elementor-11570 .elementor-element-26328bc .elementor-button-content-wrapper,
+.elementor-11570 .elementor-element-ef1816f .elementor-button-content-wrapper,
+.elementor-11570 .elementor-widget-button .elementor-button-content-wrapper {
+  min-height: 62px !important;
+  height: 62px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-direction: row-reverse !important;
+  gap: 0 !important;
+  overflow: visible !important;
+  pointer-events: none !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-26328bc .elementor-button-text,
+.elementor-11570 .elementor-element.elementor-element-ef1816f .elementor-button-text,
+.elementor-11570 .elementor-element-26328bc .elementor-button-text,
+.elementor-11570 .elementor-element-ef1816f .elementor-button-text,
+.elementor-11570 .elementor-widget-button .elementor-button-text {
+  min-height: 62px !important;
+  height: 62px !important;
+  padding: 0 32px 0 28px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #ffffff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: var(--e-global-typography-accent-font-family), "Outfit", system-ui, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+  transition: background-color 0.3s ease !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+}
+
+.elementor-11570 .elementor-element-26328bc .elementor-button:hover .elementor-button-text,
+.elementor-11570 .elementor-element-ef1816f .elementor-button:hover .elementor-button-text,
+.elementor-11570 .elementor-widget-button .elementor-button:hover .elementor-button-text {
+  background: rgba(255, 255, 255, 0.24) !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-26328bc .elementor-button-icon,
+.elementor-11570 .elementor-element.elementor-element-ef1816f .elementor-button-icon,
+.elementor-11570 .elementor-element-26328bc .elementor-button-icon,
+.elementor-11570 .elementor-element-ef1816f .elementor-button-icon,
+.elementor-11570 .elementor-widget-button .elementor-button-icon {
+  width: 62px !important;
+  height: 62px !important;
+  min-width: 62px !important;
+  min-height: 62px !important;
+  margin: 0 0 0 -1px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: #84cc16 !important;
+  color: #050507 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 62px !important;
+  position: relative !important;
+  z-index: 1 !important;
+  box-sizing: border-box !important;
+  transform: none !important;
+  transition: box-shadow 0.35s ease, background-color 0.35s ease !important;
+  pointer-events: none !important;
+}
+
+.elementor-11570 .elementor-element-26328bc .elementor-button:hover .elementor-button-icon,
+.elementor-11570 .elementor-element-ef1816f .elementor-button:hover .elementor-button-icon,
+.elementor-11570 .elementor-widget-button .elementor-button:hover .elementor-button-icon {
+  transform: none !important;
+  box-shadow: 0 0 25px rgba(132, 204, 22, 0.5) !important;
+}
+
+.elementor-11570 .elementor-element.elementor-element-26328bc .elementor-button-icon svg,
+.elementor-11570 .elementor-element.elementor-element-ef1816f .elementor-button-icon svg,
+.elementor-11570 .elementor-element-26328bc .elementor-button-icon svg,
+.elementor-11570 .elementor-element-ef1816f .elementor-button-icon svg,
+.elementor-11570 .elementor-widget-button .elementor-button-icon svg {
+  width: 24px !important;
+  height: 24px !important;
+  stroke: currentColor !important;
+  fill: currentColor !important;
+  transform-origin: center center !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform !important;
+}
+
+.elementor-11570 .elementor-element-26328bc .elementor-button:hover .elementor-button-icon svg,
+.elementor-11570 .elementor-element-ef1816f .elementor-button:hover .elementor-button-icon svg,
+.elementor-11570 .elementor-widget-button .elementor-button:hover .elementor-button-icon svg {
+  transform: rotate(45deg) !important;
+}
+
+

@@ -113,15 +113,18 @@ export default function Footer() {
 <div className="elementor-element elementor-element-71e3969 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="71e3969">
 <div className="elementor-element elementor-element-725e807 at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="725e807" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">Quick Link</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">Our Services</h2> </div>
 </div>
 <div className="elementor-element elementor-element-710bbab footer-links elementor-widget elementor-widget-ekit-vertical-menu" data-e-type="widget" data-element_type="widget" data-id="710bbab" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="ekit-vertical-menu.default">
 <div className="elementor-widget-container">
 <div className="ekit-wid-con"> <div className="ekit-vertical-main-menu-wraper badge-position-left">
-<div className="ekit-vertical-menu-container"><ul className="ekit-vertical-navbar-nav submenu-click-on-" id="menu-footer-menu"><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-11570 current_page_item menu-item-6028 nav-item elementskit-mobile-builder-content active" data-vertical-menu="750px" id="menu-item-6028"><a className="ekit-menu-nav-link active" href="./index.html">Home</a></li>
-<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6030 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-6030"><a className="ekit-menu-nav-link" href="./index.html?page_id=11568">About Us</a></li>
-<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6031 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-6031"><a className="ekit-menu-nav-link" href="./index.html?page_id=11571">Services</a></li>
-<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6029 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-6029"><a className="ekit-menu-nav-link" href="./index.html?page_id=11569">Blog</a></li>
+<div className="ekit-vertical-menu-container"><ul className="ekit-vertical-navbar-nav submenu-click-on-" id="menu-footer-services-menu"><li className="menu-item nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-fs-1"><a className="ekit-menu-nav-link" href="/services/social-media-management">Social Media Management</a></li>
+<li className="menu-item nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-fs-2"><a className="ekit-menu-nav-link" href="/services/short-form-video-editing">Short-Form Video Editing</a></li>
+<li className="menu-item nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-fs-3"><a className="ekit-menu-nav-link" href="/services/ai-ugc-content">AI UGC Content Creation</a></li>
+<li className="menu-item nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-fs-4"><a className="ekit-menu-nav-link" href="/services/paid-social-meta-ads">Paid Social / Meta Ads</a></li>
+<li className="menu-item nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-fs-5"><a className="ekit-menu-nav-link" href="/services/lead-generation">Lead Generation</a></li>
+<li className="menu-item nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-fs-6"><a className="ekit-menu-nav-link" href="/services/website-design-development">Website Design &amp; Development</a></li>
+<li className="menu-item nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-fs-7"><a className="ekit-menu-nav-link" href="/services/performance-marketing-analytics">Performance Marketing &amp; Analytics</a></li>
 </ul></div> </div>
 </div> </div>
 </div>

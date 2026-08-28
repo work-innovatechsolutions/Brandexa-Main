@@ -11,7 +11,7 @@ import GlobalReviews from "@/components/layout/GlobalReviews";
 
 export const metadata: Metadata = {
         title: "Brandexa",
-        description: "Innovative solutions for Social Marketing, Art & Design, Digital World",
+        description: "Full-service digital growth agency — Social Media Management, Short-Form Video Editing, AI UGC Content, Meta Ads, Lead Generation, Website Design & Performance Marketing.",
         icons: {
                 icon: [
                         { url: "/favicon.ico" },

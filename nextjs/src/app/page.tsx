@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-const HERO_WORDS = ["Social Marketing", "Art & Design", "Digital World"];
+const HERO_WORDS = ["Growth", "Leads", "Revenue"];
 const HERO_TITLE_HOLD_MS = 2500;
 const HERO_TITLE_REVEAL_MS = 600;
 const HERO_TITLE_REVEAL_PAUSE_MS = 1500;
@@ -73,7 +73,7 @@ export default function Home() {
 <div className="elementor-widget-container">
 <div className="ekit-wid-con"> <h1 className="ekit-fancy-text clip is-full-width brandexa-hero-title">
 <span className="ekit-fancy-prefix-text">
-				Innovative solutions for			</span>
+				We Turn Attention Into			</span>
 <span className={`ekit-fancy-text-lists brandexa-fancy-word-list${isHeroWordClipped ? " is-clipping" : ""}`} style={{ "--brandexa-word-width": `${HERO_WORDS[heroWordIndex].length + 1}ch` } as React.CSSProperties} aria-live="polite">
 {HERO_WORDS.map((word, index) => (
 <b className={`ekit-fancy-text elementor-repeater-item-${index}${index === heroWordIndex ? " is-visible" : " is-hidden"}`} key={word}>{word}</b>
@@ -107,7 +107,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-35f2f1e e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="35f2f1e">
 <div className="elementor-element elementor-element-fabc151 elementor-invisible elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="fabc151" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>At our Creative Digital Agency, we bring your ideas to life by crafting engaging, impactful digital experiences that captivate audiences and drive results. From innovative web design to compelling content and cutting-edge digital strategies.</p> </div>
+<p>We help ambitious brands grow online through scroll-stopping content, high-performing social media, conversion-focused websites, and data-driven advertising. From building your online presence to generating qualified leads, we create digital systems designed to move your business forward.</p> </div>
 </div>
 </div>
 </div>
@@ -135,65 +135,29 @@ export default function Home() {
 <div className="ekit-content-items">
 <div className="ticker ekitMarqueeSwiper ekit-marquee">
 <div className="marquee-wrapper">
-<div className="elementor-repeater-item-1b6f577 ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Custom Branding</a>
-</div>
-</div>
-<div className="elementor-repeater-item-0cc9e5b ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Website Design</a>
-</div>
-</div>
-<div className="elementor-repeater-item-65ae54a ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Digital Marketing</a>
-</div>
-</div>
-<div className="elementor-repeater-item-311850b ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Strategy Consulting</a>
-</div>
-</div>
-<div className="elementor-repeater-item-f7eac34 ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Analytics & Reporting</a>
-</div>
-</div>
-<div className="elementor-repeater-item-3b64483 ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Custom Branding</a>
-</div>
-</div>
-<div className="elementor-repeater-item-ac912d8 ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Website Design</a>
-</div>
-</div>
-<div className="elementor-repeater-item-9afc3e8 ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Digital Marketing</a>
-</div>
-</div>
-<div className="elementor-repeater-item-e84bd52 ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Strategy Consulting</a>
-</div>
-</div>
-<div className="elementor-repeater-item-c85c956 ekit-marquee-item ticker-item">
-<img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
-<div className="ekit-title-and-description">
-<a>Analytics & Reporting</a>
-</div>
+{[
+  "Social Media Management",
+  "Short-Form Video Editing",
+  "AI UGC Content",
+  "Meta Ads",
+  "Lead Generation",
+  "Website Development",
+  "Performance Marketing",
+  "Social Media Management",
+  "Short-Form Video Editing",
+  "AI UGC Content",
+  "Meta Ads",
+  "Lead Generation",
+  "Website Development",
+  "Performance Marketing",
+].map((item, i) => (
+  <div className="ekit-marquee-item ticker-item" key={i}>
+    <img alt="" className="attachment-full size-full wp-image-345" decoding="async" height="25" src="/wp-content/uploads/2024/11/asterisk-icon-2.svg" width="24" />
+    <div className="ekit-title-and-description">
+      <a>{item}</a>
+    </div>
+  </div>
+))}
 </div>
 </div>
 </div>
@@ -202,28 +166,26 @@ export default function Home() {
 </div> </div>
 </div>
 </div>
-</div>
 <div className="elementor-element elementor-element-b55c785 about-agency e-flex e-con-boxed e-con e-parent" data-e-type="container" data-element_type="container" data-id="b55c785">
 <div className="e-con-inner">
 <div className="elementor-element elementor-element-badd256 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="badd256">
 <div className="elementor-element elementor-element-7dd56ae e-con-full sticky-column e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="7dd56ae">
 <div className="elementor-element elementor-element-0c0e379 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="0c0e379" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">ABOUT AGENCY</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">ABOUT OUR SYSTEM</h2> </div>
 </div>
 <div className="elementor-element elementor-element-984c2fd at-heading-animation at-animation-heading-style-2 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="984c2fd" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">Crafting <span>unique digital</span> experiences that elevate your brand
-</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">We Don&apos;t Just Post. <span>We Engineer Profitable Growth Engines.</span></h2> </div>
 </div>
 <div className="elementor-element elementor-element-ef1816f elementor-invisible elementor-widget elementor-widget-button" data-e-type="widget" data-element_type="widget" data-id="ef1816f" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="button.default">
 <div className="elementor-widget-container">
 <div className="elementor-button-wrapper">
-<a className="elementor-button elementor-button-link elementor-size-sm" href="./contact-us/index.html">
+<a className="elementor-button elementor-button-link elementor-size-sm" href="/contact">
 <span className="elementor-button-content-wrapper">
 <span className="elementor-button-icon">
 <svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.8569 9.67962L8.24994 18.2866L6.83594 16.8726L15.4419 8.26562H7.85694V6.26562H18.8569V17.2656H16.8569V9.67962Z" fill="currentColor"></path></svg> </span>
-<span className="elementor-button-text">Contact Us</span>
+<span className="elementor-button-text">Join Our Partnership</span>
 </span>
 </a>
 </div>
@@ -241,11 +203,11 @@ export default function Home() {
 </div>
 <div className="elementor-icon-box-content">
 <h3 className="elementor-icon-box-title">
-<span>
-							Your Success, Our Mission						</span>
+<span>ROI-First Strategy</span>
 </h3>
 <p className="elementor-icon-box-description">
-						We measure our success by the success of our clients. With a focus on results and a dedication to quality, our mission is to deliver digital solutions that make a real impact.					</p>
+We ignore vanity metrics. Everything we execute—from creative assets to funnel architecture—is built exclusively to drive scalable leads and bottom-line revenue.
+</p>
 </div>
 </div>
 </div>
@@ -259,11 +221,11 @@ export default function Home() {
 </div>
 <div className="elementor-icon-box-content">
 <h3 className="elementor-icon-box-title">
-<span>
-							Creators Of Digital Excellence						</span>
+<span>Conversion-Driven Creative</span>
 </h3>
 <p className="elementor-icon-box-description">
-						At the core of our agency is a commitment to excellence and creativity. We specialize in crafting digital solutions that not only meet your needs but also elevate your brand.					</p>
+We craft content specifically engineered to capture attention in the feed, optimize click-through rates, and convert prospects into qualified leads.
+</p>
 </div>
 </div>
 </div>
@@ -277,11 +239,11 @@ export default function Home() {
 </div>
 <div className="elementor-icon-box-content">
 <h3 className="elementor-icon-box-title">
-<span>
-							innovating the digital landscape						</span>
+<span>Unified Marketing System</span>
 </h3>
 <p className="elementor-icon-box-description">
-						At the core of our agency is a commitment to excellence and creativity. We specialize in crafting digital solutions that not only meet your needs but also elevate your brand.					</p>
+We remove the friction of working with multiple vendors. We integrate your creative, media, and tech stack into one cohesive growth machine.
+</p>
 </div>
 </div>
 </div>
@@ -295,11 +257,11 @@ export default function Home() {
 </div>
 <div className="elementor-icon-box-content">
 <h3 className="elementor-icon-box-title">
-<span>
-							Helping Brands Thrive Online						</span>
+<span>Transparent Accountability</span>
 </h3>
 <p className="elementor-icon-box-description">
-						Our purpose is simple: to help brands succeed in the digital age. We're passionate about building strong relationships with our clients and crafting custom strategies that drive results.					</p>
+We build every campaign around clear, measurable outcomes. You will always know how your investment is performing and exactly where the growth is coming from.
+</p>
 </div>
 </div>
 </div>
@@ -317,13 +279,13 @@ export default function Home() {
 </div>
 <div className="elementor-element elementor-element-e421479 at-heading-animation at-animation-heading-style-2 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="e421479" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">Our <span> digital services </span> to grow your brand</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">The Full-Stack <span>Digital Growth System</span></h2> </div>
 </div>
 </div>
 <div className="elementor-element elementor-element-4135222 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="4135222">
 <div className="elementor-element elementor-element-70ca73a elementor-invisible elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="70ca73a" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>Join our creative community to collaborate, innovate, and thrive together We welcome passionate individuals eager to make.</p> </div>
+<p>We provide the specialized services your brand needs to scale, managed by one cohesive team focused on the same business targets.</p> </div>
 </div>
 <div className="elementor-element elementor-element-26328bc elementor-invisible elementor-widget elementor-widget-button" data-e-type="widget" data-element_type="widget" data-id="26328bc" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="button.default">
 <div className="elementor-widget-container">
@@ -332,7 +294,7 @@ export default function Home() {
 <span className="elementor-button-content-wrapper">
 <span className="elementor-button-icon">
 <svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.8569 9.67962L8.24994 18.2866L6.83594 16.8726L15.4419 8.26562H7.85694V6.26562H18.8569V17.2656H16.8569V9.67962Z" fill="currentColor"></path></svg> </span>
-<span className="elementor-button-text">All Services</span>
+<span className="elementor-button-text">Explore Our Growth Solutions</span>
 </span>
 </a>
 </div>
@@ -341,121 +303,98 @@ export default function Home() {
 </div>
 </div>
 <div className="elementor-element elementor-element-3edb675 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="3edb675">
-<div className="elementor-element elementor-element-3ee705f e-con-full service-item backdrop-filter e-flex elementor-invisible e-con e-child" data-e-type="container" data-element_type="container" data-id="3ee705f" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;}">
-<div className="elementor-element elementor-element-1e99c43 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="1e99c43">
-<div className="elementor-element elementor-element-ef6a159 service-item-icon elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="ef6a159" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
-<div className="elementor-widget-container">
-<div className="elementor-icon-wrapper">
-<div className="elementor-icon">
-<svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><path d="M45.5999 6.59998H14.3999C13.6806 6.61973 12.9761 6.80847 12.3432 7.15095C11.7104 7.49343 11.167 7.98003 10.7571 8.5714L2.95709 19.3714C2.3779 20.1899 2.08865 21.1783 2.13523 22.1799C2.18182 23.1815 2.56157 24.1388 3.21423 24.9L26.6142 51.8571C27.0148 52.3733 27.5282 52.7911 28.115 53.0784C28.7018 53.3658 29.3465 53.5152 29.9999 53.5152C30.6533 53.5152 31.2981 53.3658 31.8849 53.0784C32.4717 52.7911 32.9851 52.3733 33.3857 51.8571L56.7857 24.9C57.4383 24.1388 57.8181 23.1815 57.8646 22.1799C57.9112 21.1783 57.622 20.1899 57.0428 19.3714L49.2428 8.5714C48.8328 7.98003 48.2895 7.49343 47.6566 7.15095C47.0238 6.80847 46.3192 6.61973 45.5999 6.59998V6.59998Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M27.7714 6.55713L17.3142 22.7571L29.9999 53.4" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M32.3571 6.55713L42.7714 22.7571L30 53.4" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M2.22852 22.7571H57.7714" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg> </div>
-</div>
-</div>
-</div>
-<div className="elementor-element elementor-element-4308116 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="4308116" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
-<div className="elementor-widget-container">
-<div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="/services/branding-and-identity">
-<svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
-</div>
-</div>
-</div>
-</div>
-<div className="elementor-element elementor-element-a1e75a1 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="a1e75a1">
-<div className="elementor-element elementor-element-1235a9e ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box" data-e-type="widget" data-element_type="widget" data-id="1235a9e" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-icon-box.default">
-<div className="elementor-widget-container">
-<div className="ekit-wid-con"> {/* link opening */}
-<a className="ekit_global_links" href="#">
-{/* end link opening */}
-<div className="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-">
-<div className="box-body">
-<h3 className="elementskit-info-box-title">
-                    Branding And Identity                </h3>
-<p>Developing a compelling brand identity through strategy, visuals, and to build strong customer connections.</p>
-</div>
-</div>
-</a>
-</div> </div>
-</div>
-</div>
-</div>
-<div className="elementor-element elementor-element-4a5901f e-con-full service-item backdrop-filter e-flex elementor-invisible e-con e-child" data-e-type="container" data-element_type="container" data-id="4a5901f" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:100}">
-<div className="elementor-element elementor-element-80cdd1b e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="80cdd1b">
-<div className="elementor-element elementor-element-73bf7b7 service-item-icon elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="73bf7b7" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
-<div className="elementor-widget-container">
-<div className="elementor-icon-wrapper">
-<div className="elementor-icon">
-<svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><path d="M45 2.14288H15C7.89916 2.14288 2.14282 7.89922 2.14282 15V45C2.14282 52.1008 7.89916 57.8572 15 57.8572H45C52.1008 57.8572 57.8571 52.1008 57.8571 45V15C57.8571 7.89922 52.1008 2.14288 45 2.14288Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M10.7144 30.0858H19.2858L25.7144 19.3286L32.1429 42.9L40.7144 30.0858H49.2858" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg> </div>
-</div>
-</div>
-</div>
-<div className="elementor-element elementor-element-cbdafe7 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="cbdafe7" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
-<div className="elementor-widget-container">
-<div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="/services/digital-marketing">
-<svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
-</div>
-</div>
-</div>
-</div>
-<div className="elementor-element elementor-element-1b95654 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="1b95654">
-<div className="elementor-element elementor-element-53c6cb0 ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box" data-e-type="widget" data-element_type="widget" data-id="53c6cb0" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-icon-box.default">
-<div className="elementor-widget-container">
-<div className="ekit-wid-con"> {/* link opening */}
-<a className="ekit_global_links" href="#">
-{/* end link opening */}
-<div className="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-">
-<div className="box-body">
-<h3 className="elementskit-info-box-title">
-                    Digital Marketing                </h3>
-<p>Developing a compelling brand identity through strategy, visuals, and to build strong customer connections.</p>
-</div>
-</div>
-</a>
-</div> </div>
-</div>
-</div>
-</div>
-<div className="elementor-element elementor-element-5410483 e-con-full service-item backdrop-filter e-flex elementor-invisible e-con e-child" data-e-type="container" data-element_type="container" data-id="5410483" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:200}">
-<div className="elementor-element elementor-element-f47903e e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="f47903e">
-<div className="elementor-element elementor-element-0dbb0f5 service-item-icon elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="0dbb0f5" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
-<div className="elementor-widget-container">
-<div className="elementor-icon-wrapper">
-<div className="elementor-icon">
-<svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><path d="M19.2859 55.7143C28.7537 55.7143 36.4288 48.0392 36.4288 38.5714C36.4288 29.1037 28.7537 21.4286 19.2859 21.4286C9.81818 21.4286 2.14307 29.1037 2.14307 38.5714C2.14307 48.0392 9.81818 55.7143 19.2859 55.7143Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M40.7146 55.7143C50.1824 55.7143 57.8575 48.0392 57.8575 38.5714C57.8575 29.1037 50.1824 21.4286 40.7146 21.4286C31.2469 21.4286 23.5718 29.1037 23.5718 38.5714C23.5718 48.0392 31.2469 55.7143 40.7146 55.7143Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path><path d="M30.0003 38.5714C39.468 38.5714 47.1431 30.8963 47.1431 21.4286C47.1431 11.9608 39.468 4.28571 30.0003 4.28571C20.5325 4.28571 12.8574 11.9608 12.8574 21.4286C12.8574 30.8963 20.5325 38.5714 30.0003 38.5714Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"></path></svg> </div>
-</div>
-</div>
-</div>
-<div className="elementor-element elementor-element-232651b service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="232651b" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
-<div className="elementor-widget-container">
-<div className="elementor-icon-wrapper">
-<a className="elementor-icon" href="/services/creative-content-production">
-<svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
-</div>
-</div>
-</div>
-</div>
-<div className="elementor-element elementor-element-52a15cf e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="52a15cf">
-<div className="elementor-element elementor-element-7e91cc1 ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box" data-e-type="widget" data-element_type="widget" data-id="7e91cc1" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-icon-box.default">
-<div className="elementor-widget-container">
-<div className="ekit-wid-con"> {/* link opening */}
-<a className="ekit_global_links" href="#">
-{/* end link opening */}
-<div className="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-">
-<div className="box-body">
-<h3 className="elementskit-info-box-title">
-                    Creative Content Production                </h3>
-<p>Developing a compelling brand identity through strategy, visuals, and to build strong customer connections.</p>
-</div>
-</div>
-</a>
-</div> </div>
-</div>
-</div>
-</div>
+{[
+  {
+    id: "svc-smm",
+    href: "/services/social-media-management",
+    title: "Social Media Management",
+    desc: "We manage your daily presence, community interaction, and content programming to turn your social channels into active growth channels.",
+    icon: <svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="10" stroke="currentColor" strokeWidth="1.5"/><circle cx="10" cy="20" r="6" stroke="currentColor" strokeWidth="1.5"/><circle cx="50" cy="20" r="6" stroke="currentColor" strokeWidth="1.5"/><circle cx="10" cy="45" r="6" stroke="currentColor" strokeWidth="1.5"/><circle cx="50" cy="45" r="6" stroke="currentColor" strokeWidth="1.5"/><line stroke="currentColor" strokeWidth="1.5" x1="16" y1="23" x2="24" y2="27"/><line stroke="currentColor" strokeWidth="1.5" x1="36" y1="27" x2="44" y2="23"/><line stroke="currentColor" strokeWidth="1.5" x1="16" y1="42" x2="24" y2="35"/><line stroke="currentColor" strokeWidth="1.5" x1="36" y1="35" x2="44" y2="42"/></svg>,
+  },
+  {
+    id: "svc-video",
+    href: "/services/short-form-video-editing",
+    title: "High-Retention Video",
+    desc: "Editing designed for the modern attention span. We craft Reels, TikToks, and Shorts that drive views and lead to meaningful conversions.",
+    icon: <svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><rect height="38" rx="4" stroke="currentColor" strokeWidth="1.5" width="42" x="5" y="11"/><path d="M25 22l14 8-14 8V22z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/></svg>,
+  },
+  {
+    id: "svc-ugc",
+    href: "/services/ai-ugc-content",
+    title: "Strategic AI Content",
+    desc: "Scalable creative assets designed for ad performance. We blend human-led creative direction with modern AI tools to iterate and test creatives faster.",
+    icon: <svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><rect height="38" rx="4" stroke="currentColor" width="1.5" x="9" y="11"/><circle cx="30" cy="28" r="7" stroke="currentColor" strokeWidth="1.5"/><path d="M18 49c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
+  },
+  {
+    id: "svc-meta",
+    href: "/services/paid-social-meta-ads",
+    title: "Performance Meta Ads",
+    desc: "Precision media buying focused on ROI. We manage your full-funnel ad strategy to ensure every dollar spent drives qualified leads and sales.",
+    icon: <svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><path d="M10 42V30c0-11.046 8.954-20 20-20s20 8.954 20 20v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/><path d="M10 42c0 4.418 3.582 8 8 8h4V34h-4c-4.418 0-8 3.582-8 8z" stroke="currentColor" strokeWidth="1.5"/><path d="M50 42c0 4.418-3.582 8-8 8h-4V34h4c4.418 0 8 3.582 8 8z" stroke="currentColor" strokeWidth="1.5"/></svg>,
+  },
+  {
+    id: "svc-lead",
+    href: "/services/lead-generation",
+    title: "Lead Generation Systems",
+    desc: "We build entire lead-generation funnels, from landing pages and lead magnets to automated nurture sequences that your sales team can actually sell to.",
+    icon: <svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><path d="M30 8l5 14h14l-11 8 4 14-12-9-12 9 4-14L11 22h14l5-14z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/></svg>,
+  },
+  {
+    id: "svc-web",
+    href: "/services/website-design-development",
+    title: "Conversion-Focused Web",
+    desc: "Your website shouldn't just look good—it should be a primary sales driver. We build fast, responsive, and conversion-optimized sites.",
+    icon: <svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><rect height="42" rx="4" stroke="currentColor" strokeWidth="1.5" width="50" x="5" y="9"/><line stroke="currentColor" strokeWidth="1.5" x1="5" y1="21" x2="55" y2="21"/><circle cx="14" cy="15" r="2" fill="currentColor"/><circle cx="22" cy="15" r="2" fill="currentColor"/><circle cx="30" cy="15" r="2" fill="currentColor"/><path d="M18 33h24M18 40h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>,
+  },
+  {
+    id: "svc-perf",
+    href: "/services/performance-marketing-analytics",
+    title: "Marketing Analytics & Growth",
+    desc: "We track the metrics that actually move the needle, giving you full visibility into your customer acquisition cost and lifetime value.",
+    icon: <svg fill="none" height="60" viewBox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><path d="M8 48L20 32l10 8 10-16 12-12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><circle cx="52" cy="12" r="3" stroke="currentColor" strokeWidth="1.5"/></svg>,
+  },
+].map((svc, idx) => (
+  <div className="elementor-element elementor-element-3ee705f e-con-full service-item backdrop-filter e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id={svc.id} data-settings={`{"background_background":"classic","animation":"fadeInUp","animation_delay":${idx * 100}}`} key={svc.id}>
+    <div className="elementor-element elementor-element-1e99c43 service-top-row e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container">
+      <div className="elementor-element elementor-element-ef6a159 service-item-icon elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
+        <div className="elementor-widget-container">
+          <div className="elementor-icon-wrapper">
+            <div className="elementor-icon">{svc.icon}</div>
+          </div>
+        </div>
+      </div>
+      <div className="elementor-element elementor-element-4308116 service-item-btn elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
+        <div className="elementor-widget-container">
+          <div className="elementor-icon-wrapper">
+            <a className="elementor-icon" href={svc.href}>
+              <svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="elementor-element elementor-element-a1e75a1 service-bottom-row e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container">
+      <div className="elementor-element elementor-element-1235a9e ekit-equal-height-disable elementor-widget elementor-widget-elementskit-icon-box" data-e-type="widget" data-element_type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-icon-box.default">
+        <div className="elementor-widget-container">
+          <div className="ekit-wid-con">
+            <a className="ekit_global_links" href={svc.href}>
+              <div className="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-">
+                <div className="box-body">
+                  <h3 className="elementskit-info-box-title">{svc.title}</h3>
+                  <p>{svc.desc}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+))}
 <div className="elementor-element elementor-element-655574c e-con-full e-flex elementor-invisible e-con e-child" data-e-type="container" data-element_type="container" data-id="655574c" data-settings="{&quot;animation&quot;:&quot;fadeInUp&quot;,&quot;animation_delay&quot;:300}">
 <div className="elementor-element elementor-element-36b2cfd service-footer elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="36b2cfd" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>Let’s make something great work together. <a href="./contact-us/index.html">Get Free Quote</a></p> </div>
+<p>From attention to leads to growth — let&apos;s build your digital system. <a data-consultation-trigger="true" href="#book-consultation">Book a Free Consultation</a></p> </div>
 </div>
 </div>
 </div>
@@ -468,15 +407,15 @@ export default function Home() {
 <div className="elementor-element elementor-element-65386c3 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="65386c3">
 <div className="elementor-element elementor-element-5a7d2ec at-heading-animation at-animation-heading-style-2 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="5a7d2ec" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">Expertise that drives digital <span>success</span></h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">We Turn Data Into <span>Predictable Revenue</span></h2> </div>
 </div>
 <div className="elementor-element elementor-element-3bce9a0 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="3bce9a0">
 <div className="elementor-element elementor-element-2f0afe9 elementor-widget__width-initial success-counter-item elementor-widget elementor-widget-counter" data-e-type="widget" data-element_type="widget" data-id="2f0afe9" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="counter.default">
 <div className="elementor-widget-container">
 <div className="elementor-counter">
-<div className="elementor-counter-title">By optimizing your website for search engines.</div> <div className="elementor-counter-number-wrapper">
+<div className="elementor-counter-title">Conversion optimization lift on average for our partners.</div> <div className="elementor-counter-number-wrapper">
 <span className="elementor-counter-number-prefix">+</span>
-<span className="elementor-counter-number" data-delimiter="," data-duration="2000" data-from-value="0" data-to-value="60">0</span>
+<span className="elementor-counter-number" data-delimiter="," data-duration="2000" data-from-value="0" data-to-value="65">0</span>
 <span className="elementor-counter-number-suffix">%</span>
 </div>
 </div>
@@ -485,9 +424,9 @@ export default function Home() {
 <div className="elementor-element elementor-element-d7e5338 elementor-widget__width-initial success-counter-item elementor-widget elementor-widget-counter" data-e-type="widget" data-element_type="widget" data-id="d7e5338" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="counter.default">
 <div className="elementor-widget-container">
 <div className="elementor-counter">
-<div className="elementor-counter-title">Rise in revenue as more visitors convert into paying customers.</div> <div className="elementor-counter-number-wrapper">
-<span className="elementor-counter-number-prefix">+</span>
-<span className="elementor-counter-number" data-delimiter="," data-duration="2000" data-from-value="0" data-to-value="30">0</span>
+<div className="elementor-counter-title">Cost per lead reduction through targeted campaign testing.</div> <div className="elementor-counter-number-wrapper">
+<span className="elementor-counter-number-prefix">-</span>
+<span className="elementor-counter-number" data-delimiter="," data-duration="2000" data-from-value="0" data-to-value="40">0</span>
 <span className="elementor-counter-number-suffix">%</span>
 </div>
 </div>
@@ -502,12 +441,12 @@ export default function Home() {
 <li className="elementor-icon-list-item">
 <span className="elementor-icon-list-icon">
 <svg fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M14.638 9.86031L9.8713 7.99746L14.6794 6.13461C14.9281 6.05182 15.0939 5.76204 15.0525 5.51366C14.9696 4.9755 14.7209 4.47874 14.4307 4.02338C14.182 3.52662 13.8504 3.11265 13.436 2.74008C13.2287 2.5745 12.9386 2.5745 12.7313 2.74008L8.71072 5.96902L9.53971 0.877236C9.62261 0.58746 9.45681 0.33908 9.20811 0.256287C8.71072 0.0493038 8.13043 -0.0334888 7.59158 0.0079078C7.05274 -0.0334888 6.47245 0.0493038 5.97506 0.256287C5.72636 0.33908 5.56057 0.628857 5.64347 0.877236L6.47245 5.96902L2.45186 2.74008C2.24461 2.5331 1.95447 2.5331 1.74722 2.74008C1.33273 3.07126 1.00113 3.52662 0.752437 4.02338C0.420841 4.47874 0.213593 4.9755 0.0892453 5.51366C0.0477959 5.80344 0.213594 6.05182 0.46229 6.13461L5.18752 7.99746L0.379391 9.86031C0.130695 9.9431 -0.0351017 10.2329 0.00634774 10.4813C0.0892465 11.0194 0.296494 11.5162 0.628089 11.9715C0.876785 12.4683 1.20838 12.8823 1.62287 13.2548C1.83012 13.4204 2.12027 13.4204 2.32751 13.2548L6.3481 10.0259L5.51912 15.1177C5.43622 15.4075 5.60202 15.6558 5.85071 15.78C6.38955 15.9456 6.9284 16.0284 7.46724 15.987C8.00608 16.0284 8.58637 15.9456 9.08377 15.78C9.33246 15.6972 9.49826 15.4075 9.41536 15.1177L8.58637 10.0259L12.607 13.2548C12.8142 13.4204 13.1044 13.4204 13.3531 13.2548C13.7675 12.9237 14.0991 12.5097 14.3478 12.0129C14.6794 11.5576 14.8867 11.0608 15.011 10.5227C15.0525 10.1915 14.9281 9.9431 14.638 9.86031Z"></path></svg> </span>
-<span className="elementor-icon-list-text"><strong>Social Media Management:</strong> Our social media management services focus on building and enhancing your brand's online presence. We create engaging content, manage your social media accounts, and analyze performance.</span>
+<span className="elementor-icon-list-text"><strong>Full-Funnel Ownership:</strong> We don't stop at leads. We optimize the entire path from ad creative to closed revenue.</span>
 </li>
 <li className="elementor-icon-list-item">
 <span className="elementor-icon-list-icon">
 <svg fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M14.638 9.86031L9.8713 7.99746L14.6794 6.13461C14.9281 6.05182 15.0939 5.76204 15.0525 5.51366C14.9696 4.9755 14.7209 4.47874 14.4307 4.02338C14.182 3.52662 13.8504 3.11265 13.436 2.74008C13.2287 2.5745 12.9386 2.5745 12.7313 2.74008L8.71072 5.96902L9.53971 0.877236C9.62261 0.58746 9.45681 0.33908 9.20811 0.256287C8.71072 0.0493038 8.13043 -0.0334888 7.59158 0.0079078C7.05274 -0.0334888 6.47245 0.0493038 5.97506 0.256287C5.72636 0.33908 5.56057 0.628857 5.64347 0.877236L6.47245 5.96902L2.45186 2.74008C2.24461 2.5331 1.95447 2.5331 1.74722 2.74008C1.33273 3.07126 1.00113 3.52662 0.752437 4.02338C0.420841 4.47874 0.213593 4.9755 0.0892453 5.51366C0.0477959 5.80344 0.213594 6.05182 0.46229 6.13461L5.18752 7.99746L0.379391 9.86031C0.130695 9.9431 -0.0351017 10.2329 0.00634774 10.4813C0.0892465 11.0194 0.296494 11.5162 0.628089 11.9715C0.876785 12.4683 1.20838 12.8823 1.62287 13.2548C1.83012 13.4204 2.12027 13.4204 2.32751 13.2548L6.3481 10.0259L5.51912 15.1177C5.43622 15.4075 5.60202 15.6558 5.85071 15.78C6.38955 15.9456 6.9284 16.0284 7.46724 15.987C8.00608 16.0284 8.58637 15.9456 9.08377 15.78C9.33246 15.6972 9.49826 15.4075 9.41536 15.1177L8.58637 10.0259L12.607 13.2548C12.8142 13.4204 13.1044 13.4204 13.3531 13.2548C13.7675 12.9237 14.0991 12.5097 14.3478 12.0129C14.6794 11.5576 14.8867 11.0608 15.011 10.5227C15.0525 10.1915 14.9281 9.9431 14.638 9.86031Z"></path></svg> </span>
-<span className="elementor-icon-list-text"><strong>E-commerce Solutions:</strong> Our e-commerce solutions are designed to create seamless online shopping experiences. From user-friendly website design to secure payment processing and inventory management.</span>
+<span className="elementor-icon-list-text"><strong>Continuous Optimization:</strong> We treat every campaign as a test, constantly iterating based on real-world performance.</span>
 </li>
 </ul>
 </div>
@@ -523,17 +462,17 @@ export default function Home() {
 <div className="elementor-element elementor-element-f0ca804 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="f0ca804">
 <div className="elementor-element elementor-element-4ba303f section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="4ba303f" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">WHY CHOOSE</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">WHY CHOOSE US</h2> </div>
 </div>
 <div className="elementor-element elementor-element-e53cb4b at-heading-animation at-animation-heading-none elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="e53cb4b" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">Expertise for<span> your digital</span> growth journey</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">Your Growth <span>Engineering Partner</span></h2> </div>
 </div>
 </div>
 <div className="elementor-element elementor-element-19ff876 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="19ff876">
 <div className="elementor-element elementor-element-5ce3831 elementor-invisible elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="5ce3831" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>Our dedicated team is committed to understanding your unique needs, ensuring that we provide innovative strategies that drive results. With a focus on quality and integrity.</p> </div>
+<p>We provide the strategic framework for digital growth. By aligning your content strategy with performance-based advertising, we turn digital channels into repeatable systems for your business.</p> </div>
 </div>
 </div>
 </div>
@@ -545,11 +484,11 @@ export default function Home() {
 <div className="elementor-icon-box-wrapper">
 <div className="elementor-icon-box-content">
 <h3 className="elementor-icon-box-title">
-<span>
-							Data-Driven Approach						</span>
+<span>Data-Backed Optimization</span>
 </h3>
 <p className="elementor-icon-box-description">
-						We leverage data and insights to make informed decisions that lead to more effective and efficient solutions.					</p>
+We use real-time performance data to identify bottlenecks and scale winners, removing guesswork from your growth strategy.
+</p>
 </div>
 </div>
 </div>
@@ -561,11 +500,11 @@ export default function Home() {
 <div className="elementor-icon-box-wrapper">
 <div className="elementor-icon-box-content">
 <h3 className="elementor-icon-box-title">
-<span>
-							Competitive Pricing						</span>
+<span>High-Conversion Creative</span>
 </h3>
 <p className="elementor-icon-box-description">
-						We offer our top-quality services at competitive prices, providing you with great value for your investment.					</p>
+Our creative assets are specifically designed to meet your audience where they are, stop them mid-scroll, and guide them toward a conversion.
+</p>
 </div>
 </div>
 </div>
@@ -577,11 +516,11 @@ export default function Home() {
 <div className="elementor-icon-box-wrapper">
 <div className="elementor-icon-box-content">
 <h3 className="elementor-icon-box-title">
-<span>
-							Ethical Business Practices						</span>
+<span>Tailored Growth Systems</span>
 </h3>
 <p className="elementor-icon-box-description">
-						We maintain the highest level of professionalism and ethical standards professionalism in all our business dealings.					</p>
+We do not use cookie-cutter plans. We build custom-tailored digital ecosystems designed for your specific business model and revenue goals.
+</p>
 </div>
 </div>
 </div>
@@ -601,16 +540,16 @@ export default function Home() {
 <div className="brandexa-social-inner">
 <div className="brandexa-social-top">
 <div className="brandexa-social-heading">
-<p className="brandexa-section-kicker" id="brandexa-social-title">JOIN AGENCY</p>
-<h2>Join our <span>agency</span> of creative innovators</h2>
+<p className="brandexa-section-kicker" id="brandexa-social-title">JOIN OUR NETWORK</p>
+<h2>Join our community of <span>growth innovators</span></h2>
 </div>
-<p className="brandexa-social-copy">Join our creative community to collaborate, innovate, and thrive together. We welcome passionate individuals eager to make.</p>
+<p className="brandexa-social-copy">Stay connected for daily insights on digital growth, performance marketing, and creative strategy.</p>
 </div>
 <div className="brandexa-social-grid">
 {[
   {
     name: "LinkedIn",
-    title: "Join Us On LinkedIn",
+    title: "Connect On LinkedIn",
     handle: "@brandexagrowth",
     href: "https://www.linkedin.com/company/brandexagrowth/?viewAsMember=true",
     icon: (
@@ -619,7 +558,7 @@ export default function Home() {
   },
   {
     name: "Facebook",
-    title: "Follow On Facebook",
+    title: "Join Us On Facebook",
     handle: "@brandexagrowth",
     href: "https://www.facebook.com/brandexagrowth/",
     icon: (
@@ -628,7 +567,7 @@ export default function Home() {
   },
   {
     name: "YouTube",
-    title: "Follow On YouTube",
+    title: "Watch On YouTube",
     handle: "@brandexagrowth",
     href: "https://www.youtube.com/@brandexagrowth",
     icon: (
@@ -665,17 +604,17 @@ export default function Home() {
 <div className="elementor-element elementor-element-124e896 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="124e896">
 <div className="elementor-element elementor-element-c75d147 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="c75d147" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">HOW IT WORK</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">OUR PROCESS</h2> </div>
 </div>
 <div className="elementor-element elementor-element-97b0b68 at-heading-animation at-animation-heading-style-2 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="97b0b68" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">Our proven <span>process</span> for achieving success</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">Growth Engineered For <span>Scalable Results.</span></h2> </div>
 </div>
 </div>
 <div className="elementor-element elementor-element-8cd393b e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="8cd393b">
 <div className="elementor-element elementor-element-99ece90 elementor-invisible elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="99ece90" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>Our proven process combines research, strategy, and creativity to deliver tailored solutions that drive measurable results.</p> </div>
+<p>We work in three phases to ensure your growth is sustainable, measurable, and repeatable.</p> </div>
 </div>
 </div>
 </div>
@@ -687,9 +626,8 @@ export default function Home() {
 {/* end link opening */}
 <div className="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-">
 <div className="box-body">
-<h3 className="elementskit-info-box-title">
-                    Discovery Phase                </h3>
-<p>Initial consultation to understand your brand, goals, and target audience Conducting research and analysis of market trends.</p>
+<h3 className="elementskit-info-box-title">Research & Strategy</h3>
+<p>We identify your most profitable customer segments and build a comprehensive growth strategy tailored to your business goals.</p>
 <div className="box-footer disable_hover_button">
 <div className="btn-wraper">
 <a className="elementskit-btn whitespace--normal" href="./contact-us/index.html">
@@ -703,7 +641,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-ed5ab78 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="ed5ab78">
 <div className="elementor-element elementor-element-e44789c elementor-widget__width-initial elementor-widget elementor-widget-image-box" data-e-type="widget" data-element_type="widget" data-id="e44789c" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="image-box.default">
 <div className="elementor-widget-container">
-<div className="elementor-image-box-wrapper"><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">STEP</h3><p className="elementor-image-box-description">01</p></div></div> </div>
+<div className="elementor-image-box-wrapper"><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">PHASE</h3><p className="elementor-image-box-description">01</p></div></div> </div>
 </div>
 <div className="elementor-element elementor-element-b5b3656 elementor-widget__width-initial elementor-absolute work-process-icon-box elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="b5b3656" data-settings="{&quot;_position&quot;:&quot;absolute&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
@@ -722,9 +660,8 @@ export default function Home() {
 {/* end link opening */}
 <div className="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-">
 <div className="box-body">
-<h3 className="elementskit-info-box-title">
-                    Implementation                </h3>
-<p>Initial consultation to understand your brand, goals, and target audience Conducting research and analysis of market trends.</p>
+<h3 className="elementskit-info-box-title">Execution & Launch</h3>
+<p>We deploy high-converting campaigns across social, search, and your own website, ensuring that every asset is designed for performance.</p>
 <div className="box-footer disable_hover_button">
 <div className="btn-wraper">
 <a className="elementskit-btn whitespace--normal" href="./contact-us/index.html">
@@ -738,7 +675,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-52b4e44 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="52b4e44">
 <div className="elementor-element elementor-element-fb7db19 elementor-widget__width-initial elementor-widget elementor-widget-image-box" data-e-type="widget" data-element_type="widget" data-id="fb7db19" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="image-box.default">
 <div className="elementor-widget-container">
-<div className="elementor-image-box-wrapper"><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">STEP</h3><p className="elementor-image-box-description">02</p></div></div> </div>
+<div className="elementor-image-box-wrapper"><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">PHASE</h3><p className="elementor-image-box-description">02</p></div></div> </div>
 </div>
 <div className="elementor-element elementor-element-5fc0d5e elementor-widget__width-initial elementor-absolute work-process-icon-box elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="5fc0d5e" data-settings="{&quot;_position&quot;:&quot;absolute&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
@@ -757,9 +694,8 @@ export default function Home() {
 {/* end link opening */}
 <div className="elementskit-infobox text-left text- icon-lef-right-aligin elementor-animation-">
 <div className="box-body">
-<h3 className="elementskit-info-box-title">
-                    Collaboration                </h3>
-<p>Initial consultation to understand your brand, goals, and target audience Conducting research and analysis of market trends.</p>
+<h3 className="elementskit-info-box-title">Analyze & Scale</h3>
+<p>We monitor performance, identify growth opportunities, and optimize every element to ensure your returns only move in one direction.</p>
 <div className="box-footer disable_hover_button">
 <div className="btn-wraper">
 <a className="elementskit-btn whitespace--normal" href="./contact-us/index.html">
@@ -773,7 +709,7 @@ export default function Home() {
 <div className="elementor-element elementor-element-f5a7997 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="f5a7997">
 <div className="elementor-element elementor-element-a924d2e elementor-widget__width-initial elementor-widget elementor-widget-image-box" data-e-type="widget" data-element_type="widget" data-id="a924d2e" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="image-box.default">
 <div className="elementor-widget-container">
-<div className="elementor-image-box-wrapper"><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">STEP</h3><p className="elementor-image-box-description">03</p></div></div> </div>
+<div className="elementor-image-box-wrapper"><div className="elementor-image-box-content"><h3 className="elementor-image-box-title">PHASE</h3><p className="elementor-image-box-description">03</p></div></div> </div>
 </div>
 <div className="elementor-element elementor-element-6537b47 elementor-widget__width-initial elementor-absolute work-process-icon-box elementor-view-default elementor-widget elementor-widget-icon" data-e-type="widget" data-element_type="widget" data-id="6537b47" data-settings="{&quot;_position&quot;:&quot;absolute&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="icon.default">
 <div className="elementor-widget-container">
@@ -794,17 +730,17 @@ export default function Home() {
 <div className="elementor-element elementor-element-382fa9a e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="382fa9a">
 <div className="elementor-element elementor-element-6902461 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="6902461" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">HOW IT WORK</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">CASE STUDIES</h2> </div>
 </div>
 <div className="elementor-element elementor-element-00a04ea at-heading-animation at-animation-heading-style-2 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="00a04ea" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">Our proven <span>process</span> for achieving success</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">Strategy Into <span>Measurable Growth</span></h2> </div>
 </div>
 </div>
 <div className="elementor-element elementor-element-131fb6f e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="131fb6f">
 <div className="elementor-element elementor-element-95e8a70 elementor-invisible elementor-widget elementor-widget-text-editor" data-e-type="widget" data-element_type="widget" data-id="95e8a70" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:100,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="text-editor.default">
 <div className="elementor-widget-container">
-<p>Our proven process combines research, strategy, and creativity to deliver tailored solutions that drive measurable results.</p> </div>
+<p>See how our systems have helped brands scale their acquisition and revenue.</p> </div>
 </div>
 </div>
 </div>
@@ -813,11 +749,11 @@ export default function Home() {
 <div className="elementor-widget-container">
 <div className="awaiken-portfolio-widget" data-config="{&quot;rtl&quot;:false,&quot;id&quot;:&quot;737ae8b&quot;,&quot;item_spacing&quot;:&quot;30&quot;,&quot;show_filter_bar&quot;:&quot;yes&quot;}" id="awaiken-portfolio-737ae8b">
 <ul className="awaiken-portfolio-grid__filters portfolio_filter-design-1">
-<li className="awaiken-portfolio-grid__filter active" data-filter="*">All</li>
-<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-11">Branding & Identity</li>
-<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-12">Digital Marketing</li>
-<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-13">SEO & Analytics</li>
-<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-14">Web Design</li>
+<li className="awaiken-portfolio-grid__filter active" data-filter="*">All Projects</li>
+<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-11">Social Media</li>
+<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-12">Video Content</li>
+<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-13">Paid Advertising</li>
+<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-14">Website Design</li>
 </ul>
 <div className="awaiken-portfolio-grid elementor-grid awaiken-portfolio-layout-masonry awaiken-portfolio-item-design-2">
 <article className="awaiken-portfolio-grid-item portfolio-filter-11 portfolio-filter-12 portfolio-filter-14 post-8604 awaiken-project type-awaiken-project status-publish has-post-thumbnail hentry awaiken-project-category-branding-identity awaiken-project-category-digital-marketing awaiken-project-category-web-design">
