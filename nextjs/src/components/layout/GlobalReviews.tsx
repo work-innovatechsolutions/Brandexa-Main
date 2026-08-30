@@ -143,28 +143,33 @@ export default function GlobalReviews() {
     const originalConsoleWarn = console.warn;
 
     console.error = (...args: any[]) => {
-      const isElfsightLimitError = args.some(
+      const isMutedError = args.some(
         (arg) =>
           typeof arg === "string" &&
           (arg.includes("APP_VIEWS_LIMIT_REACHED") ||
             arg.includes("eapps.Platform") ||
-            arg.includes("elfsightcdn.com"))
+            arg.includes("elfsightcdn.com") ||
+            arg.includes("An empty string") ||
+            arg.includes("src attribute"))
       );
-      if (isElfsightLimitError) return;
+      if (isMutedError) return;
       originalConsoleError.apply(console, args);
     };
 
     console.warn = (...args: any[]) => {
-      const isElfsightLimitWarn = args.some(
+      const isMutedWarn = args.some(
         (arg) =>
           typeof arg === "string" &&
           (arg.includes("APP_VIEWS_LIMIT_REACHED") ||
             arg.includes("eapps.Platform") ||
-            arg.includes("elfsightcdn.com"))
+            arg.includes("elfsightcdn.com") ||
+            arg.includes("An empty string") ||
+            arg.includes("src attribute"))
       );
-      if (isElfsightLimitWarn) return;
+      if (isMutedWarn) return;
       originalConsoleWarn.apply(console, args);
     };
+
 
     const handleWindowError = (event: ErrorEvent) => {
       if (
