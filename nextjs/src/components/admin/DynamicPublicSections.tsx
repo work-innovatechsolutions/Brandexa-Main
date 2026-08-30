@@ -696,7 +696,16 @@ export function DynamicHomePortfolioSection() {
           <div style={{ textAlign: "center", marginTop: "44px", marginBottom: "20px" }}>
             <button
               type="button"
-              onClick={() => setVisibleCount((prev) => prev + 6)}
+              onClick={() => {
+                setVisibleCount((prev) => prev + 6);
+                setTimeout(() => {
+                  const el = document.getElementById("awaiken-portfolio-737ae8b") || document.querySelector(".awaiken-portfolio-widget");
+                  if (el) {
+                    const topOffset = el.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top: Math.max(0, topOffset), behavior: "smooth" });
+                  }
+                }, 50);
+              }}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -734,6 +743,7 @@ export function DynamicHomePortfolioSection() {
             </button>
           </div>
         )}
+
       </div>
     </div>
   );
