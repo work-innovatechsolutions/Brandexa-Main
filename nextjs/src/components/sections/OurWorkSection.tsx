@@ -1740,12 +1740,14 @@ const chips = [
 ] as const;
 
 export default function OurWorkSection({
+
   showMoreButton = false,
   moreButtonHref = "/our-work",
   moreButtonLabel = "See More",
   compact = false,
 }: OurWorkSectionProps) {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All");
+  const [activeChip, setActiveChip] = useState<string>("All");
   const [selectedWork, setSelectedWork] = useState<WorkItem | null>(null);
   const [isBrowser, setIsBrowser] = useState(false);
   const [dbProjects, setDbProjects] = useState<CmsProject[]>([]);
@@ -1839,19 +1841,22 @@ export default function OurWorkSection({
     return dynamicItems;
   }, [dbProjects]);
 
-  const [displayLimit, setDisplayLimit] = useState(6);
-
-  useEffect(() => {
-    setDisplayLimit(6);
-  }, [activeFilter]);
-
   const visibleItems = useMemo(() => {
-    if (compact) {
-      return mergedWorkItems.slice(0, 3);
-    }
-    return mergedWorkItems.slice(0, displayLimit);
-  }, [compact, mergedWorkItems, displayLimit]);
+    let items = mergedWorkItems;
 
+    if (activeChip !== "All") {
+      items = items.filter((item) =>
+        item.category.toLowerCase() === activeChip.toLowerCase() ||
+        item.sectors.some((s) => s.toLowerCase() === activeChip.toLowerCase()) ||
+        item.caseStudy.services.some((s) => s.toLowerCase() === activeChip.toLowerCase())
+      );
+    }
+
+    if (compact) {
+      return items.slice(0, 3);
+    }
+    return items;
+  }, [compact, mergedWorkItems, activeChip]);
 
   useEffect(() => {
     if (!selectedWork) {
@@ -1901,8 +1906,11 @@ export default function OurWorkSection({
                 <button
                   key={item}
                   type="button"
-                  onClick={() => setActiveFilter(item)}
-                  className={`rounded-full border px-4 py-2.5 transition-colors duration-200 \${
+                  onClick={() => {
+                    setActiveFilter(item);
+                    if (item === "All") setActiveChip("All");
+                  }}
+                  className={`rounded-full border px-4 py-2.5 transition-colors duration-200 cursor-pointer ${
                     activeFilter === item
                       ? "border-lime-400/60 bg-lime-400/10 text-lime-300"
                       : "border-white/10 text-white/55 hover:border-white/20 hover:text-white"
@@ -1919,8 +1927,9 @@ export default function OurWorkSection({
                 <button
                   key={chip}
                   type="button"
-                  className={`text-left transition-colors duration-200 \${
-                    chip === "All" ? "text-lime-300" : "hover:text-lime-300"
+                  onClick={() => setActiveChip(chip)}
+                  className={`text-left transition-colors duration-200 cursor-pointer ${
+                    activeChip === chip ? "text-lime-300 font-bold" : "hover:text-lime-300 text-white/82"
                   }`}
                 >
                   {chip}
@@ -1940,6 +1949,7 @@ export default function OurWorkSection({
             ) : null}
 
             <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+
               {visibleItems.map((item) => (
                 <article
                   key={item.title}
