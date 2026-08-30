@@ -8,6 +8,7 @@ import ConsultationModal from "@/components/layout/ConsultationModal";
 import GlobalReviews from "@/components/layout/GlobalReviews";
 import ClientInit from "@/components/layout/ClientInit";
 import LenisProvider from "@/components/layout/LenisProvider";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 export default function PublicLayoutWrapper({
   children,
@@ -19,11 +20,17 @@ export default function PublicLayoutWrapper({
 
   if (isAdmin) {
     // Exclude public header, footer, Lenis smooth scroll, reviews, and modals from Admin panel
-    return <>{children}</>;
+    return (
+      <>
+        <ScrollToTop />
+        {children}
+      </>
+    );
   }
 
   return (
     <LenisProvider>
+      <ScrollToTop />
       <Header />
       <ClientInit />
       {children}
@@ -33,3 +40,4 @@ export default function PublicLayoutWrapper({
     </LenisProvider>
   );
 }
+
