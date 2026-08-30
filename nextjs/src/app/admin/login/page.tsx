@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/lib/firebase/auth-context";
 import { Lock, Mail, ArrowRight, Loader2, Sparkles, ShieldCheck, UserCheck } from "lucide-react";
 import "@/app/admin/admin.css";
 
-export default function AdminLoginPage() {
+export const dynamic = "force-dynamic";
+
+function AdminLoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { user, loginWithEmail, loginWithGoogle, resetPassword, loading: authLoading, authError, clearAuthError } = useAuth();
@@ -39,6 +41,7 @@ export default function AdminLoginPage() {
       router.push("/admin/dashboard");
     }
   }, [user, authLoading, authError, router]);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -251,3 +254,20 @@ export default function AdminLoginPage() {
     </div>
   );
 }
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-2xl bg-[#b8ff2c]/10 border border-[#b8ff2c]/30 animate-pulse flex items-center justify-center">
+            <Loader2 className="w-5 h-5 text-[#b8ff2c] animate-spin" />
+          </div>
+        </div>
+      }
+    >
+      <AdminLoginForm />
+    </Suspense>
+  );
+}
+
