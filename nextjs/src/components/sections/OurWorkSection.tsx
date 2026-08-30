@@ -1839,12 +1839,19 @@ export default function OurWorkSection({
     return dynamicItems;
   }, [dbProjects]);
 
+  const [displayLimit, setDisplayLimit] = useState(6);
+
+  useEffect(() => {
+    setDisplayLimit(6);
+  }, [activeFilter]);
+
   const visibleItems = useMemo(() => {
     if (compact) {
       return mergedWorkItems.slice(0, 3);
     }
-    return mergedWorkItems;
-  }, [compact, mergedWorkItems]);
+    return mergedWorkItems.slice(0, displayLimit);
+  }, [compact, mergedWorkItems, displayLimit]);
+
 
   useEffect(() => {
     if (!selectedWork) {
@@ -1986,9 +1993,23 @@ export default function OurWorkSection({
                 </article>
               ))}
             </div>
+
+            {!compact && displayLimit < mergedWorkItems.length && (
+              <div className="mt-12 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setDisplayLimit((prev) => prev + 6)}
+                  className="inline-flex items-center gap-2.5 rounded-full border border-lime-400/35 bg-lime-400/10 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-lime-300 shadow-[0_0_24px_rgba(184,255,44,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-lime-400 hover:text-black hover:shadow-[0_0_35px_rgba(184,255,44,0.35)] cursor-pointer"
+                >
+                  <span>Show More Works</span>
+                  <ChevronRight className="h-4 w-4 rotate-90" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
+
       {isBrowser && selectedWork ? createPortal((
         <div
           className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/72 p-3 backdrop-blur-md sm:p-5"

@@ -549,6 +549,7 @@ const DEFAULT_PROJECTS: CmsProject[] = [
 export function DynamicHomePortfolioSection() {
   const [projects, setProjects] = useState<CmsProject[]>(DEFAULT_PROJECTS);
   const [activeFilter, setActiveFilter] = useState("All Projects");
+  const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
     // 1. Initial async fetch
@@ -604,6 +605,15 @@ export function DynamicHomePortfolioSection() {
     );
   }, [projects, activeFilter]);
 
+  // Reset to 6 when category filter changes
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [activeFilter]);
+
+  const displayedProjects = React.useMemo(() => {
+    return filteredProjects.slice(0, visibleCount);
+  }, [filteredProjects, visibleCount]);
+
   return (
     <div className="elementor-widget-container">
       <div className="awaiken-portfolio-widget" id="awaiken-portfolio-737ae8b">
@@ -626,7 +636,7 @@ export function DynamicHomePortfolioSection() {
         </ul>
 
         <div className="awaiken-portfolio-grid elementor-grid awaiken-portfolio-layout-masonry awaiken-portfolio-item-design-2">
-          {filteredProjects.map((p) => {
+          {displayedProjects.map((p) => {
             const projectSlug = p.slug || p.id;
             const projectUrl = `/projects/${projectSlug}`;
             const heroImg = p.heroImage || "/wp-content/uploads/2024/11/project-1-2.webp";
@@ -681,10 +691,54 @@ export function DynamicHomePortfolioSection() {
             );
           })}
         </div>
+
+        {visibleCount < filteredProjects.length && (
+          <div style={{ textAlign: "center", marginTop: "44px", marginBottom: "20px" }}>
+            <button
+              type="button"
+              onClick={() => setVisibleCount((prev) => prev + 6)}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "15px 38px",
+                borderRadius: "999px",
+                backgroundColor: "rgba(184, 255, 44, 0.12)",
+                border: "1.5px solid rgba(184, 255, 44, 0.35)",
+                color: "#b8ff2c",
+                fontWeight: "800",
+                fontSize: "13px",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                cursor: "pointer",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                boxShadow: "0 0 24px rgba(184, 255, 44, 0.12)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#b8ff2c";
+                e.currentTarget.style.color = "#050505";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 0 35px rgba(184, 255, 44, 0.35)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(184, 255, 44, 0.12)";
+                e.currentTarget.style.color = "#b8ff2c";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 0 24px rgba(184, 255, 44, 0.12)";
+              }}
+            >
+              <span>Show More Works</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
 
 // ─── DYNAMIC HOMEPAGE BLOGS SECTION ─────────────────────────────────────────
 const DEFAULT_BLOGS: CmsBlog[] = [
