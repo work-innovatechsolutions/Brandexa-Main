@@ -3,6 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { ArrowRight, ChevronRight, X } from "lucide-react";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "@/lib/firebase/client";
+import { CmsProject } from "@/types/cms";
 
 type WorkItem = {
   title: string;
@@ -1745,17 +1748,103 @@ export default function OurWorkSection({
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All");
   const [selectedWork, setSelectedWork] = useState<WorkItem | null>(null);
   const [isBrowser, setIsBrowser] = useState(false);
-
-  const visibleItems = useMemo(() => {
-    if (compact) {
-      return workItems.slice(0, 3);
-    }
-    return workItems;
-  }, [compact]);
+  const [dbProjects, setDbProjects] = useState<CmsProject[]>([]);
 
   useEffect(() => {
     setIsBrowser(true);
+    try {
+      const unsub = onSnapshot(collection(db, "projects"), (snapshot) => {
+        const list: CmsProject[] = [];
+        snapshot.forEach((d) => list.push({ ...d.data(), id: d.id } as CmsProject));
+        if (list.length > 0) {
+          setDbProjects(list);
+        }
+      });
+      return () => unsub();
+    } catch (e) {
+      console.warn("Could not subscribe to projects:", e);
+    }
   }, []);
+
+  const mergedWorkItems = useMemo(() => {
+    if (dbProjects.length === 0) return workItems;
+
+    const dynamicItems: WorkItem[] = [];
+    const matchedWorkItems = new Set<string>();
+
+    dbProjects.forEach((p) => {
+      const existing = workItems.find(
+        (w) =>
+          w.title.toLowerCase() === p.title.toLowerCase() ||
+          w.title.toLowerCase().replace(/[^a-z0-9]/g, "") === (p.slug || "").toLowerCase().replace(/[^a-z0-9]/g, "")
+      );
+
+      if (existing) {
+        matchedWorkItems.add(existing.title);
+        dynamicItems.push({
+          ...existing,
+          title: p.title || existing.title,
+          category: p.categories?.[0] || existing.category,
+          sectors: p.categories && p.categories.length > 0 ? p.categories : existing.sectors,
+          image: p.heroImage || existing.image,
+          caseStudy: {
+            ...existing.caseStudy,
+            challenge: p.challenge ? [p.challenge] : existing.caseStudy.challenge,
+            solution: p.solution ? [p.solution] : existing.caseStudy.solution,
+            testimonial: p.testimonial
+              ? {
+                  quote: p.testimonial.quote,
+                  author: p.testimonial.clientName,
+                  company: p.testimonial.clientRole || p.clientName,
+                }
+              : existing.caseStudy.testimonial,
+            resultCards: p.metrics && p.metrics.length > 0
+              ? p.metrics.map((m) => ({ value: m.value, label: m.label }))
+              : existing.caseStudy.resultCards,
+          },
+        });
+      } else {
+        dynamicItems.push({
+          title: p.title,
+          category: p.categories?.[0] || "Branding",
+          sectors: p.categories || ["Digital Marketing"],
+          image: p.heroImage || "/work-samples/scoogie-events.webp",
+          caseStudy: {
+            background: p.challenge || p.title,
+            services: p.categories || ["Digital Strategy"],
+            challenge: [p.challenge || "Optimizing customer acquisition and conversion flows."],
+            solution: [p.solution || "Custom digital growth architecture engineered by Brandexa."],
+            testimonial: {
+              quote: p.testimonial?.quote || "Brandexa delivered outstanding results for our team.",
+              author: p.testimonial?.clientName || "Executive Client",
+              company: p.testimonial?.clientRole || p.clientName,
+            },
+            resultCards: p.metrics && p.metrics.length > 0
+              ? p.metrics.map((m) => ({ value: m.value, label: m.label }))
+              : [
+                  { value: "+180%", label: "Conversion Lift" },
+                  { value: "3.4X", label: "ROAS Multiple" },
+                ],
+          },
+        });
+      }
+    });
+
+    workItems.forEach((w) => {
+      if (!matchedWorkItems.has(w.title)) {
+        dynamicItems.push(w);
+      }
+    });
+
+    return dynamicItems;
+  }, [dbProjects]);
+
+  const visibleItems = useMemo(() => {
+    if (compact) {
+      return mergedWorkItems.slice(0, 3);
+    }
+    return mergedWorkItems;
+  }, [compact, mergedWorkItems]);
 
   useEffect(() => {
     if (!selectedWork) {

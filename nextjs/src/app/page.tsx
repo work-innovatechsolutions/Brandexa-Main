@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { DynamicHomePortfolioSection, DynamicHomeBlogsSection } from "@/components/admin/DynamicPublicSections";
 
 const HERO_WORDS = ["Growth", "Leads", "Revenue"];
 const HERO_TITLE_HOLD_MS = 2500;
@@ -730,7 +732,7 @@ We do not use cookie-cutter plans. We build custom-tailored digital ecosystems d
 <div className="elementor-element elementor-element-382fa9a e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="382fa9a">
 <div className="elementor-element elementor-element-6902461 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="6902461" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">CASE STUDIES</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">Our Works</h2> </div>
 </div>
 <div className="elementor-element elementor-element-00a04ea at-heading-animation at-animation-heading-style-2 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="00a04ea" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
@@ -746,150 +748,14 @@ We do not use cookie-cutter plans. We build custom-tailored digital ecosystems d
 </div>
 <div className="elementor-element elementor-element-b505714 e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="b505714">
 <div className="elementor-element elementor-element-737ae8b elementor-grid-3 elementor-grid-tablet-2 elementor-grid-mobile-1 awaiken-portfolio-gutter-30 elementor-invisible elementor-widget elementor-widget-artistic-portfolio-grid" data-e-type="widget" data-element_type="widget" data-id="737ae8b" data-settings="{&quot;grid_layout&quot;:&quot;masonry&quot;,&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;columns&quot;:&quot;3&quot;,&quot;columns_tablet&quot;:&quot;2&quot;,&quot;columns_mobile&quot;:&quot;1&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="artistic-portfolio-grid.default">
-<div className="elementor-widget-container">
-<div className="awaiken-portfolio-widget" data-config="{&quot;rtl&quot;:false,&quot;id&quot;:&quot;737ae8b&quot;,&quot;item_spacing&quot;:&quot;30&quot;,&quot;show_filter_bar&quot;:&quot;yes&quot;}" id="awaiken-portfolio-737ae8b">
-<ul className="awaiken-portfolio-grid__filters portfolio_filter-design-1">
-<li className="awaiken-portfolio-grid__filter active" data-filter="*">All Projects</li>
-<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-11">Social Media</li>
-<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-12">Video Content</li>
-<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-13">Paid Advertising</li>
-<li className="awaiken-portfolio-grid__filter-label" data-filter=".portfolio-filter-14">Website Design</li>
-</ul>
-<div className="awaiken-portfolio-grid elementor-grid awaiken-portfolio-layout-masonry awaiken-portfolio-item-design-2">
-<article className="awaiken-portfolio-grid-item portfolio-filter-11 portfolio-filter-12 portfolio-filter-14 post-8604 awaiken-project type-awaiken-project status-publish has-post-thumbnail hentry awaiken-project-category-branding-identity awaiken-project-category-digital-marketing awaiken-project-category-web-design">
-<div className="awaiken-portfolio-grid-item__wrapper">
-<div className="awaiken-portfolio-grid-item__image">
-<div className="awaiken-portfolio-grid-item__img">
-<img alt="" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" decoding="async" height="800" loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" src="/wp-content/uploads/2024/11/project-1-2.webp" srcSet="./wp-content/uploads/2024/11/project-1-2.webp 1200w, ./wp-content/uploads/2024/11/project-1-2-300x200.jpg 300w, ./wp-content/uploads/2024/11/project-1-2-1024x683.jpg 1024w, ./wp-content/uploads/2024/11/project-1-2-768x512.jpg 768w" width="1200" /> </div>
-<div className="awaiken-portfolio-grid-item__categories">
-<a href="./index.html?awaiken-project-category=branding-identity"><span className="awaiken-portfolio-grid-item__categories__category">Branding & Identity</span></a> <a href="./index.html?awaiken-project-category=digital-marketing"><span className="awaiken-portfolio-grid-item__categories__category">Digital Marketing</span></a> <a href="./index.html?awaiken-project-category=web-design"><span className="awaiken-portfolio-grid-item__categories__category">Web Design</span></a> </div>
-<div className="awaiken-portfolio-grid-item__readmore">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=dynamic-e-commerce-platform">
-<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.731 9.97455L8.12396 18.5815L6.70996 17.1675L15.316 8.56055H7.73096V6.56055H18.731V17.5605H16.731V9.97455Z" fill="currentColor"></path></svg> </a>
-</div>
-</div>
-<div className="awaiken-portfolio-grid-item__content">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=dynamic-e-commerce-platform">
-<h3 className="awaiken-portfolio-grid-item__title">Dynamic E-Commerce Platform</h3>
-</a>
-<div className="awaiken-portfolio-grid-item__excerpt">
-<p>Dynamic E-Commerce Platform Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
-</div>
-</div>
-</div>
-</article>
-<article className="awaiken-portfolio-grid-item portfolio-filter-12 portfolio-filter-14 post-8602 awaiken-project type-awaiken-project status-publish has-post-thumbnail hentry awaiken-project-category-digital-marketing awaiken-project-category-web-design">
-<div className="awaiken-portfolio-grid-item__wrapper">
-<div className="awaiken-portfolio-grid-item__image">
-<div className="awaiken-portfolio-grid-item__img">
-<img alt="" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" decoding="async" height="800" loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" src="/wp-content/uploads/2024/11/project-2-3.webp" srcSet="./wp-content/uploads/2024/11/project-2-3.webp 1200w, ./wp-content/uploads/2024/11/project-2-3-300x200.jpg 300w, ./wp-content/uploads/2024/11/project-2-3-1024x683.jpg 1024w, ./wp-content/uploads/2024/11/project-2-3-768x512.jpg 768w" width="1200" /> </div>
-<div className="awaiken-portfolio-grid-item__categories">
-<a href="./index.html?awaiken-project-category=digital-marketing"><span className="awaiken-portfolio-grid-item__categories__category">Digital Marketing</span></a> <a href="./index.html?awaiken-project-category=web-design"><span className="awaiken-portfolio-grid-item__categories__category">Web Design</span></a> </div>
-<div className="awaiken-portfolio-grid-item__readmore">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=innovative-identity-design">
-<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.731 9.97455L8.12396 18.5815L6.70996 17.1675L15.316 8.56055H7.73096V6.56055H18.731V17.5605H16.731V9.97455Z" fill="currentColor"></path></svg> </a>
-</div>
-</div>
-<div className="awaiken-portfolio-grid-item__content">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=innovative-identity-design">
-<h3 className="awaiken-portfolio-grid-item__title">Innovative Identity Design</h3>
-</a>
-<div className="awaiken-portfolio-grid-item__excerpt">
-<p>Innovative design identity Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
-</div>
-</div>
-</div>
-</article>
-<article className="awaiken-portfolio-grid-item portfolio-filter-11 portfolio-filter-13 post-8600 awaiken-project type-awaiken-project status-publish has-post-thumbnail hentry awaiken-project-category-branding-identity awaiken-project-category-seo-analytics">
-<div className="awaiken-portfolio-grid-item__wrapper">
-<div className="awaiken-portfolio-grid-item__image">
-<div className="awaiken-portfolio-grid-item__img">
-<img alt="" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" decoding="async" height="800" loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" src="/wp-content/uploads/2024/11/project-3-2.webp" srcSet="./wp-content/uploads/2024/11/project-3-2.webp 1200w, ./wp-content/uploads/2024/11/project-3-2-300x200.jpg 300w, ./wp-content/uploads/2024/11/project-3-2-1024x683.jpg 1024w, ./wp-content/uploads/2024/11/project-3-2-768x512.jpg 768w" width="1200" /> </div>
-<div className="awaiken-portfolio-grid-item__categories">
-<a href="./index.html?awaiken-project-category=branding-identity"><span className="awaiken-portfolio-grid-item__categories__category">Branding & Identity</span></a> <a href="./index.html?awaiken-project-category=seo-analytics"><span className="awaiken-portfolio-grid-item__categories__category">SEO & Analytics</span></a> </div>
-<div className="awaiken-portfolio-grid-item__readmore">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=dynamic-digital-campaign">
-<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.731 9.97455L8.12396 18.5815L6.70996 17.1675L15.316 8.56055H7.73096V6.56055H18.731V17.5605H16.731V9.97455Z" fill="currentColor"></path></svg> </a>
-</div>
-</div>
-<div className="awaiken-portfolio-grid-item__content">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=dynamic-digital-campaign">
-<h3 className="awaiken-portfolio-grid-item__title">Dynamic Digital Campaign</h3>
-</a>
-<div className="awaiken-portfolio-grid-item__excerpt">
-<p>Dynamic Digital Campaign Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
-</div>
-</div>
-</div>
-</article>
-<article className="awaiken-portfolio-grid-item portfolio-filter-11 portfolio-filter-13 portfolio-filter-14 post-8598 awaiken-project type-awaiken-project status-publish has-post-thumbnail hentry awaiken-project-category-branding-identity awaiken-project-category-seo-analytics awaiken-project-category-web-design">
-<div className="awaiken-portfolio-grid-item__wrapper">
-<div className="awaiken-portfolio-grid-item__image">
-<div className="awaiken-portfolio-grid-item__img">
-<img alt="" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" decoding="async" height="800" loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" src="/wp-content/uploads/2024/11/project-4-2.webp" srcSet="./wp-content/uploads/2024/11/project-4-2.webp 1200w, ./wp-content/uploads/2024/11/project-4-2-300x200.jpg 300w, ./wp-content/uploads/2024/11/project-4-2-1024x683.jpg 1024w, ./wp-content/uploads/2024/11/project-4-2-768x512.jpg 768w" width="1200" /> </div>
-<div className="awaiken-portfolio-grid-item__categories">
-<a href="./index.html?awaiken-project-category=branding-identity"><span className="awaiken-portfolio-grid-item__categories__category">Branding & Identity</span></a> <a href="./index.html?awaiken-project-category=seo-analytics"><span className="awaiken-portfolio-grid-item__categories__category">SEO & Analytics</span></a> <a href="./index.html?awaiken-project-category=web-design"><span className="awaiken-portfolio-grid-item__categories__category">Web Design</span></a> </div>
-<div className="awaiken-portfolio-grid-item__readmore">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=impactful-content-creation">
-<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.731 9.97455L8.12396 18.5815L6.70996 17.1675L15.316 8.56055H7.73096V6.56055H18.731V17.5605H16.731V9.97455Z" fill="currentColor"></path></svg> </a>
-</div>
-</div>
-<div className="awaiken-portfolio-grid-item__content">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=impactful-content-creation">
-<h3 className="awaiken-portfolio-grid-item__title">Impactful Content Creation</h3>
-</a>
-<div className="awaiken-portfolio-grid-item__excerpt">
-<p>Impactful Content Creation Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
-</div>
-</div>
-</div>
-</article>
-<article className="awaiken-portfolio-grid-item portfolio-filter-14 post-8596 awaiken-project type-awaiken-project status-publish has-post-thumbnail hentry awaiken-project-category-web-design">
-<div className="awaiken-portfolio-grid-item__wrapper">
-<div className="awaiken-portfolio-grid-item__image">
-<div className="awaiken-portfolio-grid-item__img">
-<img alt="" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" decoding="async" height="800" loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" src="/wp-content/uploads/2024/11/project-5-2.webp" srcSet="./wp-content/uploads/2024/11/project-5-2.webp 1200w, ./wp-content/uploads/2024/11/project-5-2-300x200.jpg 300w, ./wp-content/uploads/2024/11/project-5-2-1024x683.jpg 1024w, ./wp-content/uploads/2024/11/project-5-2-768x512.jpg 768w" width="1200" /> </div>
-<div className="awaiken-portfolio-grid-item__categories">
-<a href="./index.html?awaiken-project-category=web-design"><span className="awaiken-portfolio-grid-item__categories__category">Web Design</span></a> </div>
-<div className="awaiken-portfolio-grid-item__readmore">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=visionary-growth-strategy">
-<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.731 9.97455L8.12396 18.5815L6.70996 17.1675L15.316 8.56055H7.73096V6.56055H18.731V17.5605H16.731V9.97455Z" fill="currentColor"></path></svg> </a>
-</div>
-</div>
-<div className="awaiken-portfolio-grid-item__content">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=visionary-growth-strategy">
-<h3 className="awaiken-portfolio-grid-item__title">Visionary Growth Strategy</h3>
-</a>
-<div className="awaiken-portfolio-grid-item__excerpt">
-<p>Visionary Growth Strategy Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
-</div>
-</div>
-</div>
-</article>
-<article className="awaiken-portfolio-grid-item portfolio-filter-11 portfolio-filter-13 post-8594 awaiken-project type-awaiken-project status-publish has-post-thumbnail hentry awaiken-project-category-branding-identity awaiken-project-category-seo-analytics">
-<div className="awaiken-portfolio-grid-item__wrapper">
-<div className="awaiken-portfolio-grid-item__image">
-<div className="awaiken-portfolio-grid-item__img">
-<img alt="" className="attachment-post-thumbnail size-post-thumbnail wp-post-image" decoding="async" height="800" loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" src="/wp-content/uploads/2024/11/project-6-2.webp" srcSet="./wp-content/uploads/2024/11/project-6-2.webp 1200w, ./wp-content/uploads/2024/11/project-6-2-300x200.jpg 300w, ./wp-content/uploads/2024/11/project-6-2-1024x683.jpg 1024w, ./wp-content/uploads/2024/11/project-6-2-768x512.jpg 768w" width="1200" /> </div>
-<div className="awaiken-portfolio-grid-item__categories">
-<a href="./index.html?awaiken-project-category=branding-identity"><span className="awaiken-portfolio-grid-item__categories__category">Branding & Identity</span></a> <a href="./index.html?awaiken-project-category=seo-analytics"><span className="awaiken-portfolio-grid-item__categories__category">SEO & Analytics</span></a> </div>
-<div className="awaiken-portfolio-grid-item__readmore">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=interactive-website-redesign">
-<svg fill="none" height="25" viewBox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M16.731 9.97455L8.12396 18.5815L6.70996 17.1675L15.316 8.56055H7.73096V6.56055H18.731V17.5605H16.731V9.97455Z" fill="currentColor"></path></svg> </a>
-</div>
-</div>
-<div className="awaiken-portfolio-grid-item__content">
-<a className="awaiken-portfolio-grid-item__link" href="./index.html?awaiken-project=interactive-website-redesign">
-<h3 className="awaiken-portfolio-grid-item__title">Interactive Website Redesign</h3>
-</a>
-<div className="awaiken-portfolio-grid-item__excerpt">
-<p>Interactive Website Redesign Home Custom Branding Website Design Digital Marketing Strategy Consulting […]</p>
-</div>
-</div>
-</div>
-</article>
-</div>
-</div>
+<DynamicHomePortfolioSection />
+<div className="brandexa-see-more-wrap">
+  <Link className="brandexa-see-more-btn" href="/our-work">
+    <span className="brandexa-see-more-btn__label">See More Works</span>
+    <span aria-hidden="true" className="brandexa-see-more-btn__arrow">
+      <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M16.8569 9.67962L8.24994 18.2866L6.83594 16.8726L15.4419 8.26562H7.85694V6.26562H18.8569V17.2656H16.8569V9.67962Z" fill="currentColor"></path></svg>
+    </span>
+  </Link>
 </div>
 </div>
 </div>
@@ -901,7 +767,7 @@ We do not use cookie-cutter plans. We build custom-tailored digital ecosystems d
 <div className="elementor-element elementor-element-bb3cc4c e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="bb3cc4c">
 <div className="elementor-element elementor-element-ea3c877 section-title at-heading-animation at-animation-heading-none elementor-invisible elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="ea3c877" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h2 className="elementor-heading-title elementor-size-default">LATEST NEWS</h2> </div>
+<h2 className="elementor-heading-title elementor-size-default">Latest Blogs</h2> </div>
 </div>
 <div className="elementor-element elementor-element-b862add at-heading-animation at-animation-heading-style-2 elementor-widget elementor-widget-heading" data-e-type="widget" data-element_type="widget" data-id="b862add" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
@@ -916,69 +782,14 @@ We do not use cookie-cutter plans. We build custom-tailored digital ecosystems d
 </div>
 </div>
 <div className="elementor-element elementor-element-532a45a e-con-full e-flex e-con e-child" data-e-type="container" data-element_type="container" data-id="532a45a">
-<div className="elementor-element elementor-element-10438dc our-blog elementor-invisible elementor-widget elementor-widget-elementskit-blog-posts" data-e-type="widget" data-element_type="widget" data-id="10438dc" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-blog-posts.default">
-<div className="elementor-widget-container">
-<div className="ekit-wid-con">
-<div className="row post-items ekit-blog-posts-content wihout-masonry" data-enable="no" id="post-items--10438dc">
-{/* Blog Carousel markup render */}
-<div className="col-lg-4 col-md-6">
-<div className="elementskit-post-image-card">
-<div className="elementskit-entry-header">
-<a className="elementskit-entry-thumb" href="./index.html?p=1">
-<img alt="Web Development Strategies for Modern Business Growth" decoding="async" src="/wp-content/uploads/2024/11/post-3-2.webp" />
-</a>{/* .elementskit-entry-thumb END */}
-</div>{/* .elementskit-entry-header END */}
-<div className="elementskit-post-body">
-<h2 className="entry-title">
-<a href="./index.html?p=1">
-                            Web Development Strategies for Modern Business Growth                    </a>
-</h2>
-<div className="btn-wraper">
-<a className="elementskit-btn whitespace--normal" href="./index.html?p=1">
-                                            Read More                                            <svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
-</div>
-</div>{/* .elementskit-post-body END */}
-</div>
-</div>
-<div className="col-lg-4 col-md-6">
-<div className="elementskit-post-image-card">
-<div className="elementskit-entry-header">
-<a className="elementskit-entry-thumb" href="./index.html?p=4660">
-<img alt="UI/UX Design Principles for Better User Engagement" decoding="async" src="/wp-content/uploads/2024/11/post-1-3.webp" />
-</a>{/* .elementskit-entry-thumb END */}
-</div>{/* .elementskit-entry-header END */}
-<div className="elementskit-post-body">
-<h2 className="entry-title">
-<a href="./index.html?p=4660">
-                            UI/UX Design Principles for Better User Engagement                    </a>
-</h2>
-<div className="btn-wraper">
-<a className="elementskit-btn whitespace--normal" href="./index.html?p=4660">
-                                            Read More                                            <svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
-</div>
-</div>{/* .elementskit-post-body END */}
-</div>
-</div>
-<div className="col-lg-4 col-md-6">
-<div className="elementskit-post-image-card">
-<div className="elementskit-entry-header">
-<a className="elementskit-entry-thumb" href="./index.html?p=4649">
-<img alt="Why Your Business Needs a Mobile-Optimized Website" decoding="async" src="/wp-content/uploads/2024/11/post-2-3.webp" />
-</a>{/* .elementskit-entry-thumb END */}
-</div>{/* .elementskit-entry-header END */}
-<div className="elementskit-post-body">
-<h2 className="entry-title">
-<a href="./index.html?p=4649">
-                            Why Your Business Needs a Mobile-Optimized Website                    </a>
-</h2>
-<div className="btn-wraper">
-<a className="elementskit-btn whitespace--normal" href="./index.html?p=4649">
-                                            Read More                                            <svg fill="currentColor" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M23.6144 13.8266L11.4211 26.0199L9.41797 24.0167L21.6098 11.8234H10.8644V8.99011H26.4477V24.5734H23.6144V13.8266Z"></path></svg> </a>
-</div>
-</div>{/* .elementskit-post-body END */}
-</div>
-</div> </div>
-</div> </div>
+<DynamicHomeBlogsSection />
+<div className="brandexa-see-more-wrap">
+  <Link className="brandexa-see-more-btn" href="/blogs">
+    <span className="brandexa-see-more-btn__label">See More Blogs</span>
+    <span aria-hidden="true" className="brandexa-see-more-btn__arrow">
+      <svg fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><path d="M16.8569 9.67962L8.24994 18.2866L6.83594 16.8726L15.4419 8.26562H7.85694V6.26562H18.8569V17.2656H16.8569V9.67962Z" fill="currentColor"></path></svg>
+    </span>
+  </Link>
 </div>
 </div>
 </div>

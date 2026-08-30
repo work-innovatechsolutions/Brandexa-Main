@@ -14,7 +14,7 @@ export default function Header() {
 	if (pathname?.startsWith("/ads")) return null;
 	const normalizedPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 	const isActivePath = (href: string) => href === "/" ? normalizedPath === "/" : normalizedPath === href || normalizedPath.startsWith(`${href}/`);
-	const isPagesActive = ["/blog", "/faqs", "/pricing", "/team", "/testimonials", "/image-gallery", "/video-gallery", "/projects", "/privacy-policy"].some(isActivePath);
+	const isPagesActive = ["/blog", "/blogs", "/faqs", "/pricing", "/team", "/testimonials", "/image-gallery", "/video-gallery", "/projects", "/privacy-policy"].some(isActivePath);
 	const activeMenuItemClass = (href: string) => isActivePath(href) ? " current-menu-item active" : "";
 	const activeLinkClass = (href: string) => isActivePath(href) ? " active" : "";
 	const serviceLinks = [
@@ -173,7 +173,7 @@ export default function Header() {
 													<i aria-hidden="true" className={`icon icon-down-arrow1 elementskit-submenu-indicator${openMobileDropdown === "pages" ? " is-open" : ""}`}></i>
 												</a>
 												<ul className={`elementskit-dropdown elementskit-submenu-panel${openMobileDropdown === "pages" ? " is-open" : ""}`}>
-													<li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-7232 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px" id="menu-item-7232"><Link className="dropdown-item" href="/blog/content-marketing-essentials">Blog</Link> </li>
+													<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-blogs nav-item elementskit-mobile-builder-content${isActivePath("/blogs") || isActivePath("/blog") ? " current-menu-item active" : ""}`} data-vertical-menu="750px" id="menu-item-blogs"><Link className={`dropdown-item${isActivePath("/blogs") || isActivePath("/blog") ? " active" : ""}`} href="/blogs">Blog</Link> </li>
 													<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-8107 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/faqs")}`} data-vertical-menu="750px" id="menu-item-8107"><Link className={`dropdown-item${activeLinkClass("/faqs")}`} href="/faqs">FAQS</Link> </li>
 													<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-8109 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/pricing")}`} data-vertical-menu="750px" id="menu-item-8109"><Link className={`dropdown-item${activeLinkClass("/pricing")}`} href="/pricing">Pricing Plan</Link> </li>
 													<li className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-8108 nav-item elementskit-mobile-builder-content${activeMenuItemClass("/image-gallery")}`} data-vertical-menu="750px" id="menu-item-8108"><Link className={`dropdown-item${activeLinkClass("/image-gallery")}`} href="/image-gallery">Image gallery</Link> </li>

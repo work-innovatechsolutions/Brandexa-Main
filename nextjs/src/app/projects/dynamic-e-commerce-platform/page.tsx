@@ -1,12 +1,26 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "@/lib/firebase/client";
+import type { CmsProject } from "@/types/cms";
 
 export default function Page() {
   const [mounted, setMounted] = useState(false);
+  const [projectData, setProjectData] = useState<CmsProject | null>(null);
 
   useEffect(() => {
     setMounted(true);
+    try {
+      const unsub = onSnapshot(doc(db, "projects", "dynamic-e-commerce-platform"), (snap) => {
+        if (snap.exists()) {
+          setProjectData({ ...snap.data(), id: snap.id } as CmsProject);
+        }
+      });
+      return () => unsub();
+    } catch {
+      // fallback
+    }
   }, []);
 
   if (!mounted) {
@@ -15,6 +29,13 @@ export default function Page() {
     );
   }
 
+  const title = projectData?.title || "Dynamic E-Commerce Platform";
+  const heroImage = projectData?.heroImage || "/wp-content/uploads/2024/11/project-1-2.webp";
+  const clientName = projectData?.clientName || "josefin H. Smith";
+  const categoriesText = projectData?.categories?.join(", ") || "Web Design";
+  const challengeText = projectData?.challenge || "When creating a detailed case study, it’s important to provide comprehensive information that communicates the story of the project, including the challenges faced, the solutions implemented, and the achieved results.";
+  const solutionText = projectData?.solution || "Our innovative identity design solution crafted a distinctive visual identity that perfectly reflects the brand’s values and mission. Through a cohesive logo, color palette, and typography, we delivered a unified brand experience that enhances recognition, builds trust, and sets the brand apart.";
+
   return (
     <div data-elementor-type="wp-post" data-elementor-id="8604" className="elementor elementor-8604">
 <div className="elementor-element elementor-element-0ce95a7 e-flex e-con-boxed e-con e-parent" data-id="0ce95a7" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -22,11 +43,11 @@ export default function Page() {
 <div className="elementor-element elementor-element-b8bb3c9 e-con-full e-flex e-con e-child" data-id="b8bb3c9" data-element_type="container" data-e-type="container">
 <div className="elementor-element elementor-element-1d1fa55 at-heading-animation at-animation-heading-style-2 elementor-widget elementor-widget-heading" data-id="1d1fa55" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="heading.default">
 <div className="elementor-widget-container">
-<h1 className="elementor-heading-title elementor-size-default">Dynamic E-Commerce <span> Platform </span></h1> </div>
+<h1 className="elementor-heading-title elementor-size-default">{title}</h1> </div>
 </div>
 <div className="elementor-element elementor-element-06cf4f4 elementor-invisible elementor-widget elementor-widget-elementskit-breadcrumb" data-id="06cf4f4" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="elementskit-breadcrumb.default">
 <div className="elementor-widget-container">
-<div className="ekit-wid-con"><ol className="ekit-breadcrumb"><li className="ekit_breadcrumbs_start"><a href="/">Home</a></li> <li className="brd_sep"><span className="separate_icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-star-of-life" viewBox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.99 334.43L336.06 256l135.93-78.43c7.66-4.42 10.28-14.2 5.86-21.86l-32.02-55.43c-4.42-7.65-14.21-10.28-21.87-5.86l-135.93 78.43V16c0-8.84-7.17-16-16.01-16h-64.04c-8.84 0-16.01 7.16-16.01 16v156.86L56.04 94.43c-7.66-4.42-17.45-1.79-21.87 5.86L2.15 155.71c-4.42 7.65-1.8 17.44 5.86 21.86L143.94 256 8.01 334.43c-7.66 4.42-10.28 14.21-5.86 21.86l32.02 55.43c4.42 7.65 14.21 10.27 21.87 5.86l135.93-78.43V496c0 8.84 7.17 16 16.01 16h64.04c8.84 0 16.01-7.16 16.01-16V339.14l135.93 78.43c7.66 4.42 17.45 1.8 21.87-5.86l32.02-55.43c4.42-7.65 1.8-17.43-5.86-21.85z"></path></svg></span></li> <li><a href="/?post_type=awaiken-project">Project</a></li> <li className="brd_sep"><span className="separate_icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-star-of-life" viewBox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.99 334.43L336.06 256l135.93-78.43c7.66-4.42 10.28-14.2 5.86-21.86l-32.02-55.43c-4.42-7.65-14.21-10.28-21.87-5.86l-135.93 78.43V16c0-8.84-7.17-16-16.01-16h-64.04c-8.84 0-16.01 7.16-16.01 16v156.86L56.04 94.43c-7.66-4.42-17.45-1.79-21.87 5.86L2.15 155.71c-4.42 7.65-1.8 17.44 5.86 21.86L143.94 256 8.01 334.43c-7.66 4.42-10.28 14.21-5.86 21.86l32.02 55.43c4.42 7.65 14.21 10.27 21.87 5.86l135.93-78.43V496c0 8.84 7.17 16 16.01 16h64.04c8.84 0 16.01-7.16 16.01-16V339.14l135.93 78.43c7.66 4.42 17.45 1.8 21.87-5.86l32.02-55.43c4.42-7.65 1.8-17.43-5.86-21.85z"></path></svg></span></li> <li>Dynamic E-Commerce Platform</li></ol></div> </div>
+<div className="ekit-wid-con"><ol className="ekit-breadcrumb"><li className="ekit_breadcrumbs_start"><a href="/">Home</a></li> <li className="brd_sep"><span className="separate_icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-star-of-life" viewBox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.99 334.43L336.06 256l135.93-78.43c7.66-4.42 10.28-14.2 5.86-21.86l-32.02-55.43c-4.42-7.65-14.21-10.28-21.87-5.86l-135.93 78.43V16c0-8.84-7.17-16-16.01-16h-64.04c-8.84 0-16.01 7.16-16.01 16v156.86L56.04 94.43c-7.66-4.42-17.45-1.79-21.87 5.86L2.15 155.71c-4.42 7.65-1.8 17.44 5.86 21.86L143.94 256 8.01 334.43c-7.66 4.42-10.28 14.21-5.86 21.86l32.02 55.43c4.42 7.65 14.21 10.27 21.87 5.86l135.93-78.43V496c0 8.84 7.17 16 16.01 16h64.04c8.84 0 16.01-7.16 16.01-16V339.14l135.93 78.43c7.66 4.42 17.45 1.8 21.87-5.86l32.02-55.43c4.42-7.65 1.8-17.43-5.86-21.85z"></path></svg></span></li> <li><a href="/our-work">Project</a></li> <li className="brd_sep"><span className="separate_icon"><svg aria-hidden="true" className="e-font-icon-svg e-fas-star-of-life" viewBox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M471.99 334.43L336.06 256l135.93-78.43c7.66-4.42 10.28-14.2 5.86-21.86l-32.02-55.43c-4.42-7.65-14.21-10.28-21.87-5.86l-135.93 78.43V16c0-8.84-7.17-16-16.01-16h-64.04c-8.84 0-16.01 7.16-16.01 16v156.86L56.04 94.43c-7.66-4.42-17.45-1.79-21.87 5.86L2.15 155.71c-4.42 7.65-1.8 17.44 5.86 21.86L143.94 256 8.01 334.43c-7.66 4.42-10.28 14.21-5.86 21.86l32.02 55.43c4.42 7.65 14.21 10.27 21.87 5.86l135.93-78.43V496c0 8.84 7.17 16 16.01 16h64.04c8.84 0 16.01-7.16 16.01-16V339.14l135.93 78.43c7.66 4.42 17.45 1.8 21.87-5.86l32.02-55.43c4.42-7.65 1.8-17.43-5.86-21.85z"></path></svg></span></li> <li>{title}</li></ol></div> </div>
 </div>
 </div>
 </div>
@@ -114,7 +135,7 @@ export default function Page() {
 <div className="elementor-element elementor-element-4c85468 e-con-full e-flex e-con e-child" data-id="4c85468" data-element_type="container" data-e-type="container">
 <div className="elementor-element elementor-element-4b77fc7 image-anime project-single-image at-image-animation at-animation-image-style-1 elementor-widget elementor-widget-image" data-id="4b77fc7" data-element_type="widget" data-e-type="widget" data-settings="{&quot;ekit_we_effect_on&quot;:&quot;none&quot;}" data-widget_type="image.default">
 <div className="elementor-widget-container">
-<img fetchPriority="high" decoding="async" width="1200" height="800" src="/wp-content/uploads/2024/11/project-1-2.webp" className="attachment-full size-full wp-image-8585" alt="" srcSet="./wp-content/uploads/2024/11/project-1-2.webp 1200w, ./wp-content/uploads/2024/11/project-1-2-300x200.jpg 300w, ./wp-content/uploads/2024/11/project-1-2-1024x683.jpg 1024w, ./wp-content/uploads/2024/11/project-1-2-768x512.jpg 768w" sizes="(max-width: 1200px) 100vw, 1200px" /> </div>
+<img fetchPriority="high" decoding="async" width="1200" height="800" src={heroImage} className="attachment-full size-full wp-image-8585" alt={title} style={{ width: "100%", maxHeight: "650px", objectFit: "cover", borderRadius: "20px" }} /> </div>
 </div>
 </div>
 <div className="elementor-element elementor-element-a3e5bd4 e-con-full e-flex e-con e-child" data-id="a3e5bd4" data-element_type="container" data-e-type="container">
@@ -292,7 +313,7 @@ export default function Page() {
 							Project Name						</span>
 </h3>
 <p className="elementor-icon-box-description">
-						Dynamic E-Commerce Platform					</p>
+						{title}					</p>
 </div>
 </div>
 </div>
@@ -306,7 +327,7 @@ export default function Page() {
 							Category						</span>
 </h3>
 <p className="elementor-icon-box-description">
-						Web Design					</p>
+						{categoriesText}					</p>
 </div>
 </div>
 </div>
@@ -320,7 +341,7 @@ export default function Page() {
 							Clients						</span>
 </h3>
 <p className="elementor-icon-box-description">
-						josefin H. Smith					</p>
+						{clientName}					</p>
 </div>
 </div>
 </div>

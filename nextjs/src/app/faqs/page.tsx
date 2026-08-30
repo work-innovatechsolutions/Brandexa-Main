@@ -1,7 +1,11 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { fetchFaqs, groupFaqsByCategory } from "@/lib/cms/data";
 
-const faqGroups = [
+const STATIC_FALLBACK = [
   {
     title: "Getting Started",
     intro: "Useful basics before we begin working together.",
@@ -37,53 +41,6 @@ const faqGroups = [
         answer:
           "Yes. You can start with one focused service, such as Google Ads or video editing, or combine multiple services when your campaign needs strategy, creative, landing pages, and ongoing optimization.",
       },
-      {
-        question: "Do you create custom service plans?",
-        answer:
-          "Yes. Most plans are customized around your goal, current assets, audience, timeline, and budget. We avoid one-size-fits-all packages when the project needs a more specific approach.",
-      },
-    ],
-  },
-  {
-    title: "Process",
-    intro: "How the work moves from idea to launch.",
-    items: [
-      {
-        question: "What does your typical process look like?",
-        answer:
-          "Most projects move through discovery, strategy, content or design production, review, launch, and optimization. The exact workflow depends on the service and how much material already exists.",
-      },
-      {
-        question: "How long does a project take?",
-        answer:
-          "Timelines vary by scope. Smaller creative or ad setup tasks can move quickly, while branding, websites, and multi-channel campaigns need more planning and review. We confirm timing before starting.",
-      },
-      {
-        question: "Will I be able to review the work before it goes live?",
-        answer:
-          "Yes. Review points are built into the workflow so you can approve direction, copy, design, and campaign assets before launch or delivery.",
-      },
-    ],
-  },
-  {
-    title: "Marketing & Ads",
-    intro: "Common questions about campaigns and performance.",
-    items: [
-      {
-        question: "Do you manage Google Ads and social media ads?",
-        answer:
-          "Yes. We can plan, set up, optimize, and report on Google Ads and paid social campaigns. We also help with creative direction, audience structure, landing page suggestions, and tracking.",
-      },
-      {
-        question: "Do you guarantee results?",
-        answer:
-          "No agency can honestly guarantee exact ad results because performance depends on the offer, audience, budget, competition, website, and market timing. We focus on strong setup, clear tracking, and continuous optimization.",
-      },
-      {
-        question: "Will I receive reports?",
-        answer:
-          "Yes. Reports focus on what happened, why it matters, and what should happen next. The goal is clarity, not overwhelming dashboards.",
-      },
     ],
   },
   {
@@ -100,16 +57,25 @@ const faqGroups = [
         answer:
           "Yes. Ongoing services such as social media marketing, ads management, content creation, and optimization can be handled on a monthly retainer.",
       },
-      {
-        question: "Do you offer one-time projects?",
-        answer:
-          "Yes. One-time projects are available for branding, page design, video editing, campaign setup, audits, and other defined deliverables.",
-      },
     ],
   },
 ];
 
 export default function FaqsPage() {
+  const [faqGroups, setFaqGroups] = useState(STATIC_FALLBACK);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchFaqs()
+      .then((faqs) => {
+        if (faqs.length > 0) {
+          setFaqGroups(groupFaqsByCategory(faqs));
+        }
+      })
+      .catch(() => {/* keep static fallback */})
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <main className="bg-[#050505] text-white">
       <section className="border-b border-white/10 bg-[radial-gradient(circle_at_18%_0%,rgba(184,255,44,0.18),transparent_30%),linear-gradient(135deg,#0b1605_0%,#050505_58%)] px-4 py-14 sm:px-8 sm:py-20 lg:py-28">
@@ -161,35 +127,43 @@ export default function FaqsPage() {
           </aside>
 
           <div className="space-y-8 sm:space-y-10">
-            {faqGroups.map((group) => (
-              <section
-                className="scroll-mt-28 rounded-[22px] border border-white/10 bg-white/[0.035] p-4 sm:rounded-[28px] sm:p-7"
-                id={group.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}
-                key={group.title}
-              >
-                <div className="mb-6">
-                  <p className="text-xs font-black uppercase tracking-[0.26em] text-lime-300">{group.title}</p>
-                  <p className="mt-3 max-w-2xl text-base leading-7 text-white/60">{group.intro}</p>
-                </div>
-                <div className="grid gap-4">
-                  {group.items.map((item, index) => (
-                    <details
-                      className="group rounded-[18px] border border-white/10 bg-[#101216] p-4 open:border-lime-300/40 open:bg-[#12180d] sm:p-5"
-                      key={item.question}
-                      open={index === 0}
-                    >
-                      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-black text-white marker:hidden sm:gap-5 sm:text-lg">
-                        {item.question}
-                        <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-lime-300 text-lg leading-none text-black transition group-open:rotate-45 sm:h-9 sm:w-9 sm:text-xl">
-                          +
-                        </span>
-                      </summary>
-                      <p className="mt-4 max-w-4xl text-base leading-7 text-white/68">{item.answer}</p>
-                    </details>
-                  ))}
-                </div>
-              </section>
-            ))}
+            {loading ? (
+              <div style={{ textAlign: "center", padding: "60px 0", color: "rgba(255,255,255,0.4)" }}>
+                Loading FAQs…
+              </div>
+            ) : (
+              faqGroups.map((group) => (
+                <section
+                  className="scroll-mt-28 rounded-[22px] border border-white/10 bg-white/[0.035] p-4 sm:rounded-[28px] sm:p-7"
+                  id={group.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}
+                  key={group.title}
+                >
+                  <div className="mb-6">
+                    <p className="text-xs font-black uppercase tracking-[0.26em] text-lime-300">{group.title}</p>
+                    {group.intro && (
+                      <p className="mt-3 max-w-2xl text-base leading-7 text-white/60">{group.intro}</p>
+                    )}
+                  </div>
+                  <div className="grid gap-4">
+                    {group.items.map((item, index) => (
+                      <details
+                        className="group rounded-[18px] border border-white/10 bg-[#101216] p-4 open:border-lime-300/40 open:bg-[#12180d] sm:p-5"
+                        key={item.question}
+                        open={index === 0}
+                      >
+                        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-black text-white marker:hidden sm:gap-5 sm:text-lg">
+                          {item.question}
+                          <span className="grid h-8 w-8 flex-none place-items-center rounded-full bg-lime-300 text-lg leading-none text-black transition group-open:rotate-45 sm:h-9 sm:w-9 sm:text-xl">
+                            +
+                          </span>
+                        </summary>
+                        <p className="mt-4 max-w-4xl text-base leading-7 text-white/68">{item.answer}</p>
+                      </details>
+                    ))}
+                  </div>
+                </section>
+              ))
+            )}
           </div>
         </div>
       </section>

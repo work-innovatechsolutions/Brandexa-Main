@@ -2,12 +2,7 @@ import Script from 'next/script';
 import type { Metadata } from "next";
 import "./globals.css";
 import "./home-elementor.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import ClientInit from "@/components/layout/ClientInit";
-import LenisProvider from "@/components/layout/LenisProvider";
-import ConsultationModal from "@/components/layout/ConsultationModal";
-import GlobalReviews from "@/components/layout/GlobalReviews";
+import PublicLayoutWrapper from "@/components/layout/PublicLayoutWrapper";
 
 export const metadata: Metadata = {
         title: "Brandexa",
@@ -29,7 +24,7 @@ export default function RootLayout({
         children: React.ReactNode;
 }>) {
         return (
-                <html lang="en-GB">
+                <html lang="en" suppressHydrationWarning>
                         <head>
                                 <meta name="robots" content="max-image-preview:large" />
                                 <link rel="dns-prefetch" href="//cdn.elementor.com" />
@@ -67,8 +62,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=/wp-includes/css/classic-themes.min.css */
 `}} />
                                 <link rel="stylesheet" id="jetpack-forms-layout-css" href="/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-forms/dist/contact-form/css/jetpack-forms-layout.css?ver=16.0-a.5" media="all" />
-                                <link rel="stylesheet" id="mediaelement-css" href="/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17" media="all" />
-                                <link rel="stylesheet" id="wp-mediaelement-css" href="/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=7.0" media="all" />
                                 <style id="jetpack-sharing-buttons-style-inline-css" dangerouslySetInnerHTML={{
                                         '__html': `
 .jetpack-sharing-buttons__services-list{display:flex;flex-direction:row;flex-wrap:wrap;gap:0;list-style-type:none;margin:5px;padding:0}.jetpack-sharing-buttons__services-list.has-small-icon-size{font-size:12px}.jetpack-sharing-buttons__services-list.has-normal-icon-size{font-size:16px}.jetpack-sharing-buttons__services-list.has-large-icon-size{font-size:24px}.jetpack-sharing-buttons__services-list.has-huge-icon-size{font-size:36px}@media print{.jetpack-sharing-buttons__services-list{display:none!important}}.editor-styles-wrapper .wp-block-jetpack-sharing-buttons{gap:0;padding-inline-start:0}ul.jetpack-sharing-buttons__services-list.has-background{padding:1.25em 2.375em}
@@ -312,25 +305,80 @@ var JETPACK_MU_WPCOM_SETTINGS = {"assetsUrl":"//wp-content/mu-plugins/wpcomsh/je
     });
   }
 
+  function DummyPlayer(node, options) {
+    this.node = node;
+    this.options = options || {};
+    this.init = function() {};
+    this.play = function() {};
+    this.pause = function() {};
+    this.remove = function() {};
+    this.setResponsiveMode = function() {};
+    this.addControlElement = function() {};
+    this.getElement = function(el) { return el; };
+  }
+  DummyPlayer.prototype.init = function() {};
+  DummyPlayer.prototype._meReady = function() {};
+  DummyPlayer.prototype.getElement = function(el) { return el; };
+  DummyPlayer.prototype.buildfeatures = function() {};
+
+  window.MediaElementPlayer = window.MediaElementPlayer || DummyPlayer;
   window.mejs = window.mejs || { plugins: {}, Utility: {}, Utils: {}, Features: {} };
+  window.mejs.MediaElementPlayer = window.mejs.MediaElementPlayer || DummyPlayer;
   window.mejs.Utils = window.mejs.Utils || {};
   window.mejs.Utils.getTypeFromFile = window.mejs.Utils.getTypeFromFile || function (file) {
     var extension = String(file || "").split("?")[0].split(".").pop();
     return extension ? "video/" + extension : "";
   };
+
+  window.wp = window.wp || {};
+  window.wp.mediaelement = window.wp.mediaelement || { initialize: function() {} };
+
+  var defineMePlayer = function(jq) {
+    if (jq && jq.fn && !jq.fn.mediaelementplayer) {
+      jq.fn.mediaelementplayer = function(options) {
+        return this.each(function() {
+          new DummyPlayer(this, options);
+        });
+      };
+    }
+  };
+
+  if (window.jQuery) defineMePlayer(window.jQuery);
+  if (window.$) defineMePlayer(window.$);
+
+  var _origJq = window.jQuery;
+  try {
+    Object.defineProperty(window, 'jQuery', {
+      configurable: true,
+      enumerable: true,
+      get: function() { return _origJq; },
+      set: function(val) {
+        _origJq = val;
+        defineMePlayer(val);
+      }
+    });
+  } catch(e) {}
+
+  var _origDollar = window.$;
+  try {
+    Object.defineProperty(window, '$', {
+      configurable: true,
+      enumerable: true,
+      get: function() { return _origDollar; },
+      set: function(val) {
+        _origDollar = val;
+        defineMePlayer(val);
+      }
+    });
+  } catch(e) {}
 })();
 //# sourceURL=wp-browser-compat-shims
 `}} />
                                 <Script type="text/javascript" dangerouslySetInnerHTML={{ '__html': `var elementskit_module_parallax_url = "//wp-content/plugins/elementskit/modules/parallax/";` }} />
                                 <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: '<div id="magic-cursor"><div id="ball"></div></div>' }} />
-                                <LenisProvider>
-                                        <Header />
-                                        <ClientInit />
+                                <PublicLayoutWrapper>
                                         {children}
-                                        <GlobalReviews />
-                                        <Footer />
-                                        <ConsultationModal />
-                                </LenisProvider>
+                                </PublicLayoutWrapper>
                                 <Script id="wp-skip-link-navigation" dangerouslySetInnerHTML={{
                                         '__html': `
 (function() {
@@ -440,19 +488,6 @@ var ekit_config = {"ajaxurl":"//wp-admin/admin-ajax.php","nonce":"436508157a","e
                                 <Script id="ekit-pro-core-js" src="/wp-content/plugins/elementskit/widgets/init/assets/js/widgets/core.js?ver=4.5.1" />
                                 <Script id="ekit-pro-fancy-animated-text-js" src="/wp-content/plugins/elementskit/widgets/init/assets/js/widgets/fancy-animated-text.js?ver=4.5.1" />
                                 <Script id="ekit-video-js" src="/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widgets/video.js?ver=3.9.9" />
-                                <Script id="mediaelement-core-js-before" strategy="beforeInteractive" dangerouslySetInnerHTML={{
-                                        '__html': `
-var mejsL10n = {"language":"en","strings":{"mejs.download-file":"Download File","mejs.install-flash":"You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https://get.adobe.com/flashplayer/","mejs.fullscreen":"Fullscreen","mejs.play":"Play","mejs.pause":"Pause","mejs.time-slider":"Time Slider","mejs.time-help-text":"Use Left/Right Arrow keys to advance one second, Up/Down arrows to advance ten seconds.","mejs.live-broadcast":"Live Broadcast","mejs.volume-help-text":"Use Up/Down Arrow keys to increase or decrease volume.","mejs.unmute":"Unmute","mejs.mute":"Mute","mejs.volume-slider":"Volume Slider","mejs.video-player":"Video Player","mejs.audio-player":"Audio Player","mejs.captions-subtitles":"Captions/Subtitles","mejs.captions-chapters":"Chapters","mejs.none":"None","mejs.afrikaans":"Afrikaans","mejs.albanian":"Albanian","mejs.arabic":"Arabic","mejs.belarusian":"Belarusian","mejs.bulgarian":"Bulgarian","mejs.catalan":"Catalan","mejs.chinese":"Chinese","mejs.chinese-simplified":"Chinese (Simplified)","mejs.chinese-traditional":"Chinese (Traditional)","mejs.croatian":"Croatian","mejs.czech":"Czech","mejs.danish":"Danish","mejs.dutch":"Dutch","mejs.english":"English","mejs.estonian":"Estonian","mejs.filipino":"Filipino","mejs.finnish":"Finnish","mejs.french":"French","mejs.galician":"Galician","mejs.german":"German","mejs.greek":"Greek","mejs.haitian-creole":"Haitian Creole","mejs.hebrew":"Hebrew","mejs.hindi":"Hindi","mejs.hungarian":"Hungarian","mejs.icelandic":"Icelandic","mejs.indonesian":"Indonesian","mejs.irish":"Irish","mejs.italian":"Italian","mejs.japanese":"Japanese","mejs.korean":"Korean","mejs.latvian":"Latvian","mejs.lithuanian":"Lithuanian","mejs.macedonian":"Macedonian","mejs.malay":"Malay","mejs.maltese":"Maltese","mejs.norwegian":"Norwegian","mejs.persian":"Persian","mejs.polish":"Polish","mejs.portuguese":"Portuguese","mejs.romanian":"Romanian","mejs.russian":"Russian","mejs.serbian":"Serbian","mejs.slovak":"Slovak","mejs.slovenian":"Slovenian","mejs.spanish":"Spanish","mejs.swahili":"Swahili","mejs.swedish":"Swedish","mejs.tagalog":"Tagalog","mejs.thai":"Thai","mejs.turkish":"Turkish","mejs.ukrainian":"Ukrainian","mejs.vietnamese":"Vietnamese","mejs.welsh":"Welsh","mejs.yiddish":"Yiddish"}};
-//# sourceURL=mediaelement-core-js-before
-`}} />
-                                <Script id="mediaelement-core-js" src="/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17" />
-                                <Script id="mediaelement-migrate-js" src="/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=7.0" />
-                                <Script id="mediaelement-js-extra" strategy="beforeInteractive" dangerouslySetInnerHTML={{
-                                        '__html': `
-var _wpmejsSettings = {"pluginPath":"/wp-includes/js/mediaelement/","classPrefix":"mejs-","stretching":"responsive","audioShortcodeLibrary":"mediaelement","videoShortcodeLibrary":"mediaelement"};
-//# sourceURL=mediaelement-js-extra
-`}} />
-                                <Script id="wp-mediaelement-js" src="/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=7.0" />
                                 <Script id="magnific-popup-js" src="/wp-content/plugins/elementskit-lite/widgets/init/assets/js/jquery.magnific-popup.min.js?ver=3.9.9" />
                                 <Script id="ekit-pro-content-ticker-js" src="/wp-content/plugins/elementskit/widgets/init/assets/js/widgets/content-ticker.js?ver=4.5.1" />
                                 <Script id="jquery-numerator-js" src="/wp-content/plugins/elementor/assets/lib/jquery-numerator/jquery-numerator.min.js?ver=0.2.1" />

@@ -614,7 +614,6 @@ a[href*="elfsight.com"][target="_blank"] {
   text-decoration: none !important;
 }
 
-.brandexa-site-header #menu-item-7232,
 .brandexa-site-header #menu-item-8525,
 .brandexa-site-header #menu-item-5065,
 .brandexa-site-header #menu-item-8109,
@@ -2402,5 +2401,94 @@ body::-webkit-scrollbar {
 .elementor-11570 .elementor-widget-button .elementor-button:hover .elementor-button-icon svg {
   transform: rotate(45deg) !important;
 }
+
+/* ======================================================================
+   Brandexa Home Section "See More" Buttons
+   ====================================================================== */
+.brandexa-see-more-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: clamp(36px, 4vw, 56px);
+  position: relative;
+  z-index: 10;
+}
+
+.brandexa-see-more-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  gap: 0 !important;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brandexa-see-more-btn:hover {
+  transform: translateY(-2px);
+}
+
+.brandexa-see-more-btn__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  padding: 0 clamp(24px, 3vw, 36px);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-size: clamp(15px, 1.1vw, 17px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.brandexa-see-more-btn:hover .brandexa-see-more-btn__label {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(184, 255, 44, 0.45);
+  color: #b8ff2c;
+}
+
+.brandexa-see-more-btn__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  min-height: 58px;
+  margin-left: -1px;
+  border-radius: 50%;
+  background: #b8ff2c;
+  color: #050507;
+  line-height: 1;
+  box-shadow: 0 0 20px rgba(184, 255, 44, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brandexa-see-more-btn:hover .brandexa-see-more-btn__arrow {
+  background: #c5ff4f;
+  box-shadow: 0 0 30px rgba(184, 255, 44, 0.65);
+}
+
+.brandexa-see-more-btn__arrow svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0.5px;
+  transform-origin: center center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brandexa-see-more-btn:hover .brandexa-see-more-btn__arrow svg {
+  transform: rotate(45deg);
+}
+
 
 
