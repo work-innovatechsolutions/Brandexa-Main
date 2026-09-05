@@ -238,6 +238,10 @@ body {
   animation-delay: 310ms;
 }
 
+.consultation-form label:nth-of-type(6) {
+  animation-delay: 350ms;
+}
+
 .consultation-form__full,
 .consultation-form__submit,
 .consultation-form__message {
@@ -281,7 +285,7 @@ body {
   cursor: pointer;
   font-size: 16px;
   font-weight: 800;
-  animation: consultation-content-in 420ms cubic-bezier(0.16, 1, 0.3, 1) 350ms both;
+  animation: consultation-content-in 420ms cubic-bezier(0.16, 1, 0.3, 1) 390ms both;
 }
 
 .consultation-form__submit:disabled {

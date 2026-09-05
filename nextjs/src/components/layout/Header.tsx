@@ -17,7 +17,7 @@ export default function Header() {
 	const isPagesActive = ["/blog", "/blogs", "/faqs", "/pricing", "/team", "/testimonials", "/image-gallery", "/video-gallery", "/projects", "/privacy-policy"].some(isActivePath);
 	const activeMenuItemClass = (href: string) => isActivePath(href) ? " current-menu-item active" : "";
 	const activeLinkClass = (href: string) => isActivePath(href) ? " active" : "";
-	const serviceLinks = [
+	const FALLBACK_SERVICE_LINKS = [
 		{ href: "/services/branding-and-identity", label: "Branding And Identity", id: "menu-item-10122" },
 		{ href: "/services/digital-marketing", label: "Digital Marketing", id: "menu-item-5064" },
 		{ href: "/services/creative-content-production", label: "Creative Content Production", id: "menu-item-10124" },
@@ -29,6 +29,9 @@ export default function Header() {
 		{ href: "/services/social-media-ads", label: "Social Media Ads", id: "menu-item-social-media-ads" },
 		{ href: "/services/video-editing", label: "Video Editing", id: "menu-item-video-editing" },
 	];
+
+	type ServiceLink = { href: string; label: string; id: string };
+	const [serviceLinks, setServiceLinks] = useState<ServiceLink[]>(FALLBACK_SERVICE_LINKS);
 
 	const toggleMobileMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
@@ -57,6 +60,25 @@ export default function Header() {
 
 	useEffect(() => {
 		setMounted(true);
+	}, []);
+
+	// Dynamically load published services from Firestore via API
+	useEffect(() => {
+		fetch("/api/services", { cache: "no-store" })
+			.then((res) => res.ok ? res.json() : null)
+			.then((data: { id: string; title: string; slug: string }[] | null) => {
+				if (!data || !Array.isArray(data) || data.length === 0) return;
+				setServiceLinks(
+					data.map((s) => ({
+						href: `/services/${s.slug}`,
+						label: s.title,
+						id: `menu-item-${s.id}`,
+					}))
+				);
+			})
+			.catch(() => {
+				// Silently fall back to the hardcoded list
+			});
 	}, []);
 
 	useEffect(() => {

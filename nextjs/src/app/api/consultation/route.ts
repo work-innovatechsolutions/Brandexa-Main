@@ -7,9 +7,21 @@ export const runtime = "nodejs";
 type ConsultationPayload = {
   name?: string;
   email?: string;
+  whatsapp?: string;
+  phone?: string;
   query?: string;
   meetingDate?: string;
   meetingTime?: string;
+};
+
+type ConsultationData = {
+  name: string;
+  email: string;
+  whatsapp: string;
+  phone: string;
+  query: string;
+  meetingDate: string;
+  meetingTime: string;
 };
 
 type SmtpConfig = {
@@ -64,16 +76,46 @@ function getConfig(): SmtpConfig {
   };
 }
 
-function createMessage(payload: Required<ConsultationPayload>, config: SmtpConfig) {
+function createMessage(payload: ConsultationData, config: SmtpConfig, isForward = false) {
   const brandName = "Brandexa Growth";
   const safeName = sanitizeHeader(payload.name);
   const safeEmail = sanitizeHeader(payload.email);
-  const subject = "Your Brandexa Growth consultation is confirmed";
+  const subject = isForward
+    ? `Fwd: Your Brandexa Growth consultation is confirmed — ${safeName}`
+    : "Your Brandexa Growth consultation is confirmed";
+  const toHeader = isForward
+    ? `Brandexa Growth Team <${sanitizeHeader(INTERNAL_NOTIFY_TO)}>`
+    : `${safeName} <${safeEmail}>`;
   const htmlQuery = escapeHtml(payload.query).replace(/\n/g, "<br />");
   const safeMeetingDate = escapeHtml(payload.meetingDate);
   const safeMeetingTime = escapeHtml(payload.meetingTime);
 
+  const forwardBannerText = isForward
+    ? [
+        "---------- Forwarded message ---------",
+        `From: ${brandName} <${sanitizeHeader(config.from)}>`,
+        "Subject: Your Brandexa Growth consultation is confirmed",
+        `To: ${safeName} <${safeEmail}>`,
+        `WhatsApp: ${payload.whatsapp}`,
+        "--------------------------------------",
+        "",
+      ].join(CRLF)
+    : "";
+
+  const forwardBannerHtml = isForward
+    ? `
+      <tr>
+        <td style="background:#efffd2; border-bottom:2px solid #b8ff2c; padding:14px 34px; font-size:13px; color:#2d390f; font-family:Arial, sans-serif;">
+          <strong>📨 FORWARDED CLIENT COPY</strong><br />
+          <strong>Client:</strong> ${escapeHtml(payload.name)} &lt;<a href="mailto:${safeEmail}" style="color:#2d390f; text-decoration:underline;">${escapeHtml(payload.email)}</a>&gt; &bull; 
+          <strong>WhatsApp:</strong> ${escapeHtml(payload.whatsapp)}
+        </td>
+      </tr>
+    `
+    : "";
+
   const text = [
+    forwardBannerText,
     `Hi ${payload.name},`,
     "",
     "Thank you for booking a free consultation with Brandexa Growth. We have received your request and reserved the details below.",
@@ -81,6 +123,7 @@ function createMessage(payload: Required<ConsultationPayload>, config: SmtpConfi
     "Consultation details:",
     `Name: ${payload.name}`,
     `Email: ${payload.email}`,
+    `WhatsApp: ${payload.whatsapp}`,
     `Query: ${payload.query}`,
     `Meeting date: ${payload.meetingDate}`,
     `Time: ${payload.meetingTime}`,
@@ -91,7 +134,7 @@ function createMessage(payload: Required<ConsultationPayload>, config: SmtpConfi
     "",
     "Brandexa Growth",
     "https://www.brandexagrowth.com",
-  ].join(CRLF);
+  ].filter(Boolean).join(CRLF);
 
   const html = `
     <div style="margin:0; padding:0; background:#f4f6f1; font-family:Arial, Helvetica, sans-serif; color:#181818;">
@@ -99,6 +142,7 @@ function createMessage(payload: Required<ConsultationPayload>, config: SmtpConfi
         <tr>
           <td align="center" style="padding:32px 16px;">
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse; max-width:680px; background:#ffffff; border-radius:18px; overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,0.08);">
+              ${forwardBannerHtml}
               <tr>
                 <td style="background:#101010; padding:32px 34px;">
                   <p style="margin:0 0 10px; color:#b8ff2c; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Free Consultation</p>
@@ -118,6 +162,10 @@ function createMessage(payload: Required<ConsultationPayload>, config: SmtpConfi
                     <tr>
                       <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">Email</td>
                       <td style="padding:14px 16px; border-bottom:1px solid #e5e7df; color:#181818; font-size:15px;"><a href="mailto:${safeEmail}" style="color:#181818; text-decoration:underline;">${escapeHtml(payload.email)}</a></td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">WhatsApp</td>
+                      <td style="padding:14px 16px; border-bottom:1px solid #e5e7df; color:#181818; font-size:15px;">${escapeHtml(payload.whatsapp)}</td>
                     </tr>
                     <tr>
                       <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">Query</td>
@@ -163,7 +211,7 @@ function createMessage(payload: Required<ConsultationPayload>, config: SmtpConfi
 
   return [
     `From: ${brandName} <${sanitizeHeader(config.from)}>`,
-    `To: ${safeName} <${safeEmail}>`,
+    `To: ${toHeader}`,
     `Reply-To: ${safeName} <${safeEmail}>`,
     `Subject: ${subject}`,
     "MIME-Version: 1.0",
@@ -186,13 +234,15 @@ function createMessage(payload: Required<ConsultationPayload>, config: SmtpConfi
   ].join(CRLF);
 }
 
-function createInternalMessage(payload: Required<ConsultationPayload>, config: SmtpConfig) {
+function createInternalMessage(payload: ConsultationData, config: SmtpConfig) {
   const brandName = "Brandexa Growth";
   const safeEmail = sanitizeHeader(payload.email);
   const safeMeetingDate = escapeHtml(payload.meetingDate);
   const safeMeetingTime = escapeHtml(payload.meetingTime);
   const htmlQuery = escapeHtml(payload.query).replace(/\n/g, "<br />");
   const subject = `New consultation booked by ${sanitizeHeader(payload.name)}`;
+  const cleanPhone = payload.whatsapp.replace(/\D/g, "");
+  const waLink = cleanPhone ? `https://wa.me/${cleanPhone}` : "";
 
   const text = [
     "A new free consultation has been booked.",
@@ -200,6 +250,7 @@ function createInternalMessage(payload: Required<ConsultationPayload>, config: S
     "Consultation details:",
     `Name: ${payload.name}`,
     `Email: ${payload.email}`,
+    `WhatsApp: ${payload.whatsapp}${waLink ? ` (${waLink})` : ""}`,
     `Query: ${payload.query}`,
     `Meeting date: ${payload.meetingDate}`,
     `Time: ${payload.meetingTime}`,
@@ -228,6 +279,13 @@ function createInternalMessage(payload: Required<ConsultationPayload>, config: S
                     <tr>
                       <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">Email</td>
                       <td style="padding:14px 16px; border-bottom:1px solid #e5e7df; color:#181818; font-size:15px;"><a href="mailto:${safeEmail}" style="color:#181818; text-decoration:underline;">${escapeHtml(payload.email)}</a></td>
+                    </tr>
+                    <tr>
+                      <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">WhatsApp</td>
+                      <td style="padding:14px 16px; border-bottom:1px solid #e5e7df; color:#181818; font-size:15px;">
+                        ${escapeHtml(payload.whatsapp)}
+                        ${waLink ? `&nbsp;&nbsp;<a href="${waLink}" target="_blank" rel="noopener noreferrer" style="display:inline-block; background:#25D366; color:#ffffff; font-size:12px; font-weight:700; padding:3px 8px; border-radius:4px; text-decoration:none;">Open WhatsApp</a>` : ""}
+                      </td>
                     </tr>
                     <tr>
                       <td style="padding:14px 16px; background:#fafbf7; border-bottom:1px solid #e5e7df; color:#5f6658; font-size:13px; font-weight:700; text-transform:uppercase;">Query</td>
@@ -381,7 +439,7 @@ async function connectSmtp(config: SmtpConfig) {
   };
 }
 
-async function sendMail(payload: Required<ConsultationPayload>) {
+async function sendMail(payload: ConsultationData) {
   const config = getConfig();
   const connection = await connectSmtp(config);
 
@@ -404,7 +462,10 @@ async function sendMail(payload: Required<ConsultationPayload>) {
       assertSmtpOk(await connection.write(`${message}${CRLF}.`), [250]);
     };
 
-    await sendSmtpMessage(payload.email, createMessage(payload, config));
+    // 1. Send confirmation to client
+    await sendSmtpMessage(payload.email, createMessage(payload, config, false));
+
+    // 2. Send internal team notification to hello@brandexagrowth.com (single email — no duplicate forward)
     await sendSmtpMessage(INTERNAL_NOTIFY_TO, createInternalMessage(payload, config));
     await connection.write("QUIT").catch(() => "");
   } finally {
@@ -412,7 +473,7 @@ async function sendMail(payload: Required<ConsultationPayload>) {
   }
 }
 
-async function saveConsultationToSheet(payload: Required<ConsultationPayload>) {
+async function saveConsultationToSheet(payload: ConsultationData) {
   const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
 
   if (!webhookUrl) {
@@ -438,11 +499,12 @@ export async function POST(request: NextRequest) {
     const payload = (await request.json()) as ConsultationPayload;
     const name = payload.name?.trim();
     const email = payload.email?.trim();
+    const whatsapp = (payload.whatsapp || payload.phone)?.trim();
     const query = payload.query?.trim();
     const meetingDate = payload.meetingDate?.trim();
     const meetingTime = payload.meetingTime?.trim();
 
-    if (!name || !email || !query || !meetingDate || !meetingTime) {
+    if (!name || !email || !whatsapp || !query || !meetingDate || !meetingTime) {
       return NextResponse.json({ error: "Please fill all consultation fields." }, { status: 400 });
     }
 
@@ -450,7 +512,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
     }
 
-    const consultation = { name, email, query, meetingDate, meetingTime };
+    const consultation: ConsultationData = {
+      name,
+      email,
+      whatsapp,
+      phone: whatsapp,
+      query,
+      meetingDate,
+      meetingTime,
+    };
 
     await sendMail(consultation);
     await saveConsultationToSheet(consultation);

@@ -824,3 +824,6 @@ export function DynamicHomeBlogsSection() {
     </div>
   );
 }
+
+export { DynamicHomeServicesSection } from "@/components/home/DynamicHomeServicesSection";
+

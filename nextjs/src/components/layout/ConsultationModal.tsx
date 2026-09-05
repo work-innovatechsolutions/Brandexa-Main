@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 type FormState = {
   name: string;
   email: string;
+  whatsapp: string;
   query: string;
   meetingDate: string;
   meetingTime: string;
@@ -14,6 +15,7 @@ type FormState = {
 const initialFormState: FormState = {
   name: "",
   email: "",
+  whatsapp: "",
   query: "",
   meetingDate: "",
   meetingTime: "",
@@ -179,6 +181,19 @@ export default function ConsultationModal() {
               required
               type="email"
               value={form.email}
+            />
+          </label>
+
+          <label className="consultation-form__full">
+            WhatsApp Number
+            <input
+              autoComplete="tel"
+              name="whatsapp"
+              onChange={(event) => updateField("whatsapp", event.target.value)}
+              placeholder="e.g. +91 98765 43210"
+              required
+              type="tel"
+              value={form.whatsapp}
             />
           </label>
 
